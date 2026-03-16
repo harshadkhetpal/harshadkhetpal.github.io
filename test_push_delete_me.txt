@@ -10,4 +10,427 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     :root {
-      --bg:#f9fafb; --surface:#
+      --bg:#f9fafb; --surface:#fff; --surface2:#f3f4f6;
+      --border:#e5e7eb; --text:#111827; --text2:#6b7280;
+      --accent:#2563eb; --accent2:#7c3aed; --accent3:#059669;
+      --radius:12px;
+      --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.06);
+      --shadow-lg:0 8px 32px rgba(0,0,0,.10);
+      --tr:.2s ease;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    ::-webkit-scrollbar{width:6px}
+    ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+    /* NAV */
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:100;
+      background:rgba(249,250,251,.93);backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--border);
+      padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;
+    }
+    .nav-logo{font-weight:700;font-size:1.1rem;color:var(--accent)}
+    .nav-logo span{color:var(--text2);font-weight:400}
+    .nav-links{display:flex;gap:1.8rem;list-style:none}
+    .nav-links a{font-size:.875rem;font-weight:500;color:var(--text2);transition:color var(--tr)}
+    .nav-links a:hover,.nav-links a.active{color:var(--accent)}
+    .nav-back{
+      display:inline-flex;align-items:center;gap:.4rem;
+      background:var(--surface);border:1.5px solid var(--border);
+      border-radius:8px;padding:.4rem 1rem;font-size:.82rem;font-weight:600;
+      transition:all var(--tr);
+    }
+    .nav-back:hover{border-color:var(--accent);color:var(--accent)}
+
+    /* HERO BANNER */
+    .page-hero{
+      margin-top:60px;
+      background:linear-gradient(135deg,#f0f7ff 0%,#fafafa 60%,#f5f0ff 100%);
+      padding:60px 2rem 50px;text-align:center;
+      border-bottom:1px solid var(--border);
+      position:relative;overflow:hidden;
+    }
+    .page-hero::before{
+      content:'';position:absolute;inset:0;
+      background-image:radial-gradient(circle,#d1d5db 1px,transparent 1px);
+      background-size:28px 28px;opacity:.35;pointer-events:none;
+    }
+    .page-hero-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+    .page-label{
+      display:inline-block;background:#eff6ff;color:#1d4ed8;
+      font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+      padding:.3rem .9rem;border-radius:100px;margin-bottom:1rem;
+    }
+    .page-hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-1.5px;margin-bottom:.8rem}
+    .page-hero p{color:var(--text2);font-size:.95rem;max-width:520px;margin:0 auto}
+    .hero-counts{display:flex;gap:2.5rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
+    .hc{text-align:center}
+    .hc-num{font-size:1.6rem;font-weight:800;color:var(--accent);line-height:1}
+    .hc-label{font-size:.75rem;color:var(--text2);margin-top:.2rem}
+
+    /* CONTROLS */
+    .controls{
+      position:sticky;top:60px;z-index:90;
+      background:rgba(249,250,251,.96);backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+      padding:.9rem 2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
+    }
+    .controls-inner{max-width:1200px;margin:0 auto;width:100%;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+    .search-wrap{
+      display:flex;align-items:center;gap:.6rem;
+      background:var(--surface);border:1.5px solid var(--border);border-radius:8px;
+      padding:.45rem 1rem;flex:1;min-width:200px;max-width:320px;
+    }
+    .search-wrap i{color:var(--text2);font-size:.85rem}
+    .search-wrap input{border:none;outline:none;font-family:'Inter',sans-serif;font-size:.85rem;color:var(--text);background:none;width:100%}
+    .filters-scroll{display:flex;gap:.5rem;overflow-x:auto;padding-bottom:2px;flex:1}
+    .filters-scroll::-webkit-scrollbar{height:3px}
+    .fb{
+      white-space:nowrap;background:var(--surface2);color:var(--text2);
+      border:1.5px solid var(--border);border-radius:8px;
+      padding:.38rem .9rem;font-size:.8rem;font-weight:500;
+      cursor:pointer;transition:all var(--tr);flex-shrink:0;
+    }
+    .fb:hover,.fb.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .sort-select{
+      border:1.5px solid var(--border);border-radius:8px;padding:.42rem .8rem;
+      font-family:'Inter',sans-serif;font-size:.8rem;color:var(--text2);
+      background:var(--surface);outline:none;cursor:pointer;
+    }
+    .result-count{font-size:.8rem;color:var(--text2);white-space:nowrap}
+
+    /* GRID */
+    .projects-wrap{max-width:1200px;margin:0 auto;padding:2rem}
+    .section-divider{
+      display:flex;align-items:center;gap:1rem;margin:2.5rem 0 1.5rem;
+    }
+    .section-divider span{font-size:.9rem;font-weight:700;white-space:nowrap;color:var(--text2)}
+    .section-divider::before,.section-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+    .pcard-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem}
+
+    /* PROJECT CARD */
+    .pcard{
+      background:var(--surface);border:1px solid var(--border);
+      border-radius:var(--radius);padding:1.4rem;
+      box-shadow:var(--shadow);transition:all var(--tr);
+      display:flex;flex-direction:column;position:relative;overflow:hidden;
+    }
+    .pcard::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:3px;
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      opacity:0;transition:opacity var(--tr);
+    }
+    .pcard:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .pcard:hover::before{opacity:1}
+    .pcard-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.8rem}
+    .pcard-icon{font-size:1.7rem}
+    .pcard-badges{display:flex;gap:.3rem;flex-wrap:wrap;justify-content:flex-end}
+    .pbadge{
+      font-size:.67rem;font-weight:700;padding:.15rem .5rem;border-radius:4px;
+      display:inline-flex;align-items:center;gap:.25rem;
+    }
+    .pb-oss{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
+    .pb-personal{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+    .pb-inprogress{background:#fff7ed;color:#9a3412;border:1px solid #fed7aa}
+    .pb-trending{background:#fef3c7;color:#92400e;border:1px solid #fde68a}
+    .pb-featured{background:#f5f3ff;color:#5b21b6;border:1px solid #ddd6fe}
+    .pb-new{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
+    .pcard h3{font-size:.97rem;font-weight:700;margin-bottom:.4rem;line-height:1.3}
+    .pcard p{font-size:.82rem;color:var(--text2);line-height:1.65;flex:1;margin-bottom:1rem}
+    .pcard-tech{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.9rem}
+    .ptag{
+      font-size:.7rem;padding:.18rem .55rem;border-radius:5px;
+      font-family:'JetBrains Mono',monospace;font-weight:500;
+      border:1px solid transparent;
+    }
+    .pcard-meta{
+      display:flex;align-items:center;gap:.6rem;
+      font-size:.75rem;color:var(--text2);margin-bottom:.9rem;
+      flex-wrap:wrap;
+    }
+    .meta-item{display:inline-flex;align-items:center;gap:.25rem}
+    .pcard-actions{display:flex;gap:.5rem;margin-top:auto;flex-wrap:wrap}
+    .paction{
+      display:inline-flex;align-items:center;gap:.35rem;
+      font-size:.78rem;font-weight:600;
+      padding:.42rem .85rem;border-radius:7px;
+      border:1.5px solid var(--border);
+      transition:all var(--tr);
+    }
+    .paction:hover{border-color:var(--accent);color:var(--accent)}
+    .paction.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .paction.primary:hover{background:#1d4ed8}
+    .paction.green{background:var(--accent3);color:#fff;border-color:var(--accent3)}
+    .paction.green:hover{background:#047857}
+    /* Coming soon card */
+    .pcard.coming-soon{border-style:dashed;border-color:var(--border);background:var(--surface2)}
+    .pcard.coming-soon:hover{border-color:var(--accent);border-style:dashed}
+    .coming-label{
+      display:inline-flex;align-items:center;gap:.4rem;
+      font-size:.78rem;color:var(--text2);
+      background:var(--surface);border:1px solid var(--border);
+      border-radius:6px;padding:.3rem .7rem;margin-bottom:.8rem;
+    }
+    /* Contribution callout */
+    .contrib-callout{
+      background:linear-gradient(135deg,#eff6ff,#f5f3ff);
+      border:1px solid #bfdbfe;border-radius:var(--radius);
+      padding:1.5rem 2rem;margin:2rem 0;
+      display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;
+    }
+    .contrib-callout-icon{font-size:2.5rem}
+    .contrib-callout h4{font-size:1rem;font-weight:700;margin-bottom:.3rem}
+    .contrib-callout p{font-size:.85rem;color:var(--text2)}
+    .callout-actions{display:flex;gap:.6rem;margin-top:.8rem;flex-wrap:wrap}
+    /* Empty state */
+    .empty{text-align:center;padding:4rem 2rem;color:var(--text2)}
+    .empty i{font-size:2.5rem;margin-bottom:1rem;display:block;opacity:.4}
+
+    @media(max-width:640px){
+      .controls-inner{flex-direction:column;align-items:stretch}
+      .search-wrap{max-width:100%}
+      .projects-wrap{padding:1.5rem 1rem}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">harshad<span>.khetpal</span></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="index.html#news">AI News</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="page-label">Projects & Contributions</span>
+    <h1>Everything I've Built &amp; Contributed To</h1>
+    <p>Open-source contributions, personal projects, and works in progress across MLOps, AI/ML, DevOps, and Cloud Engineering.</p>
+    <div class="hero-counts">
+      <div class="hc"><div class="hc-num" id="countOSS">10</div><div class="hc-label">OSS Contributions</div></div>
+      <div class="hc"><div class="hc-num" id="countPersonal">6</div><div class="hc-label">Personal Projects</div></div>
+      <div class="hc"><div class="hc-num" id="countInProgress">4</div><div class="hc-label">In Progress</div></div>
+      <div class="hc"><div class="hc-num">20+</div><div class="hc-label">Technologies Used</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <div class="controls-inner">
+    <div class="search-wrap">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Search projects…" oninput="filterProjects()" />
+    </div>
+    <div class="filters-scroll">
+      <button class="fb active" data-f="all" onclick="setFilter(this,'all')">All</button>
+      <button class="fb" data-f="oss" onclick="setFilter(this,'oss')">🌐 Open Source</button>
+      <button class="fb" data-f="personal" onclick="setFilter(this,'personal')">🔨 Personal</button>
+      <button class="fb" data-f="inprogress" onclick="setFilter(this,'inprogress')">🚧 In Progress</button>
+      <button class="fb" data-f="mlops" onclick="setFilter(this,'mlops')">⚙️ MLOps</button>
+      <button class="fb" data-f="llm" onclick="setFilter(this,'llm')">🤖 LLM / RAG</button>
+      <button class="fb" data-f="devops" onclick="setFilter(this,'devops')">🐳 DevOps</button>
+      <button class="fb" data-f="data" onclick="setFilter(this,'data')">📊 Data Eng</button>
+      <button class="fb" data-f="cloud" onclick="setFilter(this,'cloud')">☁️ Cloud</button>
+      <button class="fb" data-f="agents" onclick="setFilter(this,'agents')">🤖 Agents</button>
+      <button class="fb" data-f="quantum" onclick="setFilter(this,'quantum')">⚛️ Quantum</button>
+    </div>
+    <select class="sort-select" onchange="sortProjects(this.value)">
+      <option value="default">Sort: Default</option>
+      <option value="stars">Most Stars</option>
+      <option value="alpha">A → Z</option>
+    </select>
+    <span class="result-count" id="resultCount"></span>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="projects-wrap">
+
+  <!-- OSS Contributions -->
+  <div class="section-divider"><span>🌐 Open Source Contributions</span></div>
+  <div class="pcard-grid" id="ossGrid">
+
+    <div class="pcard" data-cats="oss llm" data-stars="164000" data-name="Ollama">
+      <div class="pcard-head">
+        <span class="pcard-icon">🦙</span>
+        <div class="pcard-badges"><span class="pbadge pb-trending"><i class="fas fa-fire"></i> #1 Trending</span><span class="pbadge pb-oss">OSS</span></div>
+      </div>
+      <h3>Ollama — Local LLM Runtime</h3>
+      <p>Contributed to the Go-based local LLM serving engine. Helped improve REST API documentation, multi-model management, and integration examples for production pipelines.</p>
+      <div class="pcard-tech">
+        <span class="ptag" style="background:#e0f2fe;color:#0369a1">Go</span>
+        <span class="ptag" style="background:#f5f3ff;color:#5b21b6">LLM</span>
+        <span class="ptag" style="background:#dcfce7;color:#166534">REST API</span>
+        <span class="ptag" style="background:#fef3c7;color:#92400e">Quantization</span>
+      </div>
+      <div class="pcard-meta">
+        <span class="meta-item"><i class="fas fa-star"></i> 164K stars</span>
+        <span class="meta-item"><i class="fas fa-code-branch"></i> Contributor</span>
+        <span class="meta-item"><i class="fas fa-calendar"></i> 2025–2026</span>
+      </div>
+      <div class="pcard-actions">
+        <a href="https://github.com/ollama/ollama" target="_blank" class="paction primary"><i class="fab fa-github"></i> View on GitHub</a>
+        <a href="https://ollama.com" target="_blank" class="paction"><i class="fas fa-external-link-alt"></i> Website</a>
+      </div>
+    </div>
+
+    <div class="pcard" data-cats="oss llm mlops" data-stars="49200" data-name="vLLM">
+      <div class="pcard-head">
+        <span class="pcard-icon">⚡</span>
+        <div class="pcard-badges"><span class="pbadge pb-featured">PyTorch Ecosystem</span><span class="pbadge pb-oss">OSS</span></div>
+      </div>
+      <h3>vLLM — High-Throughput LLM Serving</h3>
+      <p>Contributing to the production-grade LLM serving engine. Focus on improving Kubernetes deployment guides, multi-GPU configuration docs, and OpenAI-compatible API examples.</p>
+      <div class="pcard-tech">
+        <span class="ptag" style="background:#fef3c7;color:#92400e">Python</span>
+        <span class="ptag" style="background:#dcfce7;color:#166534">CUDA</span>
+        <span class="ptag" style="background:#e0f2fe;color:#0369a1">PagedAttention</span>
+        <span class="ptag" style="background:#fce7f3;color:#9d174d">Multi-GPU</span>
+      </div>
+      <div class="pcard-meta">
+        <span class="meta-item"><i class="fas fa-star"></i> 49K stars</span>
+        <span class="meta-item"><i class="fas fa-code-branch"></i> Contributor</span>
+        <span class="meta-item"><i class="fas fa-bolt"></i> Active Dev</span>
+      </div>
+      <div class="pcard-actions">
+        <a href="https://github.com/vllm-project/vllm" target="_blank" class="paction primary"><i class="fab fa-github"></i> View on GitHub</a>
+        <a href="https://docs.vllm.ai" target="_blank" class="paction"><i class="fas fa-book"></i> Docs</a>
+      </div>
+    </div>
+
+    <div class="pcard" data-cats="oss mlops" data-stars="20000" data-name="MLflow">
+      <div class="pcard-head">
+        <span class="pcard-icon">📊</span>
+        <div class="pcard-badges"><span class="pbadge pb-oss">OSS</span></div>
+      </div>
+      <h3>MLflow — ML Lifecycle Platform</h3>
+      <p>Contributed integration examples for LLM tracing and evaluation. Added Python notebooks showcasing MLflow model registry workflows with Kubernetes-based model deployment patterns.</p>
+      <div class="pcard-tech">
+        <span class="ptag" style="background:#fef3c7;color:#92400e">Python</span>
+        <span class="ptag" style="background:#e0f2fe;color:#0369a1">Tracking</span>
+        <span class="ptag" style="background:#dcfce7;color:#166534">Model Registry</span>
+        <span class="ptag" style="background:#f5f3ff;color:#5b21b6">LLM Tracing</span>
+      </div>
+      <div class="pcard-meta">
+        <span class="meta-item"><i class="fas fa-star"></i> 20K stars</span>
+        <span class="meta-item"><i class="fas fa-download"></i> 30M/mo downloads</span>
+      </div>
+      <div class="pcard-actions">
+        <a href="https://github.com/mlflow/mlflow" target="_blank" class="paction primary"><i class="fab fa-github"></i> View on GitHub</a>
+        <a href="https://mlflow.org" target="_blank" class="paction"><i class="fas fa-external-link-alt"></i> Website</a>
+      </div>
+    </div>
+
+    <div class="pcard" data-cats="oss mlops devops" data-stars="34824" data-name="Kubeflow">
+      <div class="pcard-head">
+        <span class="pcard-icon">☸️</span>
+        <div class="pcard-badges"><span class="pbadge pb-featured">CNCF</span><span class="pbadge pb-oss">OSS</span></div>
+      </div>
+      <h3>Kubeflow — ML on Kubernetes</h3>
+      <p>Contributing pipeline component documentation and example DAGs. Focus on Katib hyperparameter tuning configurations and multi-cloud deployment guides for ML workloads.</p>
+      <div class="pcard-tech">
+        <span class="ptag" style="background:#e0f2fe;color:#0369a1">Kubernetes</span>
+        <span class="ptag" style="background:#fef3c7;color:#92400e">Python</span>
+        <span class="ptag" style="background:#dcfce7;color:#166534">Pipelines</span>
+        <span class="ptag" style="background:#fce7f3;color:#9d174d">Katib</span>
+      </div>
+      <div class="pcard-meta">
+        <span class="meta-item"><i class="fas fa-star"></i> 34K stars</span>
+        <span class="meta-item"><i class="fas fa-users"></i> 37K+ contributors</span>
+      </div>
+      <div class="pcard-actions">
+        <a href="https://github.com/kubeflow/kubeflow" target="_blank" class="paction primary"><i class="fab fa-github"></i> View on GitHub</a>
+        <a href="https://kubeflow.org" target="_blank" class="paction"><i class="fas fa-external-link-alt"></i> Docs</a>
+      </div>
+    </div>
+
+    <div class="pcard" data-cats="oss llm" data-stars="70000" data-name="LangChain">
+      <div class="pcard-head">
+        <span class="pcard-icon">🔗</span>
+        <div class="pcard-badges"><span class="pbadge pb-oss">OSS</span></div>
+      </div>
+      <h3>LangChain — LLM App Framework</h3>
+      <p>Added community integrations and example chains for production RAG systems. Contributed MLOps-focused tutorials showing how to pair LangChain with MLflow for LLM observability.</p>
+      <div class="pcard-tech">
+        <span class="ptag" style="background:#fef3c7;color:#92400e">Python</span>
+        <span class="ptag" style="background:#f5f3ff;color:#5b21b6">RAG</span>
+        <span class="ptag" style="background:#dcfce7;color:#166534">Agents</span>
+        <span class="ptag" style="background:#e0f2fe;color:#0369a1">LangGraph</span>
+      </div>
+      <div class="pcard-meta">
+        <span class="meta-item"><i class="fas fa-star"></i> 70K stars</span>
+        <span class="meta-item"><i class="fas fa-code-branch"></i> Community Contrib</span>
+      </div>
+      <div class="pcard-actions">
+        <a href="https://github.com/langchain-ai/langchain" target="_blank" class="paction primary"><i class="fab fa-github"></i> View on GitHub</a>
+        <a href="https://python.langchain.com" target="_blank" class="paction"><i class="fas fa-book"></i> Docs</a>
+      </div>
+    </div>
+
+    <div class="pcard" data-cats="oss devops mlops" data-stars="39000" data-name="Ray">
+      <div class="pcard-head">
+        <span class="pcard-icon">☀️</span>
+        <div class="pcard-badges"><span class="pbadge pb-featured">PyTorch Foundation</span><span class="pbadge pb-oss">OSS</span></div>
+      </div>
+      <h3>Ray — Distributed AI Compute</h3>
+      <p>Contributing to Ray Serve deployment patterns and Ray Data pipeline examples. Focused on Kubernetes-based Ray cluster setup guides for large-scale ML training workloads.</p>
+      <div class="pcard-tech">
+        <span class="ptag" style="background:#fef3c7;color:#92400e">Python</span>
+        <span class="ptag" style="background:#dcfce7;color:#166534">Distributed</span>
+        <span class="ptag" style="background:#e0f2fe;color:#0369a1">Ray Serve</span>
+        <span class="ptag" style="background:#fce7f3;color:#9d174d">Ray Tune</span>
+      </div>
+      <div class="pcard-meta">
+        <span class="meta-item"><i class="fas fa-star"></i> 39K stars</span>
+        <span class="meta-item"><i class="fas fa-download"></i> 27M/mo</span>
+      </div>
+      <div class="pcard-actions">
+        <a href="https://github.com/ray-project/ray" target="_blank" class="paction primary"><i class="fab fa-github"></i> View on GitHub</a>
+        <a href="https://ray.io" target="_blank" class="paction"><i class="fas fa-external-link-alt"></i> Website</a>
+      </div>
+    </div>
+
+    <div class="pcard" data-cats="oss data" data-stars="44500" data-name="Apache Airflow">
+      <div class="pcard-head">
+        <span class="pcard-icon">🌬️</span>
+        <div class="pcard-badges"><span class="pbadge pb-oss">OSS</span></div>
+      </div>
+      <h3>Apache Airflow — Workflow Orchestration</h3>
+      <p>Contributing DAG templates for ML data preprocessing pipelines. Added Kubernetes Pod Operator examples and MLflow integration patterns for production data workflows.</p>
+      <div class="pcard-tech">
+        <span class="ptag" style="background:#fef3c7;color:#92400e">Python</span>
+        <span class="ptag" style="background:#e0f2fe;color:#0369a1">DAGs</span>
+        <span class="ptag" style="background:#dcfce7;color:#166534">K8s Executor</span>
+        <span class="ptag" style="background:#fce7f3;color:#9d174d">REST API</span>
+      </div>
+      <div class="pcard-meta">
+        <span class="meta-item"><i class="fas fa-star"></i> 44K stars</span>
+        <span class="meta-item"><i class="fas fa-users"></i> 3600+ contributors</span>
+      </div>
+      <div class="pcard-actions">
+        <a href="https://github.com/apache/airflow" target="_blank" class="paction primary"><i class="fab fa-github"></i> View on GitHub</a>
+        <a href="https://airflow.apache.org" target="_blank" class="paction"><i class="fas fa-external-link-alt"></i> Docs</a>
+      </div>
+    </div>
+
+    <div class="pcard" data-cats="oss data" data-stars="18000" data-name="Prefect">
+      <div class="pcard-head">
+        <span class="pcard-icon">🌊</span>
+        <div class="pcard-badges"><span class="pbadge pb-oss">OSS</span></div>
+      </div>
+      <h3>Prefect — Modern Workflow Engine</h3>
+      <p>Added example flows for ML data ingestion pipelines. Contributed Docker and Kubernetes deployment recipes and async task coordination patterns for real-time data processing.</p>
+      <div class="pcard-tech">
+ 
