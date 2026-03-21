@@ -511,11 +511,14 @@
 
     /* ── Video Learning Hub ── */
     #videos { padding: 5rem 0; background: var(--bg2, #0d1117); }
-    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
     .video-card { background: var(--card, #161b22); border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.07); transition: transform 0.2s, box-shadow 0.2s; }
     .video-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
-    .video-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
-    .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+    .video-thumb-link { display: block; position: relative; overflow: hidden; aspect-ratio: 16/9; background: #0d1117; }
+    .video-thumb-link img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
+    .video-card:hover .video-thumb-link img { transform: scale(1.04); }
+    .video-play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 54px; height: 54px; background: rgba(255,0,0,0.85); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: #fff; transition: transform 0.2s, background 0.2s; pointer-events: none; }
+    .video-card:hover .video-play-btn { transform: translate(-50%,-50%) scale(1.12); background: #ff0000; }
     .video-info { padding: 1rem 1.2rem 1.2rem; }
     .video-tag { display: inline-block; background: rgba(88,166,255,0.15); color: #58a6ff; font-size: 0.72rem; font-weight: 600; padding: 2px 10px; border-radius: 20px; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
     .video-info h4 { font-size: 0.95rem; font-weight: 600; color: #e6edf3; margin: 0.3rem 0 0.4rem; line-height: 1.4; }
@@ -1100,31 +1103,57 @@
           <h2>Learn New AI Tools &amp; Concepts</h2>
           <p class="section-sub">Curated videos auto-updated weekly — tutorials, paper explanations, and deep-dives on the latest models, frameworks, and engineering patterns.</p>
           <!-- AI_VIDEOS_START -->
+
           <div class="video-grid">
+
             <div class="video-card">
-              <div class="video-embed"><iframe src="https://www.youtube.com/embed/zjkBMFhNj_g" loading="lazy" allowfullscreen></iframe></div>
+              <a href="https://www.youtube.com/watch?v=7xTGNNLPyMI" target="_blank" class="video-thumb-link">
+                <img src="https://img.youtube.com/vi/7xTGNNLPyMI/hqdefault.jpg" alt="Deep Dive into LLMs like ChatGPT" loading="lazy">
+                <div class="video-play-btn">▶</div>
+              </a>
+              <div class="video-info"><span class="video-tag">LLM Deep Dive</span><h4>Deep Dive into LLMs like ChatGPT</h4><p class="video-channel">Andrej Karpathy · 2025</p></div>
+            </div>
+
+            <div class="video-card">
+              <a href="https://www.youtube.com/watch?v=zjkBMFhNj_g" target="_blank" class="video-thumb-link">
+                <img src="https://img.youtube.com/vi/zjkBMFhNj_g/hqdefault.jpg" alt="Intro to Large Language Models" loading="lazy">
+                <div class="video-play-btn">▶</div>
+              </a>
               <div class="video-info"><span class="video-tag">LLM Fundamentals</span><h4>Intro to Large Language Models</h4><p class="video-channel">Andrej Karpathy</p></div>
             </div>
+
             <div class="video-card">
-              <div class="video-embed"><iframe src="https://www.youtube.com/embed/aircAruvnKk" loading="lazy" allowfullscreen></iframe></div>
-              <div class="video-info"><span class="video-tag">Deep Learning</span><h4>But what is a neural network?</h4><p class="video-channel">3Blue1Brown</p></div>
-            </div>
-            <div class="video-card">
-              <div class="video-embed"><iframe src="https://www.youtube.com/embed/IHZwWFHWa-w" loading="lazy" allowfullscreen></iframe></div>
-              <div class="video-info"><span class="video-tag">Deep Learning</span><h4>Gradient descent, how neural networks learn</h4><p class="video-channel">3Blue1Brown</p></div>
-            </div>
-            <div class="video-card">
-              <div class="video-embed"><iframe src="https://www.youtube.com/embed/l8pRSuU81PU" loading="lazy" allowfullscreen></iframe></div>
-              <div class="video-info"><span class="video-tag">LLM Engineering</span><h4>Let's build the GPT Tokenizer</h4><p class="video-channel">Andrej Karpathy</p></div>
-            </div>
-            <div class="video-card">
-              <div class="video-embed"><iframe src="https://www.youtube.com/embed/kCc8FmEb1nY" loading="lazy" allowfullscreen></iframe></div>
+              <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY" target="_blank" class="video-thumb-link">
+                <img src="https://img.youtube.com/vi/kCc8FmEb1nY/hqdefault.jpg" alt="Let's build GPT from scratch" loading="lazy">
+                <div class="video-play-btn">▶</div>
+              </a>
               <div class="video-info"><span class="video-tag">Transformers</span><h4>Let's build GPT: from scratch, in code</h4><p class="video-channel">Andrej Karpathy</p></div>
             </div>
+
             <div class="video-card">
-              <div class="video-embed"><iframe src="https://www.youtube.com/embed/VMj-3S1tku0" loading="lazy" allowfullscreen></iframe></div>
-              <div class="video-info"><span class="video-tag">MLOps</span><h4>The spelled-out intro to neural networks &amp; backprop</h4><p class="video-channel">Andrej Karpathy</p></div>
+              <a href="https://www.youtube.com/watch?v=eMlx5fFNoYc" target="_blank" class="video-thumb-link">
+                <img src="https://img.youtube.com/vi/eMlx5fFNoYc/hqdefault.jpg" alt="Attention in transformers" loading="lazy">
+                <div class="video-play-btn">▶</div>
+              </a>
+              <div class="video-info"><span class="video-tag">Attention Mechanism</span><h4>Attention in Transformers, Visually Explained</h4><p class="video-channel">3Blue1Brown</p></div>
             </div>
+
+            <div class="video-card">
+              <a href="https://www.youtube.com/watch?v=aircAruvnKk" target="_blank" class="video-thumb-link">
+                <img src="https://img.youtube.com/vi/aircAruvnKk/hqdefault.jpg" alt="But what is a neural network?" loading="lazy">
+                <div class="video-play-btn">▶</div>
+              </a>
+              <div class="video-info"><span class="video-tag">Deep Learning</span><h4>But what is a Neural Network?</h4><p class="video-channel">3Blue1Brown</p></div>
+            </div>
+
+            <div class="video-card">
+              <a href="https://www.youtube.com/watch?v=IHZwWFHWa-w" target="_blank" class="video-thumb-link">
+                <img src="https://img.youtube.com/vi/IHZwWFHWa-w/hqdefault.jpg" alt="Gradient descent - how neural networks learn" loading="lazy">
+                <div class="video-play-btn">▶</div>
+              </a>
+              <div class="video-info"><span class="video-tag">Deep Learning</span><h4>Gradient Descent: How Neural Networks Learn</h4><p class="video-channel">3Blue1Brown</p></div>
+            </div>
+
           </div>
           <!-- AI_VIDEOS_END -->
           <p class="video-updated">🔄 Auto-updated weekly by AI agent · Latest: March 2026</p>
