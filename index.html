@@ -1297,38 +1297,72 @@
     <div class="section-header">
       <span class="section-label">GitHub Activity</span>
       <h2 class="section-title">Code Contributions</h2>
-      <p class="section-sub">Consistent open-source activity across AI, MLOps, and cloud infrastructure repositories</p>
+      <p class="section-sub">Consistent open-source activity across AI, MLOps &amp; DevOps repositories</p>
     </div>
-    <div class="github-grid">
-      <div class="github-card">
-        <h4><i class="fas fa-chart-bar"></i> &nbsp;Stats Overview</h4>
-        <div class="github-stat-row">
-          <div class="g-stat"><div class="g-stat-num" id="ghStars">—</div><div class="g-stat-label">Total Stars</div></div>
-          <div class="g-stat"><div class="g-stat-num" id="ghRepos">—</div><div class="g-stat-label">Public Repos</div></div>
-          <div class="g-stat"><div class="g-stat-num" id="ghFollowers">—</div><div class="g-stat-label">Followers</div></div>
-          <div class="g-stat"><div class="g-stat-num">10+</div><div class="g-stat-label">OSS Contributions</div></div>
-        </div>
-        <p style="font-size:.78rem;color:var(--text2);margin-top:1rem;text-align:center">
-          <i class="fas fa-info-circle"></i> Update with your GitHub username to load live stats
-        </p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;">
+        <div id="gh-repos-count" style="font-size:2rem;font-weight:700;color:var(--accent);">&#8212;</div>
+        <div style="font-size:.85rem;color:var(--text2);margin-top:4px;">Public Repos</div>
       </div>
-      <div class="github-card">
-        <h4><i class="fas fa-code"></i> &nbsp;Top Languages</h4>
-        <div class="lang-list">
-          <div class="lang-row"><div class="lang-dot" style="background:#3572A5"></div><span class="lang-name">Python</span><div class="lang-bar-wrap"><div class="lang-bar" style="width:75%;background:#3572A5"></div></div><span class="lang-pct">75%</span></div>
-          <div class="lang-row"><div class="lang-dot" style="background:#00ADD8"></div><span class="lang-name">Go</span><div class="lang-bar-wrap"><div class="lang-bar" style="width:10%;background:#00ADD8"></div></div><span class="lang-pct">10%</span></div>
-          <div class="lang-row"><div class="lang-dot" style="background:#89e051"></div><span class="lang-name">Shell / Bash</span><div class="lang-bar-wrap"><div class="lang-bar" style="width:8%;background:#89e051"></div></div><span class="lang-pct">8%</span></div>
-          <div class="lang-row"><div class="lang-dot" style="background:#f1e05a"></div><span class="lang-name">JavaScript</span><div class="lang-bar-wrap"><div class="lang-bar" style="width:5%;background:#f1e05a"></div></div><span class="lang-pct">5%</span></div>
-          <div class="lang-row"><div class="lang-dot" style="background:#e34c26"></div><span class="lang-name">Other</span><div class="lang-bar-wrap"><div class="lang-bar" style="width:2%;background:#e34c26"></div></div><span class="lang-pct">2%</span></div>
-        </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;">
+        <div id="gh-followers-count" style="font-size:2rem;font-weight:700;color:var(--accent);">&#8212;</div>
+        <div style="font-size:.85rem;color:var(--text2);margin-top:4px;">Followers</div>
       </div>
-      <div class="github-card" style="grid-column:1/-1">
-        <h4><i class="fas fa-calendar-alt"></i> &nbsp;Contribution Activity</h4>
-        <div class="contrib-squares" id="contribGrid"></div>
-        <p style="font-size:.75rem;color:var(--text2);margin-top:.8rem">Simulated contribution heatmap — connect your GitHub for real data</p>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;">
+        <div id="gh-stars-count" style="font-size:2rem;font-weight:700;color:var(--accent);">&#8212;</div>
+        <div style="font-size:.85rem;color:var(--text2);margin-top:4px;">Total Stars</div>
       </div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:32px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <span style="font-weight:600;font-size:1rem;">Contribution Graph</span>
+        <a href="https://github.com/harshadkhetpal" target="_blank" rel="noopener" style="font-size:.8rem;color:var(--accent);text-decoration:none;">View on GitHub &#8594;</a>
+      </div>
+      <img src="https://ghchart.rshah.org/00d4aa/harshadkhetpal" alt="GitHub contribution chart" style="width:100%;border-radius:8px;" onerror="this.style.display='none';document.getElementById('ghfb').style.display='block';" />
+      <div id="ghfb" style="display:none;text-align:center;padding:20px;color:var(--text2);"><a href="https://github.com/harshadkhetpal" target="_blank" style="color:var(--accent);">View on GitHub &#8594;</a></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px;">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:8px;text-align:center;overflow:hidden;">
+        <img src="https://github-readme-stats.vercel.app/api?username=harshadkhetpal&amp;show_icons=true&amp;theme=dark&amp;bg_color=0d1117&amp;border_color=30363d&amp;title_color=00d4aa&amp;icon_color=00d4aa&amp;text_color=c9d1d9&amp;count_private=true" alt="GitHub Stats" style="max-width:100%;border-radius:6px;" onerror="this.parentElement.style.display='none'" />
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:8px;text-align:center;overflow:hidden;">
+        <img src="https://github-readme-streak-stats.herokuapp.com/?user=harshadkhetpal&amp;theme=dark&amp;background=0d1117&amp;border=30363d&amp;ring=00d4aa&amp;fire=ff6b6b&amp;currStreakLabel=00d4aa" alt="GitHub Streak" style="max-width:100%;border-radius:6px;" onerror="this.parentElement.style.display='none'" />
+      </div>
+    </div>
+    <div id="gh-repos-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+      <div style="grid-column:1/-1;text-align:center;padding:24px;color:var(--text2);">Loading repositories&#8230;</div>
     </div>
   </div>
+  <script>
+  (function(){
+    fetch("https://api.github.com/users/harshadkhetpal").then(function(r){return r.json();}).then(function(u){
+      var a=document.getElementById("gh-repos-count");if(a)a.textContent=u.public_repos||0;
+      var b=document.getElementById("gh-followers-count");if(b)b.textContent=u.followers||0;
+    }).catch(function(){});
+    fetch("https://api.github.com/users/harshadkhetpal/repos?per_page=100&sort=updated").then(function(r){return r.json();}).then(function(repos){
+      if(!Array.isArray(repos))return;
+      var s=repos.reduce(function(acc,r){return acc+(r.stargazers_count||0);},0);
+      var se=document.getElementById("gh-stars-count");if(se)se.textContent=s;
+      var top=repos.sort(function(a,b){return(b.stargazers_count||0)-(a.stargazers_count||0);}).slice(0,6);
+      var grid=document.getElementById("gh-repos-grid");if(!grid)return;
+      var lc={Python:"#3572A5",Go:"#00ADD8",JavaScript:"#f1e05a",TypeScript:"#3178c6",Shell:"#89e051"};
+      grid.innerHTML=top.map(function(repo){
+        var lang=repo.language||"Code";var lclr=lc[lang]||"#58a6ff";
+        return '<div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px;">'
+          +'<div style="display:flex;justify-content:space-between;align-items:flex-start;">'
+          +'<a href="'+repo.html_url+'" target="_blank" rel="noopener" style="font-weight:600;font-size:.95rem;color:var(--accent);text-decoration:none;word-break:break-word;">'+repo.name+'<\/a>'
+          +'<span style="font-size:.75rem;background:rgba(0,212,170,.12);color:var(--accent);padding:2px 8px;border-radius:20px;">&#9733; '+(repo.stargazers_count||0)+'<\/span>'
+          +'<\/div>'
+          +'<p style="font-size:.82rem;color:var(--text2);margin:0;line-height:1.45;flex:1;">'+(repo.description||"No description")+'<\/p>'
+          +'<div style="display:flex;align-items:center;gap:6px;">'
+          +'<span style="width:10px;height:10px;border-radius:50%;background:'+lclr+';display:inline-block;"><\/span>'
+          +'<span style="font-size:.78rem;color:var(--text2);">'+lang+'<\/span>'
+          +(repo.forks_count?'<span style="margin-left:auto;font-size:.78rem;color:var(--text2);">&#9415; '+repo.forks_count+'<\/span>':'')
+          +'<\/div><\/div>';
+      }).join("");
+    }).catch(function(){});
+  })();
+  </script>
 </section>
 
 <!-- ════════════════════════════ CONTACT ════════════════════════════ -->
