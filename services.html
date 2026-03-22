@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Services — Harshad Khetpal | AI & MLOps Engineering</title>
+  <meta name="description" content="AI agent development, MLOps, data engineering, workflow automation and more — professional services by Harshad Khetpal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #2563eb; --accent2: #7c3aed;
+      --bg: #06091a; --bg2: #0d1530; --bg3: #130a2e;
+      --text: #f8fafc; --text2: rgba(248,250,252,0.72);
+      --border: rgba(255,255,255,0.1);
+      --card: rgba(255,255,255,0.04);
+      --radius: 16px;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 64px;
+      background: rgba(6,9,26,0.92); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display:flex; align-items:center; font-weight:700; font-size:1.1rem; color:var(--accent); letter-spacing:-.5px; }
+    .nav-logo span.name-suffix { color: rgba(248,250,252,0.55); font-weight:400; }
+    .logo-mark { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; font-size:.68rem; font-weight:900; border-radius:7px; margin-right:7px; flex-shrink:0; }
+    .nav-links { display:flex; gap:1.6rem; list-style:none; align-items:center; }
+    .nav-links a { font-size:.88rem; font-weight:500; color:var(--text2); transition:color .2s; }
+    .nav-links a:hover, .nav-links a.active { color:var(--text); }
+    .btn-hire { background:var(--accent); color:#fff !important; padding:7px 16px; border-radius:8px; font-weight:600 !important; }
+    .btn-hire:hover { opacity:.85; }
+
+    /* ── HERO ── */
+    .svc-hero {
+      min-height: 46vh;
+      padding: 120px 2rem 70px;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #06091a 0%, #0d1530 50%, #130a2e 100%);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .svc-hero::before {
+      content:''; position:absolute; inset:0; pointer-events:none;
+      background: radial-gradient(ellipse at 30% 60%, rgba(37,99,235,0.15) 0%, transparent 55%),
+        radial-gradient(ellipse at 70% 40%, rgba(124,58,237,0.12) 0%, transparent 55%);
+    }
+    canvas#svc-canvas { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+    .svc-hero-inner { position:relative; z-index:1; max-width:760px; }
+    .svc-eyebrow { display:inline-block; font-size:.75rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#60a5fa; margin-bottom:14px; }
+    .svc-hero h1 { font-size:clamp(2.2rem,5vw,3.4rem); font-weight:900; letter-spacing:-2px; line-height:1.12; margin-bottom:18px; }
+    .svc-hero h1 span { background:linear-gradient(135deg,#60a5fa,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .svc-hero p { font-size:1.05rem; color:var(--text2); max-width:560px; margin:0 auto 32px; line-height:1.75; }
+    .svc-hero-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+    .btn-primary-p { padding:13px 30px; border-radius:10px; font-weight:700; font-size:.94rem; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; transition:opacity .2s,transform .2s; }
+    .btn-primary-p:hover { opacity:.88; transform:translateY(-2px); }
+    .btn-outline-p { padding:13px 30px; border-radius:10px; font-weight:700; font-size:.94rem; border:1.5px solid rgba(255,255,255,0.25); color:#fff; transition:background .2s,transform .2s; }
+    .btn-outline-p:hover { background:rgba(255,255,255,0.08); transform:translateY(-2px); }
+
+    /* ── TRUST BAR ── */
+    .trust-bar { background:rgba(255,255,255,0.03); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:22px 2rem; }
+    .trust-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap; }
+    .trust-item { display:flex; align-items:center; gap:9px; font-size:.9rem; color:var(--text2); font-weight:500; }
+    .trust-item i { color:#4ade80; font-size:1rem; }
+
+    /* ── SECTION WRAPPER ── */
+    .section { padding:80px 2rem; max-width:1280px; margin:0 auto; }
+    .section-label { font-size:.75rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#60a5fa; margin-bottom:12px; }
+    .section-title { font-size:clamp(1.8rem,4vw,2.6rem); font-weight:900; color:var(--text); letter-spacing:-1.5px; margin-bottom:14px; }
+    .section-title span { background:linear-gradient(135deg,#60a5fa,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .section-sub { font-size:1rem; color:var(--text2); max-width:560px; line-height:1.75; margin-bottom:56px; }
+
+    /* ── SERVICES GRID ── */
+    .services-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:24px; }
+    .svc-card {
+      background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+      padding:34px 30px; transition:transform .3s,border-color .3s,box-shadow .3s;
+      position:relative; overflow:hidden;
+    }
+    .svc-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--cg,linear-gradient(90deg,#2563eb,#7c3aed)); opacity:0; transition:opacity .3s; }
+    .svc-card:hover { transform:translateY(-7px); border-color:rgba(255,255,255,0.2); box-shadow:0 24px 70px rgba(0,0,0,0.45); }
+    .svc-card:hover::before { opacity:1; }
+    .svc-icon { width:56px; height:56px; border-radius:15px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:22px; background:var(--cg,linear-gradient(135deg,#2563eb,#7c3aed)); }
+    .svc-name { font-size:1.15rem; font-weight:800; color:var(--text); margin-bottom:10px; letter-spacing:-.3px; }
+    .svc-desc { font-size:.92rem; color:var(--text2); line-height:1.75; margin-bottom:16px; }
+    .svc-usecase { font-size:.82rem; color:#a78bfa; font-weight:600; margin-bottom:16px; }
+    .svc-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:22px; }
+    .svc-tag { font-size:.72rem; font-weight:600; padding:4px 10px; border-radius:20px; background:rgba(255,255,255,0.06); color:rgba(255,255,255,0.6); border:1px solid rgba(255,255,255,0.1); }
+    .svc-cta { display:inline-flex; align-items:center; gap:7px; font-size:.86rem; font-weight:700; color:#93c5fd; transition:gap .2s,color .2s; }
+    .svc-cta:hover { color:#60a5fa; gap:12px; }
+
+    /* ── HOW IT WORKS ── */
+    .how-section { background:rgba(255,255,255,0.02); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:80px 2rem; }
+    .how-inner { max-width:1100px; margin:0 auto; }
+    .steps-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:32px; margin-top:50px; }
+    .step { text-align:center; }
+    .step-num { width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,#2563eb,#7c3aed); display:flex; align-items:center; justify-content:center; font-size:1.1rem; font-weight:900; margin:0 auto 16px; color:#fff; }
+    .step h4 { font-size:1rem; font-weight:700; color:var(--text); margin-bottom:8px; }
+    .step p { font-size:.88rem; color:var(--text2); line-height:1.7; }
+
+    /* ── PRICING TIERS ── */
+    .tiers-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px; margin-top:50px; }
+    .tier { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:36px 28px; transition:transform .3s,border-color .3s; position:relative; }
+    .tier.featured { border-color:rgba(99,179,237,0.45); background:rgba(37,99,235,0.08); }
+    .tier.featured::after { content:'Most Popular'; position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; font-size:.72rem; font-weight:700; padding:4px 16px; border-radius:20px; letter-spacing:.5px; }
+    .tier:hover { transform:translateY(-5px); border-color:rgba(255,255,255,0.2); }
+    .tier-name { font-size:.8rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#60a5fa; margin-bottom:8px; }
+    .tier-price { font-size:2.4rem; font-weight:900; color:var(--text); letter-spacing:-1.5px; margin-bottom:6px; line-height:1; }
+    .tier-price span { font-size:1rem; font-weight:500; color:var(--text2); }
+    .tier-sub { font-size:.88rem; color:var(--text2); margin-bottom:24px; }
+    .tier-list { list-style:none; margin-bottom:28px; }
+    .tier-list li { font-size:.9rem; color:var(--text2); padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06); display:flex; gap:10px; align-items:flex-start; }
+    .tier-list li i { color:#4ade80; margin-top:3px; flex-shrink:0; }
+    .btn-tier { display:block; text-align:center; padding:12px; border-radius:10px; font-weight:700; font-size:.92rem; transition:opacity .2s,transform .2s; }
+    .btn-tier-main { background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; }
+    .btn-tier-out { border:1.5px solid rgba(255,255,255,0.25); color:#fff; }
+    .btn-tier:hover { opacity:.85; transform:translateY(-2px); }
+
+    /* ── FAQ ── */
+    .faq-list { max-width:720px; margin:40px auto 0; }
+    .faq-item { border-bottom:1px solid var(--border); padding:20px 0; }
+    .faq-q { font-size:1rem; font-weight:700; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; }
+    .faq-q i { color:var(--text2); transition:transform .3s; flex-shrink:0; }
+    .faq-item.open .faq-q i { transform:rotate(180deg); }
+    .faq-a { font-size:.92rem; color:var(--text2); line-height:1.75; max-height:0; overflow:hidden; transition:max-height .4s ease, padding .3s; }
+    .faq-item.open .faq-a { max-height:200px; padding-top:12px; }
+
+    /* ── CONTACT CTA ── */
+    .cta-band { background:linear-gradient(135deg,rgba(37,99,235,0.18),rgba(124,58,237,0.18)); border:1px solid rgba(99,179,237,0.2); border-radius:22px; padding:60px 40px; text-align:center; max-width:860px; margin:80px auto; }
+    .cta-band h2 { font-size:clamp(1.8rem,4vw,2.4rem); font-weight:900; color:var(--text); letter-spacing:-1.5px; margin-bottom:14px; }
+    .cta-band p { font-size:1rem; color:var(--text2); margin-bottom:32px; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.75; }
+    .cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+    /* ── FOOTER ── */
+    footer { text-align:center; padding:28px 2rem; border-top:1px solid var(--border); font-size:.85rem; color:var(--text2); }
+    footer a { color:#60a5fa; }
+
+    @media(max-width:768px) {
+      .nav-links { display:none; }
+      .steps-grid,.tiers-grid { grid-template-columns:1fr; }
+      .trust-inner { gap:20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="logo-mark">HK</span>
+    <a href="index.html" style="text-decoration:none;color:inherit">harshad<span class="name-suffix">.khetpal</span></a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="videos.html">🎬 Videos</a></li>
+    <li><a href="services.html" class="active" style="color:#60a5fa">Services</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="index.html#contact" class="btn-hire">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="svc-hero">
+  <canvas id="svc-canvas"></canvas>
+  <div class="svc-hero-inner">
+    <span class="svc-eyebrow">⚡ Professional Services</span>
+    <h1>Automate. Accelerate.<br><span>Transform.</span></h1>
+    <p>I help businesses, startups, and individuals cut through complexity — deploying AI agents, data pipelines, and smart automation that do the heavy lifting so your team can focus on what matters.</p>
+    <div class="svc-hero-btns">
+      <a href="index.html#contact" class="btn-primary-p">🚀 Start a Project</a>
+      <a href="#how-it-works" class="btn-outline-p">See How It Works</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><i class="fas fa-check-circle"></i> 5+ Years Production Experience</div>
+    <div class="trust-item"><i class="fas fa-check-circle"></i> 20+ Technologies Mastered</div>
+    <div class="trust-item"><i class="fas fa-check-circle"></i> End-to-End Delivery</div>
+    <div class="trust-item"><i class="fas fa-check-circle"></i> Cloud-Native & Scalable</div>
+    <div class="trust-item"><i class="fas fa-check-circle"></i> Available for Freelance & Contract</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="section">
+  <div class="section-label">What I Offer</div>
+  <h2 class="section-title">Services Built for the <span>AI Era</span></h2>
+  <p class="section-sub">Every service is designed to reduce manual effort, accelerate decisions, and unlock the full potential of your data and AI stack.</p>
+
+  <div class="services-grid">
+
+    <div class="svc-card" style="--cg:linear-gradient(135deg,#2563eb,#7c3aed)">
+      <div class="svc-icon">🤖</div>
+      <h3 class="svc-name">AI Agent Development</h3>
+      <p class="svc-desc">Custom autonomous agents that research, reason, and act — answering emails, summarising reports, managing tasks, or running entire business workflows without human intervention.</p>
+      <p class="svc-usecase">💡 Great for: Customer support bots, research assistants, sales outreach agents, document processors</p>
+      <div class="svc-tags"><span class="svc-tag">LangChain</span><span class="svc-tag">CrewAI</span><span class="svc-tag">AutoGen</span><span class="svc-tag">LangGraph</span><span class="svc-tag">OpenAI</span><span class="svc-tag">Claude API</span></div>
+      <a href="index.html#contact" class="svc-cta">Discuss Your Agent <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="svc-card" style="--cg:linear-gradient(135deg,#059669,#0891b2)">
+      <div class="svc-icon">🚀</div>
+      <h3 class="svc-name">MLOps & Model Deployment</h3>
+      <p class="svc-desc">Take your ML model from notebook to production. I set up training pipelines, model registries, automated retraining, and serving infrastructure that scales with demand.</p>
+      <p class="svc-usecase">💡 Great for: Startups launching AI features, teams with stuck models, batch + real-time scoring</p>
+      <div class="svc-tags"><span class="svc-tag">MLflow</span><span class="svc-tag">vLLM</span><span class="svc-tag">Triton</span><span class="svc-tag">Kubeflow</span><span class="svc-tag">Evidently</span><span class="svc-tag">Feast</span></div>
+      <a href="index.html#contact" class="svc-cta">Deploy Your Model <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="svc-card" style="--cg:linear-gradient(135deg,#d97706,#dc2626)">
+      <div class="svc-icon">⚙️</div>
+      <h3 class="svc-name">Data Engineering & Pipelines</h3>
+      <p class="svc-desc">Design and build battle-tested data infrastructure — ETL/ELT pipelines, real-time streaming, data lakes, warehouses, and transformation layers your analysts will love.</p>
+      <p class="svc-usecase">💡 Great for: Companies drowning in raw data, reporting delays, inconsistent analytics</p>
+      <div class="svc-tags"><span class="svc-tag">Apache Spark</span><span class="svc-tag">Kafka</span><span class="svc-tag">Airflow</span><span class="svc-tag">dbt</span><span class="svc-tag">Snowflake</span><span class="svc-tag">BigQuery</span></div>
+      <a href="index.html#contact" class="svc-cta">Build My Pipeline <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="svc-card" style="--cg:linear-gradient(135deg,#7c3aed,#db2777)">
+      <div class="svc-icon">⚡</div>
+      <h3 class="svc-name">Workflow & Business Automation</h3>
+      <p class="svc-desc">Automate the repetitive stuff — invoice processing, CRM updates, cross-platform sync, scheduled reports, approval chains. Save hours every week, guaranteed.</p>
+      <p class="svc-usecase">💡 Great for: SMBs, operations teams, solo founders, agencies wanting to scale without hiring</p>
+      <div class="svc-tags"><span class="svc-tag">n8n</span><span class="svc-tag">Prefect</span><span class="svc-tag">Make</span><span class="svc-tag">Zapier</span><span class="svc-tag">Python</span><span class="svc-tag">REST APIs</span></div>
+      <a href="index.html#contact" class="svc-cta">Automate My Workflow <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="svc-card" style="--cg:linear-gradient(135deg,#0ea5e9,#2563eb)">
+      <div class="svc-icon">🧠</div>
+      <h3 class="svc-name">LLM Integration & RAG Systems</h3>
+      <p class="svc-desc">Put your documents, databases, and knowledge base to work. I build RAG pipelines so your team can ask questions in plain English and get precise, sourced answers instantly.</p>
+      <p class="svc-usecase">💡 Great for: Law firms, consultancies, e-commerce, internal knowledge bases, customer Q&amp;A</p>
+      <div class="svc-tags"><span class="svc-tag">RAG</span><span class="svc-tag">Ollama</span><span class="svc-tag">Pinecone</span><span class="svc-tag">Weaviate</span><span class="svc-tag">LlamaIndex</span><span class="svc-tag">ChromaDB</span></div>
+      <a href="index.html#contact" class="svc-cta">Build My AI Search <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="svc-card" style="--cg:linear-gradient(135deg,#f59e0b,#ef4444)">
+      <div class="svc-icon">📊</div>
+      <h3 class="svc-name">Data Analytics & BI Dashboards</h3>
+      <p class="svc-desc">Transform raw numbers into clear decisions. From executive dashboards to deep-dive analyses, predictive forecasting, and automated weekly reports delivered to your inbox.</p>
+      <p class="svc-usecase">💡 Great for: Founders wanting clarity on growth, ops teams, e-commerce stores, finance teams</p>
+      <div class="svc-tags"><span class="svc-tag">Python</span><span class="svc-tag">Power BI</span><span class="svc-tag">Tableau</span><span class="svc-tag">Pandas</span><span class="svc-tag">Plotly</span><span class="svc-tag">Scikit-learn</span></div>
+      <a href="index.html#contact" class="svc-cta">Analyse My Data <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="svc-card" style="--cg:linear-gradient(135deg,#10b981,#3b82f6)">
+      <div class="svc-icon">☁️</div>
+      <h3 class="svc-name">Cloud Infrastructure & DevOps</h3>
+      <p class="svc-desc">Secure, scalable, and cost-optimised cloud setup. CI/CD pipelines, container orchestration, Infrastructure as Code — so every deployment is fast, safe, and repeatable.</p>
+      <p class="svc-usecase">💡 Great for: Teams moving to cloud, cost reduction, faster release cycles, compliance needs</p>
+      <div class="svc-tags"><span class="svc-tag">AWS / GCP / Azure</span><span class="svc-tag">Terraform</span><span class="svc-tag">Docker</span><span class="svc-tag">Kubernetes</span><span class="svc-tag">GitHub Actions</span></div>
+      <a href="index.html#contact" class="svc-cta">Set Up My Cloud <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="svc-card" style="--cg:linear-gradient(135deg,#8b5cf6,#06b6d4)">
+      <div class="svc-icon">💰</div>
+      <h3 class="svc-name">Financial & Accounting Automation</h3>
+      <p class="svc-desc">Stop doing manually what AI can do in seconds. Invoice reading, expense categorisation, reconciliation, P&amp;L reports, and cash-flow alerts — all automated and auditable.</p>
+      <p class="svc-usecase">💡 Great for: Small businesses, accountants, CFOs, freelancers tired of spreadsheet hell</p>
+      <div class="svc-tags"><span class="svc-tag">AI Agents</span><span class="svc-tag">OCR</span><span class="svc-tag">Document AI</span><span class="svc-tag">Python</span><span class="svc-tag">Pandas</span><span class="svc-tag">APIs</span></div>
+      <a href="index.html#contact" class="svc-cta">Automate My Finance <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="how-section">
+  <div class="how-inner">
+    <div style="text-align:center">
+      <div class="section-label">The Process</div>
+      <h2 class="section-title">How We Work <span>Together</span></h2>
+      <p class="section-sub" style="margin:0 auto">Simple, transparent, and built around your goals — no jargon, no surprises.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step"><div class="step-num">1</div><h4>Discovery Call</h4><p>We talk through your problem, goals, timeline, and budget. No commitment needed — just clarity.</p></div>
+      <div class="step"><div class="step-num">2</div><h4>Scoping & Proposal</h4><p>I send a detailed proposal: what I'll build, the tech stack, milestones, and what success looks like.</p></div>
+      <div class="step"><div class="step-num">3</div><h4>Build & Iterate</h4><p>I build in short sprints with regular demos. You see progress every week, not just at the end.</p></div>
+      <div class="step"><div class="step-num">4</div><h4>Deliver & Hand Off</h4><p>Full documentation, code walkthrough, and a 2-week support window so your team is confident running it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<div class="section">
+  <div class="section-label">Investment</div>
+  <h2 class="section-title">Flexible <span>Engagement Models</span></h2>
+  <p class="section-sub">Pick the model that fits your situation — fixed scope, hourly, or ongoing retainer.</p>
+  <div class="tiers-grid">
+    <div class="tier">
+      <div class="tier-name">Starter</div>
+      <div class="tier-price">$500<span> /project</span></div>
+      <div class="tier-sub">Ideal for individuals & small tasks</div>
+      <ul class="tier-list">
+        <li><i class="fas fa-check"></i>Single automation or agent</li>
+        <li><i class="fas fa-check"></i>Up to 2 integrations</li>
+        <li><i class="fas fa-check"></i>1-week delivery</li>
+        <li><i class="fas fa-check"></i>Basic documentation</li>
+        <li><i class="fas fa-check"></i>1 revision round</li>
+      </ul>
+      <a href="index.html#contact" class="btn-tier btn-tier-out">Get Started</a>
+    </div>
+    <div class="tier featured">
+      <div class="tier-name">Professional</div>
+      <div class="tier-price">$2,500<span> /project</span></div>
+      <div class="tier-sub">Best for startups & growing teams</div>
+      <ul class="tier-list">
+        <li><i class="fas fa-check"></i>Full pipeline or agent system</li>
+        <li><i class="fas fa-check"></i>Up to 6 integrations</li>
+        <li><i class="fas fa-check"></i>3-week delivery</li>
+        <li><i class="fas fa-check"></i>Full documentation + handoff</li>
+        <li><i class="fas fa-check"></i>3 revision rounds</li>
+        <li><i class="fas fa-check"></i>2-week post-delivery support</li>
+      </ul>
+      <a href="index.html#contact" class="btn-tier btn-tier-main">Start a Project</a>
+    </div>
+    <div class="tier">
+      <div class="tier-name">Enterprise / Retainer</div>
+      <div class="tier-price">Custom<span> pricing</span></div>
+      <div class="tier-sub">For teams needing ongoing support</div>
+      <ul class="tier-list">
+        <li><i class="fas fa-check"></i>Dedicated monthly hours</li>
+        <li><i class="fas fa-check"></i>Unlimited integrations</li>
+        <li><i class="fas fa-check"></i>Priority turnaround</li>
+        <li><i class="fas fa-check"></i>Weekly syncs</li>
+        <li><i class="fas fa-check"></i>Architecture consulting</li>
+        <li><i class="fas fa-check"></i>SLA-backed availability</li>
+      </ul>
+      <a href="index.html#contact" class="btn-tier btn-tier-out">Let's Talk</a>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section" style="padding-top:0">
+  <div style="text-align:center">
+    <div class="section-label">Questions</div>
+    <h2 class="section-title">Frequently <span>Asked</span></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item open">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need a technical background to work with you? <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">Not at all. I translate complex technical concepts into plain language. You describe the business problem — I handle all the engineering. Regular check-ins ensure you always know what's being built.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long does a typical project take? <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">Simple automations take 3–7 days. Medium projects (data pipeline, single agent) are typically 2–4 weeks. Large systems with multiple integrations range from 4–10 weeks. I'll give a firm timeline in the proposal.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What happens after delivery? <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">Every project includes documentation and a walkthrough session. Professional and Enterprise engagements include post-delivery support. I'm also available for ongoing maintenance retainers if needed.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do you work with existing systems or only greenfield builds? <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">Both. I frequently integrate with existing ERP systems, CRMs, databases, and cloud environments. I assess your current stack during the discovery phase and design around what you already have.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are the prices on this page fixed? <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">The pricing tiers are guides. Every project is different — some simpler, some more complex. After our discovery call I'll give you an exact quote with no hidden costs.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BAND -->
+<div style="padding:0 2rem">
+  <div class="cta-band">
+    <h2>Ready to Automate Your Business?</h2>
+    <p>Whether you have a clear brief or just an idea — let's talk. I'll help you figure out what's possible, what it costs, and how fast we can get there.</p>
+    <div class="cta-btns">
+      <a href="index.html#contact" class="btn-primary-p">📩 Send Me a Message</a>
+      <a href="https://www.linkedin.com/in/harshad-khetpal-38098499/" target="_blank" class="btn-outline-p">Connect on LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Harshad Khetpal · <a href="index.html">Portfolio</a> · <a href="services.html">Services</a> · <a href="videos.html">Videos</a> · Built with ❤️ &amp; AI</p>
+</footer>
+
+<script>
+// Particle canvas
+(function(){
+  var c=document.getElementById('svc-canvas');if(!c)return;
+  var ctx=c.getContext('2d'),W,H,nodes=[];
+  var LABELS=['MLOps','DevOps','Cloud','K8s','AI/ML','Python','Terraform','Spark','Kafka','Airflow','Docker','LLMs','SRE','Feast','Ray','dbt','vLLM','n8n'];
+  var COLORS=['rgba(96,165,250,0.9)','rgba(167,139,250,0.9)','rgba(52,211,153,0.85)','rgba(251,191,36,0.8)'];
+  function resize(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}
+  function Node(i){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.r=Math.random()*2.5+1.5;this.label=LABELS[i%LABELS.length];this.color=COLORS[i%COLORS.length];this.pulse=Math.random()*Math.PI*2;this.big=Math.random()>.6;}
+  function init(){resize();nodes=[];var n=Math.floor(W/42);for(var i=0;i<n;i++)nodes.push(new Node(i));}
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<nodes.length;i++)for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<160){ctx.beginPath();ctx.strokeStyle='rgba(96,165,250,'+(1-d/160)*.2+')';ctx.lineWidth=.8;ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke();}}
+    for(var i=0;i<nodes.length;i++){var n=nodes[i];n.pulse+=.02;var pr=n.r+Math.sin(n.pulse)*.6;var g=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,pr*4);g.addColorStop(0,n.color);g.addColorStop(1,'transparent');ctx.beginPath();ctx.arc(n.x,n.y,pr*4,0,Math.PI*2);ctx.fillStyle=g;ctx.globalAlpha=.25;ctx.fill();ctx.globalAlpha=1;ctx.beginPath();ctx.arc(n.x,n.y,pr,0,Math.PI*2);ctx.fillStyle=n.color;ctx.fill();if(n.big){ctx.font='10px Inter,sans-serif';ctx.fillStyle='rgba(255,255,255,.5)';ctx.fillText(n.label,n.x+pr+4,n.y+3.5);}n.x+=n.vx;n.y+=n.vy;if(n.x<-20)n.x=W+20;if(n.x>W+20)n.x=-20;if(n.y<-20)n.y=H+20;if(n.y>H+20)n.y=-20;}
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',init);
+  init();draw();
+})();
+</script>
+</body>
+</html>
