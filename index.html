@@ -1,1415 +1,1415 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Harshad Khetpal | MLOps · DevOps · AI/ML Engineer</title>
- <meta name="description" content="Harshad Khetpal – MLOps, DevOps, Cloud & AI/ML Engineer. Building scalable ML systems, LLM pipelines, and cloud-native infrastructure." />
- <link rel="preconnect" href="https://fonts.googleapis.com" />
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
- <style>
- :root {
- --bg: #f9fafb;
- --surface: #ffffff;
- --surface2: #f3f4f6;
- --border: #e5e7eb;
- --text: #111827;
- --text2: #6b7280;
- --accent: #2563eb;
- --accent2: #7c3aed;
- --accent3: #059669;
- --tag-bg: #eff6ff;
- --tag-text: #1d4ed8;
- --radius: 12px;
- --shadow: 0 1px 3px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.06);
- --shadow-lg: 0 8px 32px rgba(0,0,0,.10);
- --transition: .2s ease;
- }
- *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- html { scroll-behavior: smooth; }
- body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
- a { color: inherit; text-decoration: none; }
- img { max-width: 100%; display: block; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harshad Khetpal | MLOps · DevOps · AI/ML Engineer</title>
+  <meta name="description" content="Harshad Khetpal – MLOps, DevOps, Cloud & AI/ML Engineer. Building scalable ML systems, LLM pipelines, and cloud-native infrastructure." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg:        #f9fafb;
+      --surface:   #ffffff;
+      --surface2:  #f3f4f6;
+      --border:    #e5e7eb;
+      --text:      #111827;
+      --text2:     #6b7280;
+      --accent:    #2563eb;
+      --accent2:   #7c3aed;
+      --accent3:   #059669;
+      --tag-bg:    #eff6ff;
+      --tag-text:  #1d4ed8;
+      --radius:    12px;
+      --shadow:    0 1px 3px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.06);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,.10);
+      --transition: .2s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
- /* ── Scrollbar ── */
- ::-webkit-scrollbar { width: 6px; }
- ::-webkit-scrollbar-track { background: var(--bg); }
- ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
- /* ═══════════════════════════════════════
- NAV
- ═══════════════════════════════════════ */
- nav {
- position: fixed; top: 0; left: 0; right: 0; z-index: 100;
- background: rgba(249,250,251,.92);
- backdrop-filter: blur(12px);
- border-bottom: 1px solid var(--border);
- padding: 0 2rem;
- display: flex; align-items: center; justify-content: space-between;
- height: 60px;
- }
- .nav-logo {
- font-weight: 700; font-size: 1.1rem; color: var(--accent);
- letter-spacing: -.5px;
- }
- .nav-logo span { color: var(--text2); font-weight: 400; }
- .nav-links { display: flex; gap: 1.8rem; list-style: none; }
- .nav-links a {
- font-size: .875rem; font-weight: 500; color: var(--text2);
- transition: color var(--transition);
- }
- .nav-links a:hover { color: var(--accent); }
- .nav-cta {
- background: var(--accent); color: #fff;
- padding: .45rem 1.1rem; border-radius: 8px;
- font-size: .875rem; font-weight: 600;
- transition: background var(--transition), transform var(--transition);
- }
- .nav-cta:hover { background: #1d4ed8; transform: translateY(-1px); }
- .hamburger { display: none; background: none; border: none; cursor: pointer; font-size: 1.3rem; color: var(--text); }
- .mobile-menu {
- display: none; position: fixed; top: 60px; left: 0; right: 0;
- background: var(--surface); border-bottom: 1px solid var(--border);
- padding: 1rem 2rem; z-index: 99; flex-direction: column; gap: .8rem;
- }
- .mobile-menu.open { display: flex; }
- .mobile-menu a { font-size: 1rem; font-weight: 500; color: var(--text2); padding: .5rem 0; border-bottom: 1px solid var(--border); }
- .mobile-menu a:last-child { border-bottom: none; }
+    /* ═══════════════════════════════════════
+       NAV
+    ═══════════════════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(249,250,251,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 1.1rem; color: var(--accent);
+      letter-spacing: -.5px;
+    }
+    .nav-logo span { color: var(--text2); font-weight: 400; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a {
+      font-size: .875rem; font-weight: 500; color: var(--text2);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent); color: #fff;
+      padding: .45rem 1.1rem; border-radius: 8px;
+      font-size: .875rem; font-weight: 600;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .nav-cta:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; font-size: 1.3rem; color: var(--text); }
+    .mobile-menu {
+      display: none; position: fixed; top: 60px; left: 0; right: 0;
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem; z-index: 99; flex-direction: column; gap: .8rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1rem; font-weight: 500; color: var(--text2); padding: .5rem 0; border-bottom: 1px solid var(--border); }
+    .mobile-menu a:last-child { border-bottom: none; }
 
- /* ═══════════════════════════════════════
- HERO
- ═══════════════════════════════════════ */
- #hero {
- min-height: 100vh;
- padding: 120px 2rem 80px;
- display: flex; align-items: center; justify-content: center;
- background: linear-gradient(135deg, #f0f7ff 0%, #fafafa 50%, #f5f0ff 100%);
- position: relative; overflow: hidden;
- }
- .hero-bg-dots {
- position: absolute; inset: 0; pointer-events: none;
- background-image: radial-gradient(circle, #d1d5db 1px, transparent 1px);
- background-size: 32px 32px; opacity: .4;
- }
- .hero-content { text-align: center; max-width: 760px; position: relative; z-index: 1; }
- .hero-badge {
- display: inline-flex; align-items: center; gap: .5rem;
- background: var(--surface); border: 1px solid var(--border);
- border-radius: 100px; padding: .35rem 1rem;
- font-size: .8rem; font-weight: 500; color: var(--accent);
- margin-bottom: 1.5rem;
- box-shadow: var(--shadow);
- }
- .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent3); animation: pulse 2s infinite; }
- @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.2)} }
- h1.hero-title {
- font-size: clamp(2.4rem, 6vw, 4rem);
- font-weight: 800; line-height: 1.1;
- letter-spacing: -2px; color: var(--text);
- margin-bottom: 1rem;
- }
- h1.hero-title .accent { color: var(--accent); }
- .hero-tagline {
- font-size: clamp(1rem, 2vw, 1.25rem);
- color: var(--text2); margin-bottom: .6rem; font-weight: 400;
- }
- .typewriter-wrap { height: 2rem; margin-bottom: 2rem; }
- #typewriter {
- font-family: 'JetBrains Mono', monospace;
- font-size: 1rem; color: var(--accent2); font-weight: 500;
- }
- .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
- .btn-primary {
- background: var(--accent); color: #fff;
- padding: .75rem 2rem; border-radius: 10px;
- font-weight: 600; font-size: .95rem;
- display: inline-flex; align-items: center; gap: .5rem;
- transition: all var(--transition); box-shadow: 0 4px 14px rgba(37,99,235,.3);
- }
- .btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,99,235,.4); }
- .btn-secondary {
- background: var(--surface); color: var(--text);
- padding: .75rem 2rem; border-radius: 10px;
- font-weight: 600; font-size: .95rem; border: 1.5px solid var(--border);
- display: inline-flex; align-items: center; gap: .5rem;
- transition: all var(--transition);
- }
- .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
- .hero-stats {
- display: flex; gap: 2.5rem; justify-content: center;
- flex-wrap: wrap; padding-top: 2rem; border-top: 1px solid var(--border);
- }
- .stat { text-align: center; }
- .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--text); line-height: 1; }
- .stat-label { font-size: .78rem; color: var(--text2); margin-top: .2rem; }
+    /* ═══════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      padding: 120px 2rem 80px;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #f0f7ff 0%, #fafafa 50%, #f5f0ff 100%);
+      position: relative; overflow: hidden;
+    }
+    .hero-bg-dots {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(circle, #d1d5db 1px, transparent 1px);
+      background-size: 32px 32px; opacity: .4;
+    }
+    .hero-content { text-align: center; max-width: 760px; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 100px; padding: .35rem 1rem;
+      font-size: .8rem; font-weight: 500; color: var(--accent);
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent3); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.2)} }
+    h1.hero-title {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -2px; color: var(--text);
+      margin-bottom: 1rem;
+    }
+    h1.hero-title .accent { color: var(--accent); }
+    .hero-tagline {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text2); margin-bottom: .6rem; font-weight: 400;
+    }
+    .typewriter-wrap { height: 2rem; margin-bottom: 2rem; }
+    #typewriter {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem; color: var(--accent2); font-weight: 500;
+    }
+    .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+      padding: .75rem 2rem; border-radius: 10px;
+      font-weight: 600; font-size: .95rem;
+      display: inline-flex; align-items: center; gap: .5rem;
+      transition: all var(--transition); box-shadow: 0 4px 14px rgba(37,99,235,.3);
+    }
+    .btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,99,235,.4); }
+    .btn-secondary {
+      background: var(--surface); color: var(--text);
+      padding: .75rem 2rem; border-radius: 10px;
+      font-weight: 600; font-size: .95rem; border: 1.5px solid var(--border);
+      display: inline-flex; align-items: center; gap: .5rem;
+      transition: all var(--transition);
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .hero-stats {
+      display: flex; gap: 2.5rem; justify-content: center;
+      flex-wrap: wrap; padding-top: 2rem; border-top: 1px solid var(--border);
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--text); line-height: 1; }
+    .stat-label { font-size: .78rem; color: var(--text2); margin-top: .2rem; }
 
- /* ── Tech Ticker ── */
- .ticker-wrap {
- background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
- overflow: hidden; padding: .6rem 0;
- }
- .ticker-inner {
- display: flex; gap: 2.5rem;
- animation: ticker 30s linear infinite;
- white-space: nowrap;
- }
- .ticker-inner:hover { animation-play-state: paused; }
- @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
- .ticker-item {
- display: inline-flex; align-items: center; gap: .5rem;
- font-size: .8rem; font-weight: 500; color: var(--text2);
- }
- .ticker-item i { color: var(--accent); }
+    /* ── Tech Ticker ── */
+    .ticker-wrap {
+      background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      overflow: hidden; padding: .6rem 0;
+    }
+    .ticker-inner {
+      display: flex; gap: 2.5rem;
+      animation: ticker 30s linear infinite;
+      white-space: nowrap;
+    }
+    .ticker-inner:hover { animation-play-state: paused; }
+    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .8rem; font-weight: 500; color: var(--text2);
+    }
+    .ticker-item i { color: var(--accent); }
 
- /* ═══════════════════════════════════════
- SECTION SHELL
- ═══════════════════════════════════════ */
- section { padding: 80px 2rem; }
- .section-inner { max-width: 1100px; margin: 0 auto; }
- .section-header { text-align: center; margin-bottom: 3rem; }
- .section-label {
- display: inline-block;
- background: var(--tag-bg); color: var(--tag-text);
- font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
- padding: .3rem .9rem; border-radius: 100px; margin-bottom: .8rem;
- }
- h2.section-title {
- font-size: clamp(1.6rem, 3vw, 2.4rem);
- font-weight: 800; letter-spacing: -1px; color: var(--text);
- }
- .section-sub { color: var(--text2); max-width: 560px; margin: .6rem auto 0; font-size: .95rem; }
+    /* ═══════════════════════════════════════
+       SECTION SHELL
+    ═══════════════════════════════════════ */
+    section { padding: 80px 2rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-label {
+      display: inline-block;
+      background: var(--tag-bg); color: var(--tag-text);
+      font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+      padding: .3rem .9rem; border-radius: 100px; margin-bottom: .8rem;
+    }
+    h2.section-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800; letter-spacing: -1px; color: var(--text);
+    }
+    .section-sub { color: var(--text2); max-width: 560px; margin: .6rem auto 0; font-size: .95rem; }
 
- /* ═══════════════════════════════════════
- ABOUT
- ═══════════════════════════════════════ */
- #about { background: var(--surface); }
- .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; }
- .about-avatar-wrap { position: relative; }
- .about-avatar {
- width: 280px; height: 280px; border-radius: 24px;
- background: linear-gradient(135deg, #dbeafe, #ede9fe);
- display: flex; align-items: center; justify-content: center;
- font-size: 7rem; margin: 0 auto;
- box-shadow: var(--shadow-lg);
- border: 3px solid var(--border);
- }
- .about-badge-stack {
- position: absolute; bottom: -10px; right: 10px;
- display: flex; gap: .4rem;
- }
- .about-badge-mini {
- background: var(--surface); border: 1px solid var(--border);
- border-radius: 8px; padding: .4rem .7rem;
- font-size: .72rem; font-weight: 600; color: var(--text);
- box-shadow: var(--shadow);
- display: flex; align-items: center; gap: .3rem;
- }
- .about-text h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
- .about-text p { color: var(--text2); margin-bottom: 1rem; line-height: 1.75; }
- .about-pills { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
- .pill {
- background: var(--tag-bg); color: var(--tag-text);
- padding: .35rem .9rem; border-radius: 100px;
- font-size: .8rem; font-weight: 500;
- border: 1px solid #bfdbfe;
- }
- .pill.green { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; }
- .pill.purple { background: #f5f3ff; color: #5b21b6; border-color: #ddd6fe; }
+    /* ═══════════════════════════════════════
+       ABOUT
+    ═══════════════════════════════════════ */
+    #about { background: var(--surface); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; }
+    .about-avatar-wrap { position: relative; }
+    .about-avatar {
+      width: 280px; height: 280px; border-radius: 24px;
+      background: linear-gradient(135deg, #dbeafe, #ede9fe);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 7rem; margin: 0 auto;
+      box-shadow: var(--shadow-lg);
+      border: 3px solid var(--border);
+    }
+    .about-badge-stack {
+      position: absolute; bottom: -10px; right: 10px;
+      display: flex; gap: .4rem;
+    }
+    .about-badge-mini {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: .4rem .7rem;
+      font-size: .72rem; font-weight: 600; color: var(--text);
+      box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: .3rem;
+    }
+    .about-text h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+    .about-text p { color: var(--text2); margin-bottom: 1rem; line-height: 1.75; }
+    .about-pills { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
+    .pill {
+      background: var(--tag-bg); color: var(--tag-text);
+      padding: .35rem .9rem; border-radius: 100px;
+      font-size: .8rem; font-weight: 500;
+      border: 1px solid #bfdbfe;
+    }
+    .pill.green { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; }
+    .pill.purple { background: #f5f3ff; color: #5b21b6; border-color: #ddd6fe; }
 
- /* ═══════════════════════════════════════
- SKILLS
- ═══════════════════════════════════════ */
- #skills { background: var(--bg); }
- .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
- .skill-card {
- background: var(--surface); border: 1px solid var(--border);
- border-radius: var(--radius); padding: 1.5rem;
- transition: all var(--transition); box-shadow: var(--shadow);
- }
- .skill-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow-lg); }
- .skill-card-icon {
- width: 44px; height: 44px; border-radius: 10px;
- display: flex; align-items: center; justify-content: center;
- font-size: 1.3rem; margin-bottom: 1rem;
- }
- .icon-blue { background: #dbeafe; color: #1d4ed8; }
- .icon-purple { background: #ede9fe; color: #7c3aed; }
- .icon-green { background: #dcfce7; color: #16a34a; }
- .icon-orange { background: #ffedd5; color: #ea580c; }
- .icon-pink { background: #fce7f3; color: #be185d; }
- .skill-card h4 { font-size: .9rem; font-weight: 700; margin-bottom: .6rem; }
- .skill-tags { display: flex; flex-wrap: wrap; gap: .35rem; }
- .stag {
- background: var(--surface2); color: var(--text2);
- font-size: .72rem; padding: .2rem .6rem; border-radius: 6px;
- font-family: 'JetBrains Mono', monospace; font-weight: 500;
- border: 1px solid var(--border);
- }
+    /* ═══════════════════════════════════════
+       SKILLS
+    ═══════════════════════════════════════ */
+    #skills { background: var(--bg); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+    .skill-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      transition: all var(--transition); box-shadow: var(--shadow);
+    }
+    .skill-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .skill-card-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 1rem;
+    }
+    .icon-blue { background: #dbeafe; color: #1d4ed8; }
+    .icon-purple { background: #ede9fe; color: #7c3aed; }
+    .icon-green { background: #dcfce7; color: #16a34a; }
+    .icon-orange { background: #ffedd5; color: #ea580c; }
+    .icon-pink { background: #fce7f3; color: #be185d; }
+    .skill-card h4 { font-size: .9rem; font-weight: 700; margin-bottom: .6rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: .35rem; }
+    .stag {
+      background: var(--surface2); color: var(--text2);
+      font-size: .72rem; padding: .2rem .6rem; border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace; font-weight: 500;
+      border: 1px solid var(--border);
+    }
 
- /* ── Proficiency bars ── */
- .prof-list { margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 3rem; }
- .prof-row {}
- .prof-label { display: flex; justify-content: space-between; font-size: .83rem; font-weight: 500; margin-bottom: .35rem; }
- .prof-bar { height: 6px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
- .prof-fill {
- height: 100%; border-radius: 3px;
- background: linear-gradient(90deg, var(--accent), var(--accent2));
- width: 0; transition: width 1.2s ease;
- }
+    /* ── Proficiency bars ── */
+    .prof-list { margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 3rem; }
+    .prof-row {}
+    .prof-label { display: flex; justify-content: space-between; font-size: .83rem; font-weight: 500; margin-bottom: .35rem; }
+    .prof-bar { height: 6px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
+    .prof-fill {
+      height: 100%; border-radius: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      width: 0; transition: width 1.2s ease;
+    }
 
- /* ═══════════════════════════════════════
- PROJECTS / OPEN SOURCE
- ═══════════════════════════════════════ */
- #projects { background: var(--surface); }
- .project-filters { display: flex; gap: .6rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2.5rem; }
- .filter-btn {
- background: var(--surface2); color: var(--text2);
- border: 1.5px solid var(--border); border-radius: 8px;
- padding: .4rem 1rem; font-size: .82rem; font-weight: 500;
- cursor: pointer; transition: all var(--transition);
- }
- .filter-btn:hover, .filter-btn.active {
- background: var(--accent); color: #fff; border-color: var(--accent);
- }
- .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
- .project-card {
- background: var(--surface); border: 1px solid var(--border);
- border-radius: var(--radius); padding: 1.5rem;
- box-shadow: var(--shadow); transition: all var(--transition);
- display: flex; flex-direction: column;
- }
- .project-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
- .project-card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: .8rem; }
- .project-icon { font-size: 1.8rem; }
- .project-stars {
- display: flex; align-items: center; gap: .3rem;
- font-size: .78rem; color: #d97706; font-weight: 600;
- background: #fef3c7; border: 1px solid #fde68a;
- padding: .2rem .6rem; border-radius: 6px;
- }
- .project-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .5rem; }
- .project-card p { font-size: .85rem; color: var(--text2); line-height: 1.65; flex: 1; margin-bottom: 1rem; }
- .project-tech { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1rem; }
- .tech-tag {
- font-size: .72rem; padding: .2rem .6rem; border-radius: 6px;
- font-family: 'JetBrains Mono', monospace; font-weight: 500;
- }
- .project-links { display: flex; gap: .6rem; margin-top: auto; }
- .project-link {
- display: inline-flex; align-items: center; gap: .4rem;
- font-size: .8rem; font-weight: 600;
- padding: .45rem .9rem; border-radius: 8px;
- border: 1.5px solid var(--border);
- transition: all var(--transition);
- }
- .project-link:hover { border-color: var(--accent); color: var(--accent); }
- .project-link.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
- .project-link.primary:hover { background: #1d4ed8; }
- .project-badge {
- display: inline-flex; align-items: center; gap: .3rem;
- font-size: .7rem; font-weight: 600; padding: .2rem .6rem; border-radius: 100px;
- margin-bottom: .8rem;
- }
- .badge-contrib { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
- .badge-trending { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
- .badge-active { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+    /* ═══════════════════════════════════════
+       PROJECTS / OPEN SOURCE
+    ═══════════════════════════════════════ */
+    #projects { background: var(--surface); }
+    .project-filters { display: flex; gap: .6rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2.5rem; }
+    .filter-btn {
+      background: var(--surface2); color: var(--text2);
+      border: 1.5px solid var(--border); border-radius: 8px;
+      padding: .4rem 1rem; font-size: .82rem; font-weight: 500;
+      cursor: pointer; transition: all var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--accent); color: #fff; border-color: var(--accent);
+    }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+    .project-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      box-shadow: var(--shadow); transition: all var(--transition);
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .project-card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: .8rem; }
+    .project-icon { font-size: 1.8rem; }
+    .project-stars {
+      display: flex; align-items: center; gap: .3rem;
+      font-size: .78rem; color: #d97706; font-weight: 600;
+      background: #fef3c7; border: 1px solid #fde68a;
+      padding: .2rem .6rem; border-radius: 6px;
+    }
+    .project-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .5rem; }
+    .project-card p { font-size: .85rem; color: var(--text2); line-height: 1.65; flex: 1; margin-bottom: 1rem; }
+    .project-tech { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1rem; }
+    .tech-tag {
+      font-size: .72rem; padding: .2rem .6rem; border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace; font-weight: 500;
+    }
+    .project-links { display: flex; gap: .6rem; margin-top: auto; }
+    .project-link {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .8rem; font-weight: 600;
+      padding: .45rem .9rem; border-radius: 8px;
+      border: 1.5px solid var(--border);
+      transition: all var(--transition);
+    }
+    .project-link:hover { border-color: var(--accent); color: var(--accent); }
+    .project-link.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .project-link.primary:hover { background: #1d4ed8; }
+    .project-badge {
+      display: inline-flex; align-items: center; gap: .3rem;
+      font-size: .7rem; font-weight: 600; padding: .2rem .6rem; border-radius: 100px;
+      margin-bottom: .8rem;
+    }
+    .badge-contrib { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+    .badge-trending { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
+    .badge-active { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
 
- /* ═══════════════════════════════════════
- AI NEWS
- ═══════════════════════════════════════ */
- #news { background: var(--bg); }
- .news-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
- .news-main-grid { display: grid; gap: 1.2rem; }
- .news-card {
- background: var(--surface); border: 1px solid var(--border);
- border-radius: var(--radius); padding: 1.2rem 1.5rem;
- box-shadow: var(--shadow); transition: all var(--transition);
- display: flex; gap: 1rem; align-items: flex-start;
- }
- .news-card:hover { border-color: var(--accent); transform: translateX(4px); }
- .news-emoji { font-size: 1.8rem; flex-shrink: 0; }
- .news-content { flex: 1; }
- .news-meta { display: flex; gap: .5rem; align-items: center; margin-bottom: .4rem; }
- .news-cat {
- font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
- padding: .15rem .5rem; border-radius: 4px;
- }
- .news-date { font-size: .75rem; color: var(--text2); }
- .news-card h4 { font-size: .92rem; font-weight: 600; margin-bottom: .3rem; }
- .news-card p { font-size: .82rem; color: var(--text2); line-height: 1.6; }
- .news-read {
- font-size: .78rem; font-weight: 600; color: var(--accent);
- margin-top: .5rem; display: inline-block;
- }
- /* Sidebar */
- .news-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
- .sidebar-box {
- background: var(--surface); border: 1px solid var(--border);
- border-radius: var(--radius); padding: 1.2rem;
- box-shadow: var(--shadow);
- }
- .sidebar-box h4 { font-size: .85rem; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: .5rem; }
- .trend-item {
- display: flex; align-items: center; gap: .8rem;
- padding: .55rem 0; border-bottom: 1px solid var(--border);
- font-size: .82rem;
- }
- .trend-item:last-child { border-bottom: none; }
- .trend-num { font-size: .72rem; font-weight: 700; color: var(--text2); width: 18px; }
- .trend-name { flex: 1; font-weight: 500; }
- .trend-up { font-size: .7rem; color: var(--accent3); font-weight: 600; }
+    /* ═══════════════════════════════════════
+       AI NEWS
+    ═══════════════════════════════════════ */
+    #news { background: var(--bg); }
+    .news-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+    .news-main-grid { display: grid; gap: 1.2rem; }
+    .news-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.2rem 1.5rem;
+      box-shadow: var(--shadow); transition: all var(--transition);
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .news-card:hover { border-color: var(--accent); transform: translateX(4px); }
+    .news-emoji { font-size: 1.8rem; flex-shrink: 0; }
+    .news-content { flex: 1; }
+    .news-meta { display: flex; gap: .5rem; align-items: center; margin-bottom: .4rem; }
+    .news-cat {
+      font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+      padding: .15rem .5rem; border-radius: 4px;
+    }
+    .news-date { font-size: .75rem; color: var(--text2); }
+    .news-card h4 { font-size: .92rem; font-weight: 600; margin-bottom: .3rem; }
+    .news-card p { font-size: .82rem; color: var(--text2); line-height: 1.6; }
+    .news-read {
+      font-size: .78rem; font-weight: 600; color: var(--accent);
+      margin-top: .5rem; display: inline-block;
+    }
+    /* Sidebar */
+    .news-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+    .sidebar-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+    .sidebar-box h4 { font-size: .85rem; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: .5rem; }
+    .trend-item {
+      display: flex; align-items: center; gap: .8rem;
+      padding: .55rem 0; border-bottom: 1px solid var(--border);
+      font-size: .82rem;
+    }
+    .trend-item:last-child { border-bottom: none; }
+    .trend-num { font-size: .72rem; font-weight: 700; color: var(--text2); width: 18px; }
+    .trend-name { flex: 1; font-weight: 500; }
+    .trend-up { font-size: .7rem; color: var(--accent3); font-weight: 600; }
 
- /* ═══════════════════════════════════════
- COMMUNITY
- ═══════════════════════════════════════ */
- #community { background: var(--surface); }
- .community-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
- .community-card {
- background: var(--surface); border: 1px solid var(--border);
- border-radius: var(--radius); padding: 1.5rem;
- box-shadow: var(--shadow); transition: all var(--transition);
- text-align: center;
- }
- .community-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
- .community-icon { font-size: 2.5rem; margin-bottom: .8rem; }
- .community-card h3 { font-size: .95rem; font-weight: 700; margin-bottom: .4rem; }
- .community-card p { font-size: .82rem; color: var(--text2); margin-bottom: 1rem; }
- .community-link {
- display: inline-flex; align-items: center; gap: .4rem;
- font-size: .8rem; font-weight: 600; color: var(--accent);
- border: 1.5px solid var(--border); border-radius: 8px; padding: .4rem 1rem;
- transition: all var(--transition);
- }
- .community-link:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    /* ═══════════════════════════════════════
+       COMMUNITY
+    ═══════════════════════════════════════ */
+    #community { background: var(--surface); }
+    .community-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+    .community-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      box-shadow: var(--shadow); transition: all var(--transition);
+      text-align: center;
+    }
+    .community-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .community-icon { font-size: 2.5rem; margin-bottom: .8rem; }
+    .community-card h3 { font-size: .95rem; font-weight: 700; margin-bottom: .4rem; }
+    .community-card p { font-size: .82rem; color: var(--text2); margin-bottom: 1rem; }
+    .community-link {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .8rem; font-weight: 600; color: var(--accent);
+      border: 1.5px solid var(--border); border-radius: 8px; padding: .4rem 1rem;
+      transition: all var(--transition);
+    }
+    .community-link:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 
- /* ═══════════════════════════════════════
- GITHUB STATS
- ═══════════════════════════════════════ */
- #github { background: var(--bg); }
- .github-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
- .github-card {
- background: var(--surface); border: 1px solid var(--border);
- border-radius: var(--radius); padding: 1.5rem;
- box-shadow: var(--shadow);
- }
- .github-card h4 { font-size: .88rem; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: .5rem; color: var(--text2); text-transform: uppercase; letter-spacing: .05em; font-size: .75rem; }
- .github-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
- .g-stat {
- background: var(--surface2); border-radius: 10px; padding: 1rem;
- text-align: center;
- }
- .g-stat-num { font-size: 1.6rem; font-weight: 800; color: var(--accent); line-height: 1; }
- .g-stat-label { font-size: .72rem; color: var(--text2); margin-top: .3rem; }
- .contrib-placeholder {
- background: var(--surface2); border-radius: 8px; padding: 1rem;
- text-align: center; color: var(--text2); font-size: .85rem;
- }
- .contrib-squares { display: flex; flex-wrap: wrap; gap: 3px; margin-top: .8rem; }
- .sq {
- width: 12px; height: 12px; border-radius: 2px;
- background: var(--border);
- }
- .sq.l1 { background: #bfdbfe; }
- .sq.l2 { background: #93c5fd; }
- .sq.l3 { background: #3b82f6; }
- .sq.l4 { background: #1d4ed8; }
- .lang-list { display: flex; flex-direction: column; gap: .6rem; }
- .lang-row { display: flex; align-items: center; gap: .8rem; font-size: .83rem; }
- .lang-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
- .lang-name { flex: 1; font-weight: 500; }
- .lang-pct { color: var(--text2); font-size: .78rem; }
- .lang-bar-wrap { flex: 2; height: 5px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
- .lang-bar { height: 100%; border-radius: 3px; }
+    /* ═══════════════════════════════════════
+       GITHUB STATS
+    ═══════════════════════════════════════ */
+    #github { background: var(--bg); }
+    .github-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .github-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .github-card h4 { font-size: .88rem; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: .5rem; color: var(--text2); text-transform: uppercase; letter-spacing: .05em; font-size: .75rem; }
+    .github-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .g-stat {
+      background: var(--surface2); border-radius: 10px; padding: 1rem;
+      text-align: center;
+    }
+    .g-stat-num { font-size: 1.6rem; font-weight: 800; color: var(--accent); line-height: 1; }
+    .g-stat-label { font-size: .72rem; color: var(--text2); margin-top: .3rem; }
+    .contrib-placeholder {
+      background: var(--surface2); border-radius: 8px; padding: 1rem;
+      text-align: center; color: var(--text2); font-size: .85rem;
+    }
+    .contrib-squares { display: flex; flex-wrap: wrap; gap: 3px; margin-top: .8rem; }
+    .sq {
+      width: 12px; height: 12px; border-radius: 2px;
+      background: var(--border);
+    }
+    .sq.l1 { background: #bfdbfe; }
+    .sq.l2 { background: #93c5fd; }
+    .sq.l3 { background: #3b82f6; }
+    .sq.l4 { background: #1d4ed8; }
+    .lang-list { display: flex; flex-direction: column; gap: .6rem; }
+    .lang-row { display: flex; align-items: center; gap: .8rem; font-size: .83rem; }
+    .lang-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .lang-name { flex: 1; font-weight: 500; }
+    .lang-pct { color: var(--text2); font-size: .78rem; }
+    .lang-bar-wrap { flex: 2; height: 5px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
+    .lang-bar { height: 100%; border-radius: 3px; }
 
- /* ═══════════════════════════════════════
- CONTACT
- ═══════════════════════════════════════ */
- #contact { background: var(--surface); }
- .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
- .contact-info h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; }
- .contact-info p { color: var(--text2); line-height: 1.75; margin-bottom: 1.5rem; }
- .contact-links { display: flex; flex-direction: column; gap: .8rem; }
- .contact-link-row {
- display: flex; align-items: center; gap: 1rem;
- background: var(--bg); border: 1px solid var(--border);
- border-radius: 10px; padding: .8rem 1rem;
- transition: all var(--transition);
- }
- .contact-link-row:hover { border-color: var(--accent); transform: translateX(4px); }
- .contact-link-icon {
- width: 38px; height: 38px; border-radius: 8px;
- display: flex; align-items: center; justify-content: center;
- font-size: 1rem; flex-shrink: 0;
- }
- .contact-link-text { flex: 1; }
- .contact-link-label { font-size: .72rem; color: var(--text2); font-weight: 500; }
- .contact-link-value { font-size: .88rem; font-weight: 600; }
- .contact-form { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; }
- .form-group { margin-bottom: 1.2rem; }
- .form-group label { display: block; font-size: .82rem; font-weight: 600; margin-bottom: .4rem; color: var(--text2); }
- .form-group input,
- .form-group textarea {
- width: 100%; padding: .7rem 1rem;
- background: var(--surface); border: 1.5px solid var(--border);
- border-radius: 8px; font-family: 'Inter', sans-serif;
- font-size: .9rem; color: var(--text);
- transition: border-color var(--transition);
- outline: none;
- }
- .form-group textarea { height: 110px; resize: vertical; }
- .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
- .form-submit {
- width: 100%; background: var(--accent); color: #fff;
- border: none; border-radius: 8px; padding: .8rem;
- font-size: .9rem; font-weight: 600; cursor: pointer;
- transition: all var(--transition);
- }
- .form-submit:hover { background: #1d4ed8; }
+    /* ═══════════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════════ */
+    #contact { background: var(--surface); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .contact-info h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; }
+    .contact-info p { color: var(--text2); line-height: 1.75; margin-bottom: 1.5rem; }
+    .contact-links { display: flex; flex-direction: column; gap: .8rem; }
+    .contact-link-row {
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 10px; padding: .8rem 1rem;
+      transition: all var(--transition);
+    }
+    .contact-link-row:hover { border-color: var(--accent); transform: translateX(4px); }
+    .contact-link-icon {
+      width: 38px; height: 38px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .contact-link-text { flex: 1; }
+    .contact-link-label { font-size: .72rem; color: var(--text2); font-weight: 500; }
+    .contact-link-value { font-size: .88rem; font-weight: 600; }
+    .contact-form { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; font-size: .82rem; font-weight: 600; margin-bottom: .4rem; color: var(--text2); }
+    .form-group input,
+    .form-group textarea {
+      width: 100%; padding: .7rem 1rem;
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: 8px; font-family: 'Inter', sans-serif;
+      font-size: .9rem; color: var(--text);
+      transition: border-color var(--transition);
+      outline: none;
+    }
+    .form-group textarea { height: 110px; resize: vertical; }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+    .form-submit {
+      width: 100%; background: var(--accent); color: #fff;
+      border: none; border-radius: 8px; padding: .8rem;
+      font-size: .9rem; font-weight: 600; cursor: pointer;
+      transition: all var(--transition);
+    }
+    .form-submit:hover { background: #1d4ed8; }
 
- /* ═══════════════════════════════════════
- FOOTER
- ═══════════════════════════════════════ */
- footer {
- background: #0f172a; color: #94a3b8;
- padding: 2.5rem 2rem; text-align: center;
- }
- .footer-inner { max-width: 1100px; margin: 0 auto; }
- .footer-top {
- display: flex; align-items: center; justify-content: space-between;
- flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;
- }
- .footer-logo { font-size: 1.1rem; font-weight: 700; color: #f1f5f9; }
- .footer-socials { display: flex; gap: 1rem; }
- .footer-social {
- width: 36px; height: 36px; border-radius: 8px;
- background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
- display: flex; align-items: center; justify-content: center;
- font-size: .9rem; color: #94a3b8; transition: all var(--transition);
- }
- .footer-social:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
- .footer-copy { font-size: .8rem; color: #64748b; }
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    footer {
+      background: #0f172a; color: #94a3b8;
+      padding: 2.5rem 2rem; text-align: center;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-top {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .footer-logo { font-size: 1.1rem; font-weight: 700; color: #f1f5f9; }
+    .footer-socials { display: flex; gap: 1rem; }
+    .footer-social {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .9rem; color: #94a3b8; transition: all var(--transition);
+    }
+    .footer-social:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .footer-copy { font-size: .8rem; color: #64748b; }
 
- /* ═══════════════════════════════════════
- RESPONSIVE
- ═══════════════════════════════════════ */
- @media (max-width: 900px) {
- .about-grid { grid-template-columns: 1fr; text-align: center; }
- .about-avatar-wrap { margin-bottom: 1rem; }
- .news-grid { grid-template-columns: 1fr; }
- .github-grid { grid-template-columns: 1fr; }
- .contact-grid { grid-template-columns: 1fr; }
- .prof-list { grid-template-columns: 1fr; }
- }
- @media (max-width: 640px) {
- .nav-links, .nav-cta { display: none; }
- .hamburger { display: block; }
- section { padding: 60px 1.2rem; }
- .hero-stats { gap: 1.5rem; }
- }
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; text-align: center; }
+      .about-avatar-wrap { margin-bottom: 1rem; }
+      .news-grid { grid-template-columns: 1fr; }
+      .github-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .prof-list { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: block; }
+      section { padding: 60px 1.2rem; }
+      .hero-stats { gap: 1.5rem; }
+    }
 
- /* ── Video Learning Hub ── */
- #videos { padding: 5rem 0; background: var(--bg2, #0d1117); }
- .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
- .video-card { background: var(--card, #161b22); border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.07); transition: transform 0.2s, box-shadow 0.2s; }
- .video-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
- .video-thumb-link { display: block; position: relative; overflow: hidden; aspect-ratio: 16/9; background: #0d1117; }
- .video-thumb-link img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
- .video-card:hover .video-thumb-link img { transform: scale(1.04); }
- .video-play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 54px; height: 54px; background: rgba(255,0,0,0.85); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: #fff; transition: transform 0.2s, background 0.2s; pointer-events: none; }
- .video-card:hover .video-play-btn { transform: translate(-50%,-50%) scale(1.12); background: #ff0000; }
- .video-info { padding: 1rem 1.2rem 1.2rem; }
- .video-tag { display: inline-block; background: rgba(88,166,255,0.15); color: #58a6ff; font-size: 0.72rem; font-weight: 600; padding: 2px 10px; border-radius: 20px; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
- .video-info h4 { font-size: 0.95rem; font-weight: 600; color: #e6edf3; margin: 0.3rem 0 0.4rem; line-height: 1.4; }
- .video-channel { font-size: 0.8rem; color: #8b949e; margin: 0; }
- .video-updated { text-align: center; margin-top: 1.5rem; font-size: 0.78rem; color: #8b949e; }
- </style>
+    /* ── Video Learning Hub ── */
+    #videos { padding: 5rem 0; background: var(--bg2, #0d1117); }
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .video-card { background: var(--card, #161b22); border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.07); transition: transform 0.2s, box-shadow 0.2s; }
+    .video-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+    .video-thumb-link { display: block; position: relative; overflow: hidden; aspect-ratio: 16/9; background: #0d1117; }
+    .video-thumb-link img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
+    .video-card:hover .video-thumb-link img { transform: scale(1.04); }
+    .video-play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 54px; height: 54px; background: rgba(255,0,0,0.85); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: #fff; transition: transform 0.2s, background 0.2s; pointer-events: none; }
+    .video-card:hover .video-play-btn { transform: translate(-50%,-50%) scale(1.12); background: #ff0000; }
+    .video-info { padding: 1rem 1.2rem 1.2rem; }
+    .video-tag { display: inline-block; background: rgba(88,166,255,0.15); color: #58a6ff; font-size: 0.72rem; font-weight: 600; padding: 2px 10px; border-radius: 20px; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .video-info h4 { font-size: 0.95rem; font-weight: 600; color: #e6edf3; margin: 0.3rem 0 0.4rem; line-height: 1.4; }
+    .video-channel { font-size: 0.8rem; color: #8b949e; margin: 0; }
+    .video-updated { text-align: center; margin-top: 1.5rem; font-size: 0.78rem; color: #8b949e; }
+  </style>
 </head>
 <body>
 
 <!-- ════════════════════════════ NAV ════════════════════════════ -->
 <nav>
- <div class="nav-logo">harshad<span>.khetpal</span></div>
- <ul class="nav-links">
- <li><a href="#about">About</a></li>
- <li><a href="#skills">Skills</a></li>
- <li><a href="#projects">Projects</a></li>
- <li><a href="#news">AI News</a></li>
- <li><a href="#community">Community</a></li>
- <li><a href="#contact">Contact</a></li>
- <li><a href="projects.html" style="color:var(--accent);font-weight:600"> All Projects</a></li>
- </ul>
- <a href="#contact" class="nav-cta">Hire Me</a>
- <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
- <i class="fas fa-bars"></i>
- </button>
+  <div class="nav-logo">harshad<span>.khetpal</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#news">AI News</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="projects.html" style="color:var(--accent);font-weight:600">🚀 All Projects</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Hire Me</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <i class="fas fa-bars"></i>
+  </button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
- <a href="#about" onclick="closeMenu()">About</a>
- <a href="#skills" onclick="closeMenu()">Skills</a>
- <a href="#projects" onclick="closeMenu()">Projects</a>
- <a href="#news" onclick="closeMenu()">AI News</a>
- <a href="#community" onclick="closeMenu()">Community</a>
- <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#projects" onclick="closeMenu()">Projects</a>
+  <a href="#news" onclick="closeMenu()">AI News</a>
+  <a href="#community" onclick="closeMenu()">Community</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
 
 <!-- ════════════════════════════ HERO ════════════════════════════ -->
 <section id="hero">
- <div class="hero-bg-dots"></div>
- <div class="hero-content">
- <div class="hero-badge">
- <span class="dot"></span>
- Open to Opportunities &amp; Collaborations
- </div>
- <h1 class="hero-title">
- Harshad <span class="accent">Khetpal</span>
- </h1>
- <p class="hero-tagline">MLOps · DevOps · Cloud · AI/ML · Data Engineer</p>
- <div class="typewriter-wrap">
- <span id="typewriter"></span><span class="cursor" style="color:var(--accent2)">|</span>
- </div>
- <div class="hero-ctas">
- <a href="#projects" class="btn-primary"><i class="fas fa-rocket"></i> View Projects</a>
- <a href="#contact" class="btn-secondary"><i class="fas fa-envelope"></i> Get In Touch</a>
- <a href="#" class="btn-secondary" onclick="alert('Please add your resume PDF link here!')"><i class="fas fa-download"></i> Resume</a>
- </div>
- <div class="hero-stats">
- <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Years Experience</div></div>
- <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Technologies</div></div>
- <div class="stat"><div class="stat-num">10+</div><div class="stat-label">OSS Contributions</div></div>
- <div class="stat"><div class="stat-num">3</div><div class="stat-label">Cloud Platforms</div></div>
- </div>
- </div>
+  <div class="hero-bg-dots"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Open to Opportunities &amp; Collaborations
+    </div>
+    <h1 class="hero-title">
+      Harshad <span class="accent">Khetpal</span>
+    </h1>
+    <p class="hero-tagline">MLOps · DevOps · Cloud · AI/ML · Data Engineer</p>
+    <div class="typewriter-wrap">
+      <span id="typewriter"></span><span class="cursor" style="color:var(--accent2)">|</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary"><i class="fas fa-rocket"></i> View Projects</a>
+      <a href="#contact" class="btn-secondary"><i class="fas fa-envelope"></i> Get In Touch</a>
+      <a href="#" class="btn-secondary" onclick="alert('Please add your resume PDF link here!')"><i class="fas fa-download"></i> Resume</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Technologies</div></div>
+      <div class="stat"><div class="stat-num">10+</div><div class="stat-label">OSS Contributions</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Cloud Platforms</div></div>
+    </div>
+  </div>
 </section>
 
 <!-- Tech Ticker -->
 <div class="ticker-wrap">
- <div class="ticker-inner" id="ticker">
- <!-- filled by JS -->
- </div>
+  <div class="ticker-inner" id="ticker">
+    <!-- filled by JS -->
+  </div>
 </div>
 
 <!-- ════════════════════════════ ABOUT ════════════════════════════ -->
 <section id="about">
- <div class="section-inner">
- <div class="section-header">
- <span class="section-label">About Me</span>
- <h2 class="section-title">Turning Data Into Production Reality</h2>
- <p class="section-sub">Bridging the gap between ML research and robust production systems</p>
- </div>
- <div class="about-grid">
- <div class="about-avatar-wrap">
- <div class="about-avatar">‍</div>
- <div class="about-badge-stack">
- <div class="about-badge-mini"><i class="fas fa-check-circle" style="color:var(--accent3)"></i> AWS Certified</div>
- <div class="about-badge-mini"><i class="fas fa-star" style="color:#d97706"></i> MLOps Expert</div>
- </div>
- </div>
- <div class="about-text">
- <h3>Hi, I'm Harshad </h3>
- <p>
- I'm a passionate <strong>MLOps, DevOps, Cloud &amp; AI/ML Engineer</strong> with a deep focus on building
- scalable machine learning systems that actually ship to production. I specialize in designing
- end-to-end ML pipelines, automating infrastructure, and integrating large language models into
- real-world applications.
- </p>
- <p>
- From containerizing models with Docker and orchestrating them on Kubernetes, to fine-tuning LLMs
- and building RAG pipelines — I work across the full stack of modern AI infrastructure. My cloud
- experience spans <strong>AWS, GCP, and Azure</strong>, and I'm deeply familiar with
- tools like MLflow, Kubeflow, Airflow, Terraform, and the broader LangChain ecosystem.
- </p>
- <p>
- I believe in <strong>open-source collaboration</strong>, continuous learning, and building systems
- that are reproducible, monitored, and maintainable. Currently contributing to trending OSS projects
- and always open to exciting challenges at the intersection of AI and infrastructure.
- </p>
- <div class="about-pills">
- <span class="pill"> Building LLM Pipelines</span>
- <span class="pill green"> Learning Agentic AI</span>
- <span class="pill purple"> Open Source Contributor</span>
- <span class="pill"> Available Worldwide (Remote)</span>
- </div>
- </div>
- </div>
- </div>
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">About Me</span>
+      <h2 class="section-title">Turning Data Into Production Reality</h2>
+      <p class="section-sub">Bridging the gap between ML research and robust production systems</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-avatar-wrap">
+        <div class="about-avatar">🧑‍💻</div>
+        <div class="about-badge-stack">
+          <div class="about-badge-mini"><i class="fas fa-check-circle" style="color:var(--accent3)"></i> AWS Certified</div>
+          <div class="about-badge-mini"><i class="fas fa-star" style="color:#d97706"></i> MLOps Expert</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <h3>Hi, I'm Harshad </h3>
+        <p>
+          I'm a passionate <strong>MLOps, DevOps, Cloud &amp; AI/ML Engineer</strong> with a deep focus on building
+          scalable machine learning systems that actually ship to production. I specialize in designing
+          end-to-end ML pipelines, automating infrastructure, and integrating large language models into
+          real-world applications.
+        </p>
+        <p>
+          From containerizing models with Docker and orchestrating them on Kubernetes, to fine-tuning LLMs
+          and building RAG pipelines — I work across the full stack of modern AI infrastructure. My cloud
+          experience spans <strong>AWS, GCP, and Azure</strong>, and I'm deeply familiar with
+          tools like MLflow, Kubeflow, Airflow, Terraform, and the broader LangChain ecosystem.
+        </p>
+        <p>
+          I believe in <strong>open-source collaboration</strong>, continuous learning, and building systems
+          that are reproducible, monitored, and maintainable. Currently contributing to trending OSS projects
+          and always open to exciting challenges at the intersection of AI and infrastructure.
+        </p>
+        <div class="about-pills">
+          <span class="pill">🔭 Building LLM Pipelines</span>
+          <span class="pill green">🌱 Learning Agentic AI</span>
+          <span class="pill purple">🤝 Open Source Contributor</span>
+          <span class="pill">📍 Available Worldwide (Remote)</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ════════════════════════════ SKILLS ════════════════════════════ -->
 <section id="skills">
- <div class="section-inner">
- <div class="section-header">
- <span class="section-label">Technical Skills</span>
- <h2 class="section-title">My Tech Arsenal</h2>
- <p class="section-sub">A diverse skill set spanning the full AI/ML lifecycle and modern cloud infrastructure</p>
- </div>
- <div class="skills-grid">
- <div class="skill-card">
- <div class="skill-card-icon icon-blue"><i class="fas fa-brain"></i></div>
- <h4>MLOps &amp; ML Lifecycle</h4>
- <div class="skill-tags">
- <span class="stag">MLflow</span><span class="stag">Kubeflow</span>
- <span class="stag">DVC</span><span class="stag">BentoML</span>
- <span class="stag">Weights&amp;Biases</span><span class="stag">Feast</span>
- <span class="stag">Evidently AI</span>
- </div>
- </div>
- <div class="skill-card">
- <div class="skill-card-icon icon-orange"><i class="fab fa-aws"></i></div>
- <h4>Cloud Platforms</h4>
- <div class="skill-tags">
- <span class="stag">AWS SageMaker</span><span class="stag">EC2 / EKS</span>
- <span class="stag">GCP Vertex AI</span><span class="stag">BigQuery</span>
- <span class="stag">Azure ML</span><span class="stag">S3 / GCS</span>
- <span class="stag">Lambda</span>
- </div>
- </div>
- <div class="skill-card">
- <div class="skill-card-icon icon-green"><i class="fas fa-cogs"></i></div>
- <h4>DevOps &amp; CI/CD</h4>
- <div class="skill-tags">
- <span class="stag">Docker</span><span class="stag">Kubernetes</span>
- <span class="stag">Terraform</span><span class="stag">Helm</span>
- <span class="stag">GitHub Actions</span><span class="stag">Jenkins</span>
- <span class="stag">ArgoCD</span>
- </div>
- </div>
- <div class="skill-card">
- <div class="skill-card-icon icon-purple"><i class="fas fa-robot"></i></div>
- <h4>AI / ML / LLM</h4>
- <div class="skill-tags">
- <span class="stag">PyTorch</span><span class="stag">Transformers</span>
- <span class="stag">LangChain</span><span class="stag">LangGraph</span>
- <span class="stag">RAG</span><span class="stag">Fine-tuning</span>
- <span class="stag">vLLM</span><span class="stag">Ollama</span>
- </div>
- </div>
- <div class="skill-card">
- <div class="skill-card-icon icon-pink"><i class="fas fa-database"></i></div>
- <h4>Data Engineering</h4>
- <div class="skill-tags">
- <span class="stag">Apache Spark</span><span class="stag">Airflow</span>
- <span class="stag">Prefect</span><span class="stag">dbt</span>
- <span class="stag">Kafka</span><span class="stag">PostgreSQL</span>
- <span class="stag">Pinecone</span><span class="stag">Weaviate</span>
- </div>
- </div>
- <div class="skill-card">
- <div class="skill-card-icon icon-blue"><i class="fas fa-code"></i></div>
- <h4>Programming &amp; Frameworks</h4>
- <div class="skill-tags">
- <span class="stag">Python</span><span class="stag">FastAPI</span>
- <span class="stag">Go</span><span class="stag">Bash</span>
- <span class="stag">SQL</span><span class="stag">Pandas</span>
- <span class="stag">Scikit-learn</span>
- </div>
- </div>
- </div>
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Technical Skills</span>
+      <h2 class="section-title">My Tech Arsenal</h2>
+      <p class="section-sub">A diverse skill set spanning the full AI/ML lifecycle and modern cloud infrastructure</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-icon icon-blue"><i class="fas fa-brain"></i></div>
+        <h4>MLOps &amp; ML Lifecycle</h4>
+        <div class="skill-tags">
+          <span class="stag">MLflow</span><span class="stag">Kubeflow</span>
+          <span class="stag">DVC</span><span class="stag">BentoML</span>
+          <span class="stag">Weights&amp;Biases</span><span class="stag">Feast</span>
+          <span class="stag">Evidently AI</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon icon-orange"><i class="fab fa-aws"></i></div>
+        <h4>Cloud Platforms</h4>
+        <div class="skill-tags">
+          <span class="stag">AWS SageMaker</span><span class="stag">EC2 / EKS</span>
+          <span class="stag">GCP Vertex AI</span><span class="stag">BigQuery</span>
+          <span class="stag">Azure ML</span><span class="stag">S3 / GCS</span>
+          <span class="stag">Lambda</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon icon-green"><i class="fas fa-cogs"></i></div>
+        <h4>DevOps &amp; CI/CD</h4>
+        <div class="skill-tags">
+          <span class="stag">Docker</span><span class="stag">Kubernetes</span>
+          <span class="stag">Terraform</span><span class="stag">Helm</span>
+          <span class="stag">GitHub Actions</span><span class="stag">Jenkins</span>
+          <span class="stag">ArgoCD</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon icon-purple"><i class="fas fa-robot"></i></div>
+        <h4>AI / ML / LLM</h4>
+        <div class="skill-tags">
+          <span class="stag">PyTorch</span><span class="stag">Transformers</span>
+          <span class="stag">LangChain</span><span class="stag">LangGraph</span>
+          <span class="stag">RAG</span><span class="stag">Fine-tuning</span>
+          <span class="stag">vLLM</span><span class="stag">Ollama</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon icon-pink"><i class="fas fa-database"></i></div>
+        <h4>Data Engineering</h4>
+        <div class="skill-tags">
+          <span class="stag">Apache Spark</span><span class="stag">Airflow</span>
+          <span class="stag">Prefect</span><span class="stag">dbt</span>
+          <span class="stag">Kafka</span><span class="stag">PostgreSQL</span>
+          <span class="stag">Pinecone</span><span class="stag">Weaviate</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon icon-blue"><i class="fas fa-code"></i></div>
+        <h4>Programming &amp; Frameworks</h4>
+        <div class="skill-tags">
+          <span class="stag">Python</span><span class="stag">FastAPI</span>
+          <span class="stag">Go</span><span class="stag">Bash</span>
+          <span class="stag">SQL</span><span class="stag">Pandas</span>
+          <span class="stag">Scikit-learn</span>
+        </div>
+      </div>
+    </div>
 
- <!-- Proficiency bars -->
- <div class="prof-list" id="profList">
- <div class="prof-row"><div class="prof-label"><span>MLOps Pipelines</span><span>90%</span></div><div class="prof-bar"><div class="prof-fill" data-width="90"></div></div></div>
- <div class="prof-row"><div class="prof-label"><span>Cloud Infrastructure</span><span>85%</span></div><div class="prof-bar"><div class="prof-fill" data-width="85"></div></div></div>
- <div class="prof-row"><div class="prof-label"><span>Docker / Kubernetes</span><span>88%</span></div><div class="prof-bar"><div class="prof-fill" data-width="88"></div></div></div>
- <div class="prof-row"><div class="prof-label"><span>LLM / RAG Engineering</span><span>80%</span></div><div class="prof-bar"><div class="prof-fill" data-width="80"></div></div></div>
- <div class="prof-row"><div class="prof-label"><span>Python / ML Frameworks</span><span>92%</span></div><div class="prof-bar"><div class="prof-fill" data-width="92"></div></div></div>
- <div class="prof-row"><div class="prof-label"><span>Data Engineering</span><span>82%</span></div><div class="prof-bar"><div class="prof-fill" data-width="82"></div></div></div>
- </div>
- </div>
+    <!-- Proficiency bars -->
+    <div class="prof-list" id="profList">
+      <div class="prof-row"><div class="prof-label"><span>MLOps Pipelines</span><span>90%</span></div><div class="prof-bar"><div class="prof-fill" data-width="90"></div></div></div>
+      <div class="prof-row"><div class="prof-label"><span>Cloud Infrastructure</span><span>85%</span></div><div class="prof-bar"><div class="prof-fill" data-width="85"></div></div></div>
+      <div class="prof-row"><div class="prof-label"><span>Docker / Kubernetes</span><span>88%</span></div><div class="prof-bar"><div class="prof-fill" data-width="88"></div></div></div>
+      <div class="prof-row"><div class="prof-label"><span>LLM / RAG Engineering</span><span>80%</span></div><div class="prof-bar"><div class="prof-fill" data-width="80"></div></div></div>
+      <div class="prof-row"><div class="prof-label"><span>Python / ML Frameworks</span><span>92%</span></div><div class="prof-bar"><div class="prof-fill" data-width="92"></div></div></div>
+      <div class="prof-row"><div class="prof-label"><span>Data Engineering</span><span>82%</span></div><div class="prof-bar"><div class="prof-fill" data-width="82"></div></div></div>
+    </div>
+  </div>
 </section>
 
 <!-- ════════════════════════════ PROJECTS ════════════════════════════ -->
 <section id="projects">
- <div class="section-inner">
- <div class="section-header">
- <span class="section-label">Open Source Projects</span>
- <h2 class="section-title">Projects &amp; Contributions</h2>
- <p class="section-sub">Actively contributing to the most impactful open-source AI/MLOps projects — fork, contribute, and build your portfolio alongside these</p>
- </div>
- <div class="project-filters">
- <button class="filter-btn active" data-filter="all">All</button>
- <button class="filter-btn" data-filter="mlops">MLOps</button>
- <button class="filter-btn" data-filter="llm">LLM / RAG</button>
- <button class="filter-btn" data-filter="orchestration">Orchestration</button>
- <button class="filter-btn" data-filter="infra">Infrastructure</button>
- <button class="filter-btn" data-filter="agents"> Agents</button>
- <button class="filter-btn" data-filter="quantum">️ Quantum</button>
- </div>
- <div class="projects-grid" id="projectsGrid">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Open Source Projects</span>
+      <h2 class="section-title">Projects &amp; Contributions</h2>
+      <p class="section-sub">Actively contributing to the most impactful open-source AI/MLOps projects — fork, contribute, and build your portfolio alongside these</p>
+    </div>
+    <div class="project-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="mlops">MLOps</button>
+      <button class="filter-btn" data-filter="llm">LLM / RAG</button>
+      <button class="filter-btn" data-filter="orchestration">Orchestration</button>
+      <button class="filter-btn" data-filter="infra">Infrastructure</button>
+      <button class="filter-btn" data-filter="agents">🤖 Agents</button>
+      <button class="filter-btn" data-filter="quantum">⚛️ Quantum</button>
+    </div>
+    <div class="projects-grid" id="projectsGrid">
 
- <!-- Ollama -->
- <div class="project-card" data-cat="llm">
- <div class="project-badge badge-trending"><i class="fas fa-fire"></i> Trending #1</div>
- <div class="project-card-top">
- <span class="project-icon"></span>
- <span class="project-stars"><i class="fas fa-star"></i> 164K</span>
- </div>
- <h3>Ollama</h3>
- <p>Get up and running with large language models locally. Simplifies LLM deployment on personal hardware with a clean REST API and model management.</p>
- <div class="project-tech">
- <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">Go</span>
- <span class="tech-tag" style="background:#dcfce7;color:#166534">REST API</span>
- <span class="tech-tag" style="background:#f5f3ff;color:#5b21b6">Local LLM</span>
- </div>
- <div class="project-links">
- <a href="https://github.com/harshadkhetpal/ollama" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
- <a href="https://ollama.com" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
- </div>
- </div>
+      <!-- Ollama -->
+      <div class="project-card" data-cat="llm">
+        <div class="project-badge badge-trending"><i class="fas fa-fire"></i> Trending #1</div>
+        <div class="project-card-top">
+          <span class="project-icon">🦙</span>
+          <span class="project-stars"><i class="fas fa-star"></i> 164K</span>
+        </div>
+        <h3>Ollama</h3>
+        <p>Get up and running with large language models locally. Simplifies LLM deployment on personal hardware with a clean REST API and model management.</p>
+        <div class="project-tech">
+          <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">Go</span>
+          <span class="tech-tag" style="background:#dcfce7;color:#166534">REST API</span>
+          <span class="tech-tag" style="background:#f5f3ff;color:#5b21b6">Local LLM</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/harshadkhetpal/ollama" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://ollama.com" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
+        </div>
+      </div>
 
- <!-- vLLM -->
- <div class="project-card" data-cat="llm">
- <div class="project-badge badge-active"><i class="fas fa-bolt"></i> Active Dev</div>
- <div class="project-card-top">
- <span class="project-icon"></span>
- <span class="project-stars"><i class="fas fa-star"></i> 49K</span>
- </div>
- <h3>vLLM</h3>
- <p>High-throughput and memory-efficient inference engine for LLMs. Uses PagedAttention for 24x faster serving vs HuggingFace. PyTorch ecosystem member.</p>
- <div class="project-tech">
- <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
- <span class="tech-tag" style="background:#dcfce7;color:#166534">CUDA</span>
- <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">OpenAI API</span>
- </div>
- <div class="project-links">
- <a href="https://github.com/harshadkhetpal/vllm" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
- <a href="https://docs.vllm.ai" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
- </div>
- </div>
+      <!-- vLLM -->
+      <div class="project-card" data-cat="llm">
+        <div class="project-badge badge-active"><i class="fas fa-bolt"></i> Active Dev</div>
+        <div class="project-card-top">
+          <span class="project-icon">⚡</span>
+          <span class="project-stars"><i class="fas fa-star"></i> 49K</span>
+        </div>
+        <h3>vLLM</h3>
+        <p>High-throughput and memory-efficient inference engine for LLMs. Uses PagedAttention for 24x faster serving vs HuggingFace. PyTorch ecosystem member.</p>
+        <div class="project-tech">
+          <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
+          <span class="tech-tag" style="background:#dcfce7;color:#166534">CUDA</span>
+          <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">OpenAI API</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/harshadkhetpal/vllm" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://docs.vllm.ai" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
+        </div>
+      </div>
 
- <!-- Dify -->
- <div class="project-card" data-cat="llm">
- <div class="project-badge badge-trending"><i class="fas fa-fire"></i> 100K+ Stars</div>
- <div class="project-card-top">
- <span class="project-icon"></span>
- <span class="project-stars"><i class="fas fa-star"></i> 114K</span>
- </div>
- <h3>Dify</h3>
- <p>Production-ready LLM app development platform with RAG pipelines, agentic workflows, model management, and observability in one intuitive interface.</p>
- <div class="project-tech">
- <span class="tech-tag" style="background:#fce7f3;color:#9d174d">TypeScript</span>
- <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
- <span class="tech-tag" style="background:#f5f3ff;color:#5b21b6">RAG</span>
- </div>
- <div class="project-links">
- <a href="https://github.com/harshadkhetpal/dify" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
- <a href="https://dify.ai" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
- </div>
- </div>
+      <!-- Dify -->
+      <div class="project-card" data-cat="llm">
+        <div class="project-badge badge-trending"><i class="fas fa-fire"></i> 100K+ Stars</div>
+        <div class="project-card-top">
+          <span class="project-icon">🤖</span>
+          <span class="project-stars"><i class="fas fa-star"></i> 114K</span>
+        </div>
+        <h3>Dify</h3>
+        <p>Production-ready LLM app development platform with RAG pipelines, agentic workflows, model management, and observability in one intuitive interface.</p>
+        <div class="project-tech">
+          <span class="tech-tag" style="background:#fce7f3;color:#9d174d">TypeScript</span>
+          <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
+          <span class="tech-tag" style="background:#f5f3ff;color:#5b21b6">RAG</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/harshadkhetpal/dify" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://dify.ai" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
+        </div>
+      </div>
 
- <!-- MLflow -->
- <div class="project-card" data-cat="mlops">
- <div class="project-badge badge-contrib"><i class="fas fa-users"></i> Contributor-Friendly</div>
- <div class="project-card-top">
- <span class="project-icon"></span>
- <span class="project-stars"><i class="fas fa-star"></i> 20K</span>
- </div>
- <h3>MLflow</h3>
- <p>End-to-end ML platform with experiment tracking, model registry, LLM observability, and AI agent tracing. 30M+ monthly downloads. The industry standard.</p>
- <div class="project-tech">
- <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
- <span class="tech-tag" style="background:#dcfce7;color:#166534">Model Registry</span>
- <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">Tracking</span>
- </div>
- <div class="project-links">
- <a href="https://github.com/harshadkhetpal/mlflow" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
- <a href="https://mlflow.org" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
- </div>
- </div>
+      <!-- MLflow -->
+      <div class="project-card" data-cat="mlops">
+        <div class="project-badge badge-contrib"><i class="fas fa-users"></i> Contributor-Friendly</div>
+        <div class="project-card-top">
+          <span class="project-icon">📊</span>
+          <span class="project-stars"><i class="fas fa-star"></i> 20K</span>
+        </div>
+        <h3>MLflow</h3>
+        <p>End-to-end ML platform with experiment tracking, model registry, LLM observability, and AI agent tracing. 30M+ monthly downloads. The industry standard.</p>
+        <div class="project-tech">
+          <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
+          <span class="tech-tag" style="background:#dcfce7;color:#166534">Model Registry</span>
+          <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">Tracking</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/harshadkhetpal/mlflow" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://mlflow.org" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
+        </div>
+      </div>
 
- <!-- Kubeflow -->
- <div class="project-card" data-cat="mlops infra">
- <div class="project-badge badge-contrib"><i class="fas fa-users"></i> CNCF Project</div>
- <div class="project-card-top">
- <span class="project-icon">️</span>
- <span class="project-stars"><i class="fas fa-star"></i> 34K</span>
- </div>
- <h3>Kubeflow</h3>
- <p>ML Toolkit for Kubernetes enabling end-to-end ML workflows. Covers pipelines, Katib hyperparameter tuning, and model training at scale. CNCF member.</p>
- <div class="project-tech">
- <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">Kubernetes</span>
- <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
- <span class="tech-tag" style="background:#dcfce7;color:#166534">Pipelines</span>
- </div>
- <div class="project-links">
- <a href="https://github.com/harshadkhetpal/kubeflow" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
- <a href="https://kubeflow.org" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
- </div>
- </div>
+      <!-- Kubeflow -->
+      <div class="project-card" data-cat="mlops infra">
+        <div class="project-badge badge-contrib"><i class="fas fa-users"></i> CNCF Project</div>
+        <div class="project-card-top">
+          <span class="project-icon">☸️</span>
+          <span class="project-stars"><i class="fas fa-star"></i> 34K</span>
+        </div>
+        <h3>Kubeflow</h3>
+        <p>ML Toolkit for Kubernetes enabling end-to-end ML workflows. Covers pipelines, Katib hyperparameter tuning, and model training at scale. CNCF member.</p>
+        <div class="project-tech">
+          <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">Kubernetes</span>
+          <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
+          <span class="tech-tag" style="background:#dcfce7;color:#166534">Pipelines</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/harshadkhetpal/kubeflow" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://kubeflow.org" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
+        </div>
+      </div>
 
- <!-- LangChain -->
- <div class="project-card" data-cat="llm">
- <div class="project-badge badge-active"><i class="fas fa-bolt"></i> Weekly Releases</div>
- <div class="project-card-top">
- <span class="project-icon"></span>
- <span class="project-stars"><i class="fas fa-star"></i> 70K</span>
- </div>
- <h3>LangChain</h3>
- <p>The de facto standard for building LLM-powered applications. Modular abstractions for chains, agents, RAG, memory, and tool use. Massive plugin ecosystem.</p>
- <div class="project-tech">
- <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
- <span class="tech-tag" style="background:#fce7f3;color:#9d174d">TypeScript</span>
- <span class="tech-tag" style="background:#f5f3ff;color:#5b21b6">LLM</span>
- </div>
- <div class="project-links">
- <a href="https://github.com/harshadkhetpal/langchain" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
- <a href="https://python.langchain.com" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
- </div>
- </div>
+      <!-- LangChain -->
+      <div class="project-card" data-cat="llm">
+        <div class="project-badge badge-active"><i class="fas fa-bolt"></i> Weekly Releases</div>
+        <div class="project-card-top">
+          <span class="project-icon">🔗</span>
+          <span class="project-stars"><i class="fas fa-star"></i> 70K</span>
+        </div>
+        <h3>LangChain</h3>
+        <p>The de facto standard for building LLM-powered applications. Modular abstractions for chains, agents, RAG, memory, and tool use. Massive plugin ecosystem.</p>
+        <div class="project-tech">
+          <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
+          <span class="tech-tag" style="background:#fce7f3;color:#9d174d">TypeScript</span>
+          <span class="tech-tag" style="background:#f5f3ff;color:#5b21b6">LLM</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/harshadkhetpal/langchain" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://python.langchain.com" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
+        </div>
+      </div>
 
- <!-- Ray -->
- <div class="project-card" data-cat="infra mlops">
- <div class="project-badge badge-active"><i class="fas fa-bolt"></i> PyTorch Foundation</div>
- <div class="project-card-top">
- <span class="project-icon">️</span>
- <span class="project-stars"><i class="fas fa-star"></i> 39K</span>
- </div>
- <h3>Ray</h3>
- <p>AI compute engine providing a distributed runtime and ML libraries for accelerating ML workloads. Used by Uber, Spotify, OpenAI. 27M monthly downloads.</p>
- <div class="project-tech">
- <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
- <span class="tech-tag" style="background:#dcfce7;color:#166534">Distributed</span>
- <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">Ray Serve</span>
- </div>
- <div class="project-links">
- <a href="https://github.com/harshadkhetpal/ray" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
- <a href="https://ray.io" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
- </div>
- </div>
+      <!-- Ray -->
+      <div class="project-card" data-cat="infra mlops">
+        <div class="project-badge badge-active"><i class="fas fa-bolt"></i> PyTorch Foundation</div>
+        <div class="project-card-top">
+          <span class="project-icon">☀️</span>
+          <span class="project-stars"><i class="fas fa-star"></i> 39K</span>
+        </div>
+        <h3>Ray</h3>
+        <p>AI compute engine providing a distributed runtime and ML libraries for accelerating ML workloads. Used by Uber, Spotify, OpenAI. 27M monthly downloads.</p>
+        <div class="project-tech">
+          <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
+          <span class="tech-tag" style="background:#dcfce7;color:#166534">Distributed</span>
+          <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">Ray Serve</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/harshadkhetpal/ray" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://ray.io" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
+        </div>
+      </div>
 
- <!-- Apache Airflow -->
- <div class="project-card" data-cat="orchestration">
- <div class="project-badge badge-contrib"><i class="fas fa-users"></i> 3600+ Contributors</div>
- <div class="project-card-top">
- <span class="project-icon">️</span>
- <span class="project-stars"><i class="fas fa-star"></i> 44K</span>
- </div>
- <h3>Apache Airflow</h3>
- <p>Platform to programmatically author, schedule, and monitor workflows. The backbone of data engineering pipelines at thousands of companies worldwide.</p>
- <div class="project-tech">
- <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
- <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">DAGs</span>
- <span class="tech-tag" style="background:#dcfce7;color:#166534">Kubernetes</span>
- </div>
- <div class="project-links">
- <a href="https://github.com/harshadkhetpal/airflow" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
- <a href="https://airflow.apache.org" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
- </div>
- </div>
+      <!-- Apache Airflow -->
+      <div class="project-card" data-cat="orchestration">
+        <div class="project-badge badge-contrib"><i class="fas fa-users"></i> 3600+ Contributors</div>
+        <div class="project-card-top">
+          <span class="project-icon">🌬️</span>
+          <span class="project-stars"><i class="fas fa-star"></i> 44K</span>
+        </div>
+        <h3>Apache Airflow</h3>
+        <p>Platform to programmatically author, schedule, and monitor workflows. The backbone of data engineering pipelines at thousands of companies worldwide.</p>
+        <div class="project-tech">
+          <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
+          <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">DAGs</span>
+          <span class="tech-tag" style="background:#dcfce7;color:#166534">Kubernetes</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/harshadkhetpal/airflow" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://airflow.apache.org" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
+        </div>
+      </div>
 
- <!-- Prefect -->
- <div class="project-card" data-cat="orchestration">
- <div class="project-badge badge-contrib"><i class="fas fa-users"></i> 6M+ Downloads/mo</div>
- <div class="project-card-top">
- <span class="project-icon"></span>
- <span class="project-stars"><i class="fas fa-star"></i> 18K</span>
- </div>
- <h3>Prefect</h3>
- <p>Workflow orchestration for building resilient, dynamic data pipelines in Python. Reacts to real-world events, Pythonic API, Kubernetes-native.</p>
- <div class="project-tech">
- <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
- <span class="tech-tag" style="background:#f5f3ff;color:#5b21b6">Async</span>
- <span class="tech-tag" style="background:#dcfce7;color:#166534">Dynamic DAGs</span>
- </div>
- <div class="project-links">
- <a href="https://github.com/harshadkhetpal/prefect" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
- <a href="https://prefect.io" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
- </div>
- </div>
+      <!-- Prefect -->
+      <div class="project-card" data-cat="orchestration">
+        <div class="project-badge badge-contrib"><i class="fas fa-users"></i> 6M+ Downloads/mo</div>
+        <div class="project-card-top">
+          <span class="project-icon">🌊</span>
+          <span class="project-stars"><i class="fas fa-star"></i> 18K</span>
+        </div>
+        <h3>Prefect</h3>
+        <p>Workflow orchestration for building resilient, dynamic data pipelines in Python. Reacts to real-world events, Pythonic API, Kubernetes-native.</p>
+        <div class="project-tech">
+          <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
+          <span class="tech-tag" style="background:#f5f3ff;color:#5b21b6">Async</span>
+          <span class="tech-tag" style="background:#dcfce7;color:#166534">Dynamic DAGs</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/harshadkhetpal/prefect" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://prefect.io" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
+        </div>
+      </div>
 
- <!-- HuggingFace Transformers -->
- <div class="project-card" data-cat="llm mlops">
- <div class="project-badge badge-trending"><i class="fas fa-fire"></i> 140K Stars</div>
- <div class="project-card-top">
- <span class="project-icon"></span>
- <span class="project-stars"><i class="fas fa-star"></i> 140K</span>
- </div>
- <h3>HuggingFace Transformers</h3>
- <p>State-of-the-art ML models for text, vision, audio, and multimodal tasks. 1.2B+ installs, 750K+ models, Transformers v5 with modular architecture.</p>
- <div class="project-tech">
- <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
- <span class="tech-tag" style="background:#dcfce7;color:#166534">PyTorch</span>
- <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">NLP / Vision</span>
- </div>
- <div class="project-links">
- <a href="https://github.com/harshadkhetpal/transformers" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
- <a href="https://huggingface.co/docs" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
- </div>
- </div>
+      <!-- HuggingFace Transformers -->
+      <div class="project-card" data-cat="llm mlops">
+        <div class="project-badge badge-trending"><i class="fas fa-fire"></i> 140K Stars</div>
+        <div class="project-card-top">
+          <span class="project-icon">🤗</span>
+          <span class="project-stars"><i class="fas fa-star"></i> 140K</span>
+        </div>
+        <h3>HuggingFace Transformers</h3>
+        <p>State-of-the-art ML models for text, vision, audio, and multimodal tasks. 1.2B+ installs, 750K+ models, Transformers v5 with modular architecture.</p>
+        <div class="project-tech">
+          <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
+          <span class="tech-tag" style="background:#dcfce7;color:#166534">PyTorch</span>
+          <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">NLP / Vision</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/harshadkhetpal/transformers" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://huggingface.co/docs" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
+        </div>
+      </div>
 
 
- <!-- Qiskit — Quantum Computing -->
- <div class="project-card" data-cat="quantum infra">
- <div class="project-badge badge-trending"><i class="fas fa-atom"></i> IBM Quantum</div>
- <div class="project-card-top">
- <span class="project-icon">️</span>
- <span class="project-stars"><i class="fas fa-star"></i> 5.7K</span>
- </div>
- <h3>Qiskit</h3>
- <p>IBM's open-source SDK for quantum computing. Compose and run quantum circuits on real IBM Quantum hardware or local simulators. Actively exploring hybrid classical-quantum ML algorithms for optimization and sampling problems.</p>
- <div class="project-tech">
- <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">Python</span>
- <span class="tech-tag" style="background:#f5f3ff;color:#5b21b6">Quantum Circuits</span>
- <span class="tech-tag" style="background:#dcfce7;color:#166534">IBM Quantum</span>
- </div>
- <div class="project-links">
- <a href="https://github.com/harshadkhetpal/qiskit" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
- <a href="https://qiskit.org" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
- </div>
- </div>
+      <!-- Qiskit — Quantum Computing -->
+      <div class="project-card" data-cat="quantum infra">
+        <div class="project-badge badge-trending"><i class="fas fa-atom"></i> IBM Quantum</div>
+        <div class="project-card-top">
+          <span class="project-icon">⚛️</span>
+          <span class="project-stars"><i class="fas fa-star"></i> 5.7K</span>
+        </div>
+        <h3>Qiskit</h3>
+        <p>IBM's open-source SDK for quantum computing. Compose and run quantum circuits on real IBM Quantum hardware or local simulators. Actively exploring hybrid classical-quantum ML algorithms for optimization and sampling problems.</p>
+        <div class="project-tech">
+          <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">Python</span>
+          <span class="tech-tag" style="background:#f5f3ff;color:#5b21b6">Quantum Circuits</span>
+          <span class="tech-tag" style="background:#dcfce7;color:#166534">IBM Quantum</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/harshadkhetpal/qiskit" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://qiskit.org" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
+        </div>
+      </div>
 
- <!-- n8n + Claude AI Agents -->
- <div class="project-card" data-cat="agents llm">
- <div class="project-badge badge-trending"><i class="fas fa-fire"></i> 51K Stars</div>
- <div class="project-card-top">
- <span class="project-icon"></span>
- <span class="project-stars"><i class="fas fa-star"></i> 51K</span>
- </div>
- <h3>n8n + Claude Agents</h3>
- <p>Low-code workflow automation platform wired to Claude API for end-to-end AI agent pipelines. Build multi-step agentic workflows — web research, RAG retrieval, email drafting, Slack alerts — all orchestrated via n8n's visual node graph.</p>
- <div class="project-tech">
- <span class="tech-tag" style="background:#eff6ff;color:#1d4ed8">Claude API</span>
- <span class="tech-tag" style="background:#fef3c7;color:#92400e">n8n</span>
- <span class="tech-tag" style="background:#f5f3ff;color:#5b21b6">AI Agents</span>
- </div>
- <div class="project-links">
- <a href="https://github.com/harshadkhetpal/n8n" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
- <a href="https://n8n.io" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
- </div>
- </div>
+      <!-- n8n + Claude AI Agents -->
+      <div class="project-card" data-cat="agents llm">
+        <div class="project-badge badge-trending"><i class="fas fa-fire"></i> 51K Stars</div>
+        <div class="project-card-top">
+          <span class="project-icon">🔗</span>
+          <span class="project-stars"><i class="fas fa-star"></i> 51K</span>
+        </div>
+        <h3>n8n + Claude Agents</h3>
+        <p>Low-code workflow automation platform wired to Claude API for end-to-end AI agent pipelines. Build multi-step agentic workflows — web research, RAG retrieval, email drafting, Slack alerts — all orchestrated via n8n's visual node graph.</p>
+        <div class="project-tech">
+          <span class="tech-tag" style="background:#eff6ff;color:#1d4ed8">Claude API</span>
+          <span class="tech-tag" style="background:#fef3c7;color:#92400e">n8n</span>
+          <span class="tech-tag" style="background:#f5f3ff;color:#5b21b6">AI Agents</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/harshadkhetpal/n8n" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://n8n.io" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
+        </div>
+      </div>
 
- </div>
- </div>
+    </div>
+  </div>
 </section>
 
 <!-- ════════════════════════════ AI NEWS ════════════════════════════ -->
 <section id="news">
- <div class="section-inner">
- <div class="section-header">
- <span class="section-label">AI News &amp; Updates</span>
- <h2 class="section-title">What's Happening in AI</h2>
- <p class="section-sub">Staying current with the latest breakthroughs, model releases &amp; community updates</p>
- </div>
- <div class="news-grid">
- <div class="news-main-grid">
- <!-- AI_NEWS_START -->
- <div class="news-main-grid">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">AI News &amp; Updates</span>
+      <h2 class="section-title">What's Happening in AI</h2>
+      <p class="section-sub">Staying current with the latest breakthroughs, model releases &amp; community updates</p>
+    </div>
+    <div class="news-grid">
+      <div class="news-main-grid">
+        <!-- AI_NEWS_START -->
+        <div class="news-main-grid">
 
- <div class="news-card">
- <span class="news-emoji">&#x1F680;</span>
- <div class="news-content">
- <div class="news-meta">
- <span class="news-tag">LLM Release</span>
- <span class="news-date">Mar 2026</span>
- </div>
- <h4>OpenAI Launches GPT-5.4 — Expert-Level Reasoning Model</h4>
- <p>GPT-5.4 "Thinking" scores 83% on GDPVal at human-expert level with a 1M+ token context window.</p>
- <a href="https://medium.com/@Micheal-Lanham/the-march-2026-frontier-gpt-5-4-vs-gemini-3-1-vs-claude-4-6-daebf22e672e" target="_blank">Read more &#x2192;</a>
- </div>
- </div>
+        <div class="news-card">
+          <span class="news-emoji">&#x1F680;</span>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-tag">LLM Release</span>
+              <span class="news-date">Mar 2026</span>
+            </div>
+            <h4>OpenAI Launches GPT-5.4 — Expert-Level Reasoning Model</h4>
+            <p>GPT-5.4 "Thinking" scores 83% on GDPVal at human-expert level with a 1M+ token context window.</p>
+            <a href="https://medium.com/@Micheal-Lanham/the-march-2026-frontier-gpt-5-4-vs-gemini-3-1-vs-claude-4-6-daebf22e672e" target="_blank">Read more &#x2192;</a>
+          </div>
+        </div>
 
- <div class="news-card">
- <span class="news-emoji">&#x1F680;</span>
- <div class="news-content">
- <div class="news-meta">
- <span class="news-tag">LLM Release</span>
- <span class="news-date">Feb 2026</span>
- </div>
- <h4>Google Gemini 3.1 Pro Tops 13/16 Benchmarks at Same Price</h4>
- <p>Gemini 3.1 Pro scores 77.1% on ARC-AGI-2 and leads 13 of 16 major benchmarks with no price increase.</p>
- <a href="https://renovateqr.com/blog/ai-model-releases-2026" target="_blank">Read more &#x2192;</a>
- </div>
- </div>
+        <div class="news-card">
+          <span class="news-emoji">&#x1F680;</span>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-tag">LLM Release</span>
+              <span class="news-date">Feb 2026</span>
+            </div>
+            <h4>Google Gemini 3.1 Pro Tops 13/16 Benchmarks at Same Price</h4>
+            <p>Gemini 3.1 Pro scores 77.1% on ARC-AGI-2 and leads 13 of 16 major benchmarks with no price increase.</p>
+            <a href="https://renovateqr.com/blog/ai-model-releases-2026" target="_blank">Read more &#x2192;</a>
+          </div>
+        </div>
 
- <div class="news-card">
- <span class="news-emoji">&#x1F310;</span>
- <div class="news-content">
- <div class="news-meta">
- <span class="news-tag">Open Source</span>
- <span class="news-date">Mar 2026</span>
- </div>
- <h4>LangChain Open-SWE: Autonomous Coding Agent Framework</h4>
- <p>Open-SWE brings enterprise coding agent architecture (Stripe, Coinbase) to open source via LangGraph.</p>
- <a href="https://blog.langchain.com/introducing-open-swe-an-open-source-asynchronous-coding-agent/" target="_blank">Read more &#x2192;</a>
- </div>
- </div>
+        <div class="news-card">
+          <span class="news-emoji">&#x1F310;</span>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-tag">Open Source</span>
+              <span class="news-date">Mar 2026</span>
+            </div>
+            <h4>LangChain Open-SWE: Autonomous Coding Agent Framework</h4>
+            <p>Open-SWE brings enterprise coding agent architecture (Stripe, Coinbase) to open source via LangGraph.</p>
+            <a href="https://blog.langchain.com/introducing-open-swe-an-open-source-asynchronous-coding-agent/" target="_blank">Read more &#x2192;</a>
+          </div>
+        </div>
 
- <div class="news-card">
- <span class="news-emoji">&#x1F525;</span>
- <div class="news-content">
- <div class="news-meta">
- <span class="news-tag">Trending</span>
- <span class="news-date">Mar 2026</span>
- </div>
- <h4>OpenClaw Hits 210K Stars — Fastest-Growing AI Project on GitHub</h4>
- <p>OpenClaw delivers an AI assistant inside existing communication tools, amassing 210K+ GitHub stars in weeks.</p>
- <a href="https://blog.win-source.net/q-a/why-openclaw-is-trending-on-github-in-2026-the-rise-of-ai-agent-frameworks/" target="_blank">Read more &#x2192;</a>
- </div>
- </div>
+        <div class="news-card">
+          <span class="news-emoji">&#x1F525;</span>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-tag">Trending</span>
+              <span class="news-date">Mar 2026</span>
+            </div>
+            <h4>OpenClaw Hits 210K Stars — Fastest-Growing AI Project on GitHub</h4>
+            <p>OpenClaw delivers an AI assistant inside existing communication tools, amassing 210K+ GitHub stars in weeks.</p>
+            <a href="https://blog.win-source.net/q-a/why-openclaw-is-trending-on-github-in-2026-the-rise-of-ai-agent-frameworks/" target="_blank">Read more &#x2192;</a>
+          </div>
+        </div>
 
- <div class="news-card">
- <span class="news-emoji">&#x1F9E0;</span>
- <div class="news-content">
- <div class="news-meta">
- <span class="news-tag">Research</span>
- <span class="news-date">Jan 2026</span>
- </div>
- <h4>Mechanistic Interpretability Named a 2026 AI Breakthrough by MIT</h4>
- <p>MIT Technology Review names mechanistic interpretability a top breakthrough, enabling explainable and safer AI models.</p>
- <a href="https://www.technologyreview.com/2026/01/12/1130003/mechanistic-interpretability-ai-research-models-2026-breakthrough-technologies/" target="_blank">Read more &#x2192;</a>
- </div>
- </div>
+        <div class="news-card">
+          <span class="news-emoji">&#x1F9E0;</span>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-tag">Research</span>
+              <span class="news-date">Jan 2026</span>
+            </div>
+            <h4>Mechanistic Interpretability Named a 2026 AI Breakthrough by MIT</h4>
+            <p>MIT Technology Review names mechanistic interpretability a top breakthrough, enabling explainable and safer AI models.</p>
+            <a href="https://www.technologyreview.com/2026/01/12/1130003/mechanistic-interpretability-ai-research-models-2026-breakthrough-technologies/" target="_blank">Read more &#x2192;</a>
+          </div>
+        </div>
 
- <div class="news-card">
- <span class="news-emoji">&#x2638;&#xFE0F;</span>
- <div class="news-content">
- <div class="news-meta">
- <span class="news-tag">MLOps</span>
- <span class="news-date">Mar 2026</span>
- </div>
- <h4>MLOps Market Booms as AI Infrastructure Enters Enterprise Phase</h4>
- <p>Databricks Mosaic AI leads unified lifecycle management for models, agents, and RAG pipelines at enterprise scale.</p>
- <a href="https://lakefs.io/mlops/mlops-tools/" target="_blank">Read more &#x2192;</a>
- </div>
- </div>
+        <div class="news-card">
+          <span class="news-emoji">&#x2638;&#xFE0F;</span>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-tag">MLOps</span>
+              <span class="news-date">Mar 2026</span>
+            </div>
+            <h4>MLOps Market Booms as AI Infrastructure Enters Enterprise Phase</h4>
+            <p>Databricks Mosaic AI leads unified lifecycle management for models, agents, and RAG pipelines at enterprise scale.</p>
+            <a href="https://lakefs.io/mlops/mlops-tools/" target="_blank">Read more &#x2192;</a>
+          </div>
+        </div>
 
- </div>
- <!-- AI_NEWS_END -->
+        </div>
+        <!-- AI_NEWS_END -->
 
- </div>
+      </div>
 
- <!-- Sidebar -->
- <div class="news-sidebar">
- <div class="sidebar-box">
- <h4><i class="fas fa-chart-line" style="color:var(--accent)"></i> Trending Tech (2026)</h4>
- <div class="trend-item"><span class="trend-num">1</span><span class="trend-name">Agentic AI Frameworks</span><span class="trend-up">↑ 340%</span></div>
- <div class="trend-item"><span class="trend-num">2</span><span class="trend-name">Local LLM Serving</span><span class="trend-up">↑ 290%</span></div>
- <div class="trend-item"><span class="trend-num">3</span><span class="trend-name">ML Feature Stores</span><span class="trend-up">↑ 180%</span></div>
- <div class="trend-item"><span class="trend-num">4</span><span class="trend-name">LLM Observability</span><span class="trend-up">↑ 220%</span></div>
- <div class="trend-item"><span class="trend-num">5</span><span class="trend-name">Multimodal Models</span><span class="trend-up">↑ 410%</span></div>
- <div class="trend-item"><span class="trend-num">6</span><span class="trend-name">Edge AI Deployment</span><span class="trend-up">↑ 160%</span></div>
- </div>
+      <!-- Sidebar -->
+      <div class="news-sidebar">
+        <div class="sidebar-box">
+          <h4><i class="fas fa-chart-line" style="color:var(--accent)"></i> Trending Tech (2026)</h4>
+          <div class="trend-item"><span class="trend-num">1</span><span class="trend-name">Agentic AI Frameworks</span><span class="trend-up">↑ 340%</span></div>
+          <div class="trend-item"><span class="trend-num">2</span><span class="trend-name">Local LLM Serving</span><span class="trend-up">↑ 290%</span></div>
+          <div class="trend-item"><span class="trend-num">3</span><span class="trend-name">ML Feature Stores</span><span class="trend-up">↑ 180%</span></div>
+          <div class="trend-item"><span class="trend-num">4</span><span class="trend-name">LLM Observability</span><span class="trend-up">↑ 220%</span></div>
+          <div class="trend-item"><span class="trend-num">5</span><span class="trend-name">Multimodal Models</span><span class="trend-up">↑ 410%</span></div>
+          <div class="trend-item"><span class="trend-num">6</span><span class="trend-name">Edge AI Deployment</span><span class="trend-up">↑ 160%</span></div>
+        </div>
 
- <div class="sidebar-box">
- <h4><i class="fas fa-podcast" style="color:var(--accent2)"></i> Recommended Learning</h4>
- <div class="trend-item"><span class="trend-name">️ Practical AI Podcast</span></div>
- <div class="trend-item"><span class="trend-name"> Andrej Karpathy – YouTube</span></div>
- <div class="trend-item"><span class="trend-name"> The Batch (DeepLearning.AI)</span></div>
- <div class="trend-item"><span class="trend-name"> Latent Space Podcast</span></div>
- <div class="trend-item"><span class="trend-name"> MLOps Community Blog</span></div>
- </div>
+        <div class="sidebar-box">
+          <h4><i class="fas fa-podcast" style="color:var(--accent2)"></i> Recommended Learning</h4>
+          <div class="trend-item"><span class="trend-name">😙️ Practical AI Podcast</span></div>
+          <div class="trend-item"><span class="trend-name">📺 Andrej Karpathy – YouTube</span></div>
+          <div class="trend-item"><span class="trend-name">📰 The Batch (DeepLearning.AI)</span></div>
+          <div class="trend-item"><span class="trend-name">🐦 Latent Space Podcast</span></div>
+          <div class="trend-item"><span class="trend-name">📖 MLOps Community Blog</span></div>
+        </div>
 
- <div class="sidebar-box">
- <h4><i class="fas fa-certificate" style="color:var(--accent3)"></i> Certifications</h4>
- <div class="trend-item"><span class="trend-name">️ AWS Solutions Architect</span><span class="trend-up badge-active" style="font-size:.68rem;padding:.1rem .4rem;border-radius:4px;background:#eff6ff;color:#1d4ed8">Planned</span></div>
- <div class="trend-item"><span class="trend-name"> CKA – Certified K8s Admin</span><span class="trend-up badge-active" style="font-size:.68rem;padding:.1rem .4rem;border-radius:4px;background:#eff6ff;color:#1d4ed8">Planned</span></div>
- <div class="trend-item"><span class="trend-name"> Google ML Engineer</span><span class="trend-up badge-active" style="font-size:.68rem;padding:.1rem .4rem;border-radius:4px;background:#eff6ff;color:#1d4ed8">Planned</span></div>
- </div>
- </div>
- </div>
- </div>
+        <div class="sidebar-box">
+          <h4><i class="fas fa-certificate" style="color:var(--accent3)"></i> Certifications</h4>
+          <div class="trend-item"><span class="trend-name">☁️ AWS Solutions Architect</span><span class="trend-up badge-active" style="font-size:.68rem;padding:.1rem .4rem;border-radius:4px;background:#eff6ff;color:#1d4ed8">Planned</span></div>
+          <div class="trend-item"><span class="trend-name">🔧 CKA – Certified K8s Admin</span><span class="trend-up badge-active" style="font-size:.68rem;padding:.1rem .4rem;border-radius:4px;background:#eff6ff;color:#1d4ed8">Planned</span></div>
+          <div class="trend-item"><span class="trend-name">🧠 Google ML Engineer</span><span class="trend-up badge-active" style="font-size:.68rem;padding:.1rem .4rem;border-radius:4px;background:#eff6ff;color:#1d4ed8">Planned</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 
- <!-- ═══════════════════ VIDEO LEARNING HUB ═══════════════════ -->
- <section id="videos">
- <div class="section-inner">
- <div class="section-label"><span> Video Learning Hub</span></div>
- <h2>Learn New AI Tools &amp; Concepts</h2>
- <p class="section-sub">Curated videos auto-updated weekly — tutorials, paper explanations, and deep-dives on the latest models, frameworks, and engineering patterns.</p>
- <!-- AI_VIDEOS_START -->
- <div class="video-grid">
- <div class="video-card">
- <div class="video-embed"><iframe src="https://www.youtube.com/embed/BikPUaT76i8" loading="lazy" allowfullscreen></iframe></div>
- <div class="video-info"><span class="video-tag">Agents</span><h4>How I'm Using AI Agents in 2026</h4><p class="video-channel">Tech With Tim</p></div>
- </div>
- <div class="video-card">
- <div class="video-embed"><iframe src="https://www.youtube.com/embed/EsTrWCV0Ph4" loading="lazy" allowfullscreen></iframe></div>
- <div class="video-info"><span class="video-tag">Agents</span><h4>AI Agents Full Course 2026: Master Agentic AI</h4><p class="video-channel">Nick Saraev</p></div>
- </div>
- <div class="video-card">
- <div class="video-embed"><iframe src="https://www.youtube.com/embed/TKnaDGpN7Ns" loading="lazy" allowfullscreen></iframe></div>
- <div class="video-info"><span class="video-tag">Tools Demo</span><h4>n8n Tutorial 2026: Build AI Agents for Beginners</h4><p class="video-channel">Youri van Hofwegen</p></div>
- </div>
- <div class="video-card">
- <div class="video-embed"><iframe src="https://www.youtube.com/embed/biqYkVf-a7Y" loading="lazy" allowfullscreen></iframe></div>
- <div class="video-info"><span class="video-tag">MLOps</span><h4>MLOps Explained — What It Is and Why You Need It</h4><p class="video-channel">TechWorld with Nana</p></div>
- </div>
- <div class="video-card">
- <div class="video-embed"><iframe src="https://www.youtube.com/embed/tVskbekONlw" loading="lazy" allowfullscreen></iframe></div>
- <div class="video-info"><span class="video-tag">MLOps</span><h4>Learn MLOps with MLflow and Databricks – Full Course</h4><p class="video-channel">freeCodeCamp.org</p></div>
- </div>
- <div class="video-card">
- <div class="video-embed"><iframe src="https://www.youtube.com/embed/vT-DpLvf29Q" loading="lazy" allowfullscreen></iframe></div>
- <div class="video-info"><span class="video-tag">LLM Tutorial</span><h4>Complete RAG Tutorial 2026 (Free Labs)</h4><p class="video-channel">KodeKloud</p></div>
- </div>
- </div>
- <!-- AI_VIDEOS_END -->
- <p class="video-updated"> Auto-updated weekly by AI agent · Latest: March 2026</p>
- </div>
- </section>
+      <!-- ═══════════════════ VIDEO LEARNING HUB ═══════════════════ -->
+      <section id="videos">
+        <div class="section-inner">
+          <div class="section-label"><span>📺 Video Learning Hub</span></div>
+          <h2>Learn New AI Tools &amp; Concepts</h2>
+          <p class="section-sub">Curated videos auto-updated weekly — tutorials, paper explanations, and deep-dives on the latest models, frameworks, and engineering patterns.</p>
+          <!-- AI_VIDEOS_START -->
+          <div class="video-grid">
+            <div class="video-card">
+              <div class="video-embed"><iframe src="https://www.youtube.com/embed/BikPUaT76i8" loading="lazy" allowfullscreen></iframe></div>
+              <div class="video-info"><span class="video-tag">Agents</span><h4>How I'm Using AI Agents in 2026</h4><p class="video-channel">Tech With Tim</p></div>
+            </div>
+            <div class="video-card">
+              <div class="video-embed"><iframe src="https://www.youtube.com/embed/EsTrWCV0Ph4" loading="lazy" allowfullscreen></iframe></div>
+              <div class="video-info"><span class="video-tag">Agents</span><h4>AI Agents Full Course 2026: Master Agentic AI</h4><p class="video-channel">Nick Saraev</p></div>
+            </div>
+            <div class="video-card">
+              <div class="video-embed"><iframe src="https://www.youtube.com/embed/TKnaDGpN7Ns" loading="lazy" allowfullscreen></iframe></div>
+              <div class="video-info"><span class="video-tag">Tools Demo</span><h4>n8n Tutorial 2026: Build AI Agents for Beginners</h4><p class="video-channel">Youri van Hofwegen</p></div>
+            </div>
+            <div class="video-card">
+              <div class="video-embed"><iframe src="https://www.youtube.com/embed/biqYkVf-a7Y" loading="lazy" allowfullscreen></iframe></div>
+              <div class="video-info"><span class="video-tag">MLOps</span><h4>MLOps Explained — What It Is and Why You Need It</h4><p class="video-channel">TechWorld with Nana</p></div>
+            </div>
+            <div class="video-card">
+              <div class="video-embed"><iframe src="https://www.youtube.com/embed/tVskbekONlw" loading="lazy" allowfullscreen></iframe></div>
+              <div class="video-info"><span class="video-tag">MLOps</span><h4>Learn MLOps with MLflow and Databricks – Full Course</h4><p class="video-channel">freeCodeCamp.org</p></div>
+            </div>
+            <div class="video-card">
+              <div class="video-embed"><iframe src="https://www.youtube.com/embed/vT-DpLvf29Q" loading="lazy" allowfullscreen></iframe></div>
+              <div class="video-info"><span class="video-tag">LLM Tutorial</span><h4>Complete RAG Tutorial 2026 (Free Labs)</h4><p class="video-channel">KodeKloud</p></div>
+            </div>
+          </div>
+          <!-- AI_VIDEOS_END -->
+          <p class="video-updated">🔄 Auto-updated weekly by AI agent · Latest: March 2026</p>
+        </div>
+      </section>
 <!-- ════════════════════════════ COMMUNITY ════════════════════════════ -->
 <section id="community">
- <div class="section-inner">
- <div class="section-header">
- <span class="section-label">Community &amp; Network</span>
- <h2 class="section-title">Where I Engage &amp; Learn</h2>
- <p class="section-sub">Active in the MLOps and AI engineering community — connecting, contributing, and sharing knowledge</p>
- </div>
- <div class="community-grid">
- <div class="community-card">
- <div class="community-icon"></div>
- <h3>Hugging Face</h3>
- <p>Exploring and sharing models, datasets, and spaces. Following cutting-edge model releases and community discussions.</p>
- <a href="https://huggingface.co" target="_blank" class="community-link"><i class="fas fa-external-link-alt"></i> Visit Profile</a>
- </div>
- <div class="community-card">
- <div class="community-icon"></div>
- <h3>GitHub</h3>
- <p>Active open-source contributor. Forking, PR-ing, and starring repos across the MLOps, LLM, and cloud-native ecosystems.</p>
- <a href="https://github.com/harshadkhetpal" target="_blank" class="community-link"><i class="fab fa-github"></i> GitHub Profile</a>
- </div>
- <div class="community-card">
- <div class="community-icon"></div>
- <h3>LinkedIn</h3>
- <p>Sharing insights on MLOps, AI engineering, and cloud infrastructure. Open to professional connections and collaborations.</p>
- <a href="https://linkedin.com/in/harshadkhetpal" target="_blank" class="community-link"><i class="fab fa-linkedin"></i> Connect</a>
- </div>
- <div class="community-card">
- <div class="community-icon"></div>
- <h3>X / Twitter</h3>
- <p>Following AI researchers, MLOps practitioners, and sharing quick insights on tools, papers, and engineering patterns.</p>
- <a href="https://x.com/harshadkhetpal" target="_blank" class="community-link"><i class="fab fa-x-twitter"></i> Follow</a>
- </div>
- <div class="community-card">
- <div class="community-icon">️</div>
- <h3>Medium</h3>
- <p>Writing about MLOps, DevOps, and AI engineering. Sharing practical insights on Kubernetes, LLMs, CI/CD, and cloud-native infrastructure.</p>
- <a href="https://medium.com/@khetpalharsh" target="_blank" class="community-link"><i class="fab fa-medium"></i> Read Articles</a>
- </div>
- <div class="community-card">
- <div class="community-icon"></div>
- <h3>MLOps Community</h3>
- <p>Member of the global MLOps community — attending virtual meetups, reading the blog, and participating in discussions.</p>
- <a href="https://mlops.community" target="_blank" class="community-link"><i class="fas fa-users"></i> Join Community</a>
- </div>
- <div class="community-card">
- <div class="community-icon">️</div>
- <h3>Medium / Dev.to</h3>
- <p>Writing tutorials and deep-dives on MLOps patterns, LLM deployment strategies, and cloud infrastructure best practices.</p>
- <a href="https://medium.com/@harshadkhetpal" target="_blank" class="community-link"><i class="fab fa-medium"></i> Read Articles</a>
- </div>
- </div>
- </div>
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Community &amp; Network</span>
+      <h2 class="section-title">Where I Engage &amp; Learn</h2>
+      <p class="section-sub">Active in the MLOps and AI engineering community — connecting, contributing, and sharing knowledge</p>
+    </div>
+    <div class="community-grid">
+      <div class="community-card">
+        <div class="community-icon">🤗</div>
+        <h3>Hugging Face</h3>
+        <p>Exploring and sharing models, datasets, and spaces. Following cutting-edge model releases and community discussions.</p>
+        <a href="https://huggingface.co" target="_blank" class="community-link"><i class="fas fa-external-link-alt"></i> Visit Profile</a>
+      </div>
+      <div class="community-card">
+        <div class="community-icon">🐙</div>
+        <h3>GitHub</h3>
+        <p>Active open-source contributor. Forking, PR-ing, and starring repos across the MLOps, LLM, and cloud-native ecosystems.</p>
+        <a href="https://github.com/harshadkhetpal" target="_blank" class="community-link"><i class="fab fa-github"></i> GitHub Profile</a>
+      </div>
+      <div class="community-card">
+        <div class="community-icon">💼</div>
+        <h3>LinkedIn</h3>
+        <p>Sharing insights on MLOps, AI engineering, and cloud infrastructure. Open to professional connections and collaborations.</p>
+        <a href="https://linkedin.com/in/harshadkhetpal" target="_blank" class="community-link"><i class="fab fa-linkedin"></i> Connect</a>
+      </div>
+      <div class="community-card">
+        <div class="community-icon">🐦</div>
+        <h3>X / Twitter</h3>
+        <p>Following AI researchers, MLOps practitioners, and sharing quick insights on tools, papers, and engineering patterns.</p>
+        <a href="https://x.com/harshadkhetpal" target="_blank" class="community-link"><i class="fab fa-x-twitter"></i> Follow</a>
+      </div>
+      <div class="community-card">
+        <div class="community-icon">✍️</div>
+        <h3>Medium</h3>
+        <p>Writing about MLOps, DevOps, and AI engineering. Sharing practical insights on Kubernetes, LLMs, CI/CD, and cloud-native infrastructure.</p>
+        <a href="https://medium.com/@khetpalharsh" target="_blank" class="community-link"><i class="fab fa-medium"></i> Read Articles</a>
+      </div>
+      <div class="community-card">
+        <div class="community-icon">📖</div>
+        <h3>MLOps Community</h3>
+        <p>Member of the global MLOps community — attending virtual meetups, reading the blog, and participating in discussions.</p>
+        <a href="https://mlops.community" target="_blank" class="community-link"><i class="fas fa-users"></i> Join Community</a>
+      </div>
+      <div class="community-card">
+        <div class="community-icon">✍️</div>
+        <h3>Medium / Dev.to</h3>
+        <p>Writing tutorials and deep-dives on MLOps patterns, LLM deployment strategies, and cloud infrastructure best practices.</p>
+        <a href="https://medium.com/@harshadkhetpal" target="_blank" class="community-link"><i class="fab fa-medium"></i> Read Articles</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ════════════════════════════ GITHUB STATS ════════════════════════════ -->
 <section id="github">
- <div class="section-inner">
- <div class="section-header">
- <span class="section-label">GitHub Activity</span>
- <h2 class="section-title">Code Contributions</h2>
- <p class="section-sub">Consistent open-source activity across AI, MLOps, and cloud infrastructure repositories</p>
- </div>
- <div class="github-grid">
- <div class="github-card">
- <h4><i class="fas fa-chart-bar"></i> &nbsp;Stats Overview</h4>
- <div class="github-stat-row">
- <div class="g-stat"><div class="g-stat-num" id="ghStars">—</div><div class="g-stat-label">Total Stars</div></div>
- <div class="g-stat"><div class="g-stat-num" id="ghRepos">—</div><div class="g-stat-label">Public Repos</div></div>
- <div class="g-stat"><div class="g-stat-num" id="ghFollowers">—</div><div class="g-stat-label">Followers</div></div>
- <div class="g-stat"><div class="g-stat-num">10+</div><div class="g-stat-label">OSS Contributions</div></div>
- </div>
- <p style="font-size:.78rem;color:var(--text2);margin-top:1rem;text-align:center">
- <i class="fas fa-info-circle"></i> Update with your GitHub username to load live stats
- </p>
- </div>
- <div class="github-card">
- <h4><i class="fas fa-code"></i> &nbsp;Top Languages</h4>
- <div class="lang-list">
- <div class="lang-row"><div class="lang-dot" style="background:#3572A5"></div><span class="lang-name">Python</span><div class="lang-bar-wrap"><div class="lang-bar" style="width:75%;background:#3572A5"></div></div><span class="lang-pct">75%</span></div>
- <div class="lang-row"><div class="lang-dot" style="background:#00ADD8"></div><span class="lang-name">Go</span><div class="lang-bar-wrap"><div class="lang-bar" style="width:10%;background:#00ADD8"></div></div><span class="lang-pct">10%</span></div>
- <div class="lang-row"><div class="lang-dot" style="background:#89e051"></div><span class="lang-name">Shell / Bash</span><div class="lang-bar-wrap"><div class="lang-bar" style="width:8%;background:#89e051"></div></div><span class="lang-pct">8%</span></div>
- <div class="lang-row"><div class="lang-dot" style="background:#f1e05a"></div><span class="lang-name">JavaScript</span><div class="lang-bar-wrap"><div class="lang-bar" style="width:5%;background:#f1e05a"></div></div><span class="lang-pct">5%</span></div>
- <div class="lang-row"><div class="lang-dot" style="background:#e34c26"></div><span class="lang-name">Other</span><div class="lang-bar-wrap"><div class="lang-bar" style="width:2%;background:#e34c26"></div></div><span class="lang-pct">2%</span></div>
- </div>
- </div>
- <div class="github-card" style="grid-column:1/-1">
- <h4><i class="fas fa-calendar-alt"></i> &nbsp;Contribution Activity</h4>
- <div class="contrib-squares" id="contribGrid"></div>
- <p style="font-size:.75rem;color:var(--text2);margin-top:.8rem">Simulated contribution heatmap — connect your GitHub for real data</p>
- </div>
- </div>
- </div>
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">GitHub Activity</span>
+      <h2 class="section-title">Code Contributions</h2>
+      <p class="section-sub">Consistent open-source activity across AI, MLOps, and cloud infrastructure repositories</p>
+    </div>
+    <div class="github-grid">
+      <div class="github-card">
+        <h4><i class="fas fa-chart-bar"></i> &nbsp;Stats Overview</h4>
+        <div class="github-stat-row">
+          <div class="g-stat"><div class="g-stat-num" id="ghStars">—</div><div class="g-stat-label">Total Stars</div></div>
+          <div class="g-stat"><div class="g-stat-num" id="ghRepos">—</div><div class="g-stat-label">Public Repos</div></div>
+          <div class="g-stat"><div class="g-stat-num" id="ghFollowers">—</div><div class="g-stat-label">Followers</div></div>
+          <div class="g-stat"><div class="g-stat-num">10+</div><div class="g-stat-label">OSS Contributions</div></div>
+        </div>
+        <p style="font-size:.78rem;color:var(--text2);margin-top:1rem;text-align:center">
+          <i class="fas fa-info-circle"></i> Update with your GitHub username to load live stats
+        </p>
+      </div>
+      <div class="github-card">
+        <h4><i class="fas fa-code"></i> &nbsp;Top Languages</h4>
+        <div class="lang-list">
+          <div class="lang-row"><div class="lang-dot" style="background:#3572A5"></div><span class="lang-name">Python</span><div class="lang-bar-wrap"><div class="lang-bar" style="width:75%;background:#3572A5"></div></div><span class="lang-pct">75%</span></div>
+          <div class="lang-row"><div class="lang-dot" style="background:#00ADD8"></div><span class="lang-name">Go</span><div class="lang-bar-wrap"><div class="lang-bar" style="width:10%;background:#00ADD8"></div></div><span class="lang-pct">10%</span></div>
+          <div class="lang-row"><div class="lang-dot" style="background:#89e051"></div><span class="lang-name">Shell / Bash</span><div class="lang-bar-wrap"><div class="lang-bar" style="width:8%;background:#89e051"></div></div><span class="lang-pct">8%</span></div>
+          <div class="lang-row"><div class="lang-dot" style="background:#f1e05a"></div><span class="lang-name">JavaScript</span><div class="lang-bar-wrap"><div class="lang-bar" style="width:5%;background:#f1e05a"></div></div><span class="lang-pct">5%</span></div>
+          <div class="lang-row"><div class="lang-dot" style="background:#e34c26"></div><span class="lang-name">Other</span><div class="lang-bar-wrap"><div class="lang-bar" style="width:2%;background:#e34c26"></div></div><span class="lang-pct">2%</span></div>
+        </div>
+      </div>
+      <div class="github-card" style="grid-column:1/-1">
+        <h4><i class="fas fa-calendar-alt"></i> &nbsp;Contribution Activity</h4>
+        <div class="contrib-squares" id="contribGrid"></div>
+        <p style="font-size:.75rem;color:var(--text2);margin-top:.8rem">Simulated contribution heatmap — connect your GitHub for real data</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ════════════════════════════ CONTACT ════════════════════════════ -->
 <section id="contact">
- <div class="section-inner">
- <div class="section-header">
- <span class="section-label">Get In Touch</span>
- <h2 class="section-title">Let's Build Together</h2>
- <p class="section-sub">Open to full-time roles, freelance projects, and open-source collaborations</p>
- </div>
- <div class="contact-grid">
- <div class="contact-info">
- <h3>I'd Love to Hear From You </h3>
- <p>
- Whether you're looking for an MLOps engineer to scale your ML infrastructure,
- a DevOps expert to streamline your CI/CD, or just want to chat about the latest
- in AI — my inbox is open!
- </p>
- <p>I typically respond within 24 hours.</p>
- </div>
- <i class="fas fa-chevron-right" style="color:var(--text2);font-size:.8rem"></i>
- </a>
- </div>
- </div>
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-title">Let's Build Together</h2>
+      <p class="section-sub">Open to full-time roles, freelance projects, and open-source collaborations</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>I'd Love to Hear From You </h3>
+        <p>
+          Whether you're looking for an MLOps engineer to scale your ML infrastructure,
+          a DevOps expert to streamline your CI/CD, or just want to chat about the latest
+          in AI — my inbox is open!
+        </p>
+        <p>I typically respond within 24 hours.</p>
+        </div>
+            <i class="fas fa-chevron-right" style="color:var(--text2);font-size:.8rem"></i>
+          </a>
+        </div>
+      </div>
 
- <div class="contact-form">
- <div class="form-group">
- <label>Your Name</label>
- <input type="text" placeholder="Jane Smith" />
- </div>
- <div class="form-group">
- <label>Email Address</label>
- <input type="email" placeholder="jane@company.com" />
- </div>
- <div class="form-group">
- <label>Subject</label>
- <input type="text" placeholder="Job opportunity / Collaboration / ..." />
- </div>
- <div class="form-group">
- <label>Message</label>
- <textarea placeholder="Tell me about your project or opportunity..."></textarea>
- </div>
- <button class="form-submit" onclick="handleFormSubmit(this)">
- <i class="fas fa-paper-plane"></i> Send Message
- </button>
- </div>
- </div>
- </div>
+      <div class="contact-form">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Jane Smith" />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="jane@company.com" />
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" placeholder="Job opportunity / Collaboration / ..." />
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell me about your project or opportunity..."></textarea>
+        </div>
+        <button class="form-submit" onclick="handleFormSubmit(this)">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ════════════════════════════ FOOTER ════════════════════════════ -->
 <footer>
- <div class="footer-inner">
- <div class="footer-top">
- <div class="footer-logo">Harshad Khetpal</div>
- <div class="footer-socials">
- <a href="https://github.com/harshadkhetpal" target="_blank" class="footer-social"><i class="fab fa-github"></i></a>
- <a href="https://linkedin.com/in/harshadkhetpal" target="_blank" class="footer-social"><i class="fab fa-linkedin"></i></a>
- <a href="https://x.com/harshadkhetpal" target="_blank" class="footer-social"><i class="fab fa-x-twitter"></i></a>
- <a href="https://medium.com/@harshadkhetpal" target="_blank" class="footer-social"><i class="fab fa-medium"></i></a>
- <a href="mailto:harshadkhetpal@gmail.com" class="footer-social"><i class="fas fa-envelope"></i></a>
- </div>
- </div>
- <div class="footer-copy">
- © 2026 Harshad Khetpal · MLOps · DevOps · AI/ML Engineer · Built with ️ and open-source tools
- </div>
- </div>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo">Harshad Khetpal</div>
+      <div class="footer-socials">
+        <a href="https://github.com/harshadkhetpal" target="_blank" class="footer-social"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/harshadkhetpal" target="_blank" class="footer-social"><i class="fab fa-linkedin"></i></a>
+        <a href="https://x.com/harshadkhetpal" target="_blank" class="footer-social"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://medium.com/@harshadkhetpal" target="_blank" class="footer-social"><i class="fab fa-medium"></i></a>
+        <a href="mailto:harshadkhetpal@gmail.com" class="footer-social"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      © 2026 Harshad Khetpal · MLOps · DevOps · AI/ML Engineer · Built with open-source tools
+    </div>
+  </div>
 </footer>
 
 <!-- ════════════════════════════ JAVASCRIPT ════════════════════════════ -->
 <script>
- /* ── Typewriter ── */
- const phrases = [
- "Building scalable ML pipelines...",
- "Deploying LLMs to production...",
- "Automating ML workflows with Kubeflow...",
- "Fine-tuning transformers on custom data...",
- "Orchestrating microservices on Kubernetes...",
- "Monitoring models with MLflow...",
- "Building RAG pipelines with LangChain...",
- "Terraforming cloud infrastructure..."
- ];
- let pi = 0, ci = 0, deleting = false;
- const tw = document.getElementById('typewriter');
- function type() {
- const phrase = phrases[pi];
- if (!deleting) {
- tw.textContent = phrase.slice(0, ++ci);
- if (ci === phrase.length) { deleting = true; setTimeout(type, 1800); return; }
- } else {
- tw.textContent = phrase.slice(0, --ci);
- if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
- }
- setTimeout(type, deleting ? 40 : 75);
- }
- type();
+  /* ── Typewriter ── */
+  const phrases = [
+    "Building scalable ML pipelines...",
+    "Deploying LLMs to production...",
+    "Automating ML workflows with Kubeflow...",
+    "Fine-tuning transformers on custom data...",
+    "Orchestrating microservices on Kubernetes...",
+    "Monitoring models with MLflow...",
+    "Building RAG pipelines with LangChain...",
+    "Terraforming cloud infrastructure..."
+  ];
+  let pi = 0, ci = 0, deleting = false;
+  const tw = document.getElementById('typewriter');
+  function type() {
+    const phrase = phrases[pi];
+    if (!deleting) {
+      tw.textContent = phrase.slice(0, ++ci);
+      if (ci === phrase.length) { deleting = true; setTimeout(type, 1800); return; }
+    } else {
+      tw.textContent = phrase.slice(0, --ci);
+      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+    }
+    setTimeout(type, deleting ? 40 : 75);
+  }
+  type();
 
- /* ── Tech Ticker ── */
- const techs = ["Python","Docker","Kubernetes","MLflow","LangChain","Terraform","PyTorch","Airflow","AWS SageMaker","Kubeflow","HuggingFace","vLLM","FastAPI","Ollama","DVC","Ray","Prefect","Feast","Kafka","dbt","Spark","Pinecone","Redis","ArgoCD","Helm","GitHub Actions"];
- const icons = ["fab fa-python","fas fa-cubes","fas fa-dharmachakra","fas fa-chart-line","fas fa-link","fas fa-cloud","fas fa-brain","fas fa-wind","fab fa-aws","fas fa-cog","fas fa-smile","fas fa-bolt","fas fa-code","fas fa-robot","fas fa-code-branch","fas fa-sun","fas fa-water","fas fa-store","fas fa-stream","fas fa-database","fas fa-fire","fas fa-map-pin","fas fa-memory","fas fa-circle-nodes","fas fa-helmet-safety","fas fa-play-circle"];
- const ticker = document.getElementById('ticker');
- const doubled = [...techs, ...techs];
- ticker.innerHTML = doubled.map((t, i) => `<span class="ticker-item"><i class="${icons[i % icons.length]}"></i>${t}</span>`).join('');
+  /* ── Tech Ticker ── */
+  const techs = ["Python","Docker","Kubernetes","MLflow","LangChain","Terraform","PyTorch","Airflow","AWS SageMaker","Kubeflow","HuggingFace","vLLM","FastAPI","Ollama","DVC","Ray","Prefect","Feast","Kafka","dbt","Spark","Pinecone","Redis","ArgoCD","Helm","GitHub Actions"];
+  const icons = ["fab fa-python","fas fa-cubes","fas fa-dharmachakra","fas fa-chart-line","fas fa-link","fas fa-cloud","fas fa-brain","fas fa-wind","fab fa-aws","fas fa-cog","fas fa-smile","fas fa-bolt","fas fa-code","fas fa-robot","fas fa-code-branch","fas fa-sun","fas fa-water","fas fa-store","fas fa-stream","fas fa-database","fas fa-fire","fas fa-map-pin","fas fa-memory","fas fa-circle-nodes","fas fa-helmet-safety","fas fa-play-circle"];
+  const ticker = document.getElementById('ticker');
+  const doubled = [...techs, ...techs];
+  ticker.innerHTML = doubled.map((t, i) => `<span class="ticker-item"><i class="${icons[i % icons.length]}"></i>${t}</span>`).join('');
 
- /* ── Nav mobile ── */
- function toggleMenu() {
- document.getElementById('mobileMenu').classList.toggle('open');
- }
- function closeMenu() {
- document.getElementById('mobileMenu').classList.remove('open');
- }
+  /* ── Nav mobile ── */
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
 
- /* ── Project filter ── */
- document.querySelectorAll('.filter-btn').forEach(btn => {
- btn.addEventListener('click', () => {
- document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
- btn.classList.add('active');
- const f = btn.dataset.filter;
- document.querySelectorAll('.project-card').forEach(card => {
- const cats = card.dataset.cat || '';
- card.style.display = (f === 'all' || cats.includes(f)) ? 'flex' : 'none';
- });
- });
- });
+  /* ── Project filter ── */
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.project-card').forEach(card => {
+        const cats = card.dataset.cat || '';
+        card.style.display = (f === 'all' || cats.includes(f)) ? 'flex' : 'none';
+      });
+    });
+  });
 
- /* ── Proficiency bars on scroll ── */
- const profObs = new IntersectionObserver(entries => {
- entries.forEach(e => {
- if (e.isIntersecting) {
- document.querySelectorAll('.prof-fill').forEach(bar => {
- bar.style.width = bar.dataset.width + '%';
- });
- profObs.disconnect();
- }
- });
- }, { threshold: 0.3 });
- profObs.observe(document.getElementById('profList'));
+  /* ── Proficiency bars on scroll ── */
+  const profObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        document.querySelectorAll('.prof-fill').forEach(bar => {
+          bar.style.width = bar.dataset.width + '%';
+        });
+        profObs.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  profObs.observe(document.getElementById('profList'));
 
- /* ── Contribution heatmap ── */
- const grid = document.getElementById('contribGrid');
- const levels = ['','l1','l2','l3','l4'];
- for (let i = 0; i < 365; i++) {
- const sq = document.createElement('div');
- const r = Math.random();
- sq.className = 'sq ' + (r < .5 ? '' : r < .7 ? 'l1' : r < .85 ? 'l2' : r < .95 ? 'l3' : 'l4');
- grid.appendChild(sq);
- }
+  /* ── Contribution heatmap ── */
+  const grid = document.getElementById('contribGrid');
+  const levels = ['','l1','l2','l3','l4'];
+  for (let i = 0; i < 365; i++) {
+    const sq = document.createElement('div');
+    const r = Math.random();
+    sq.className = 'sq ' + (r < .5 ? '' : r < .7 ? 'l1' : r < .85 ? 'l2' : r < .95 ? 'l3' : 'l4');
+    grid.appendChild(sq);
+  }
 
- /* ── Form submit ── */
- function handleFormSubmit(btn) {
- btn.innerHTML = '<i class="fas fa-check"></i> Message Sent! (Connect Formspree/EmailJS to activate)';
- btn.style.background = 'var(--accent3)';
- setTimeout(() => {
- btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
- btn.style.background = '';
- }, 3000);
- }
+  /* ── Form submit ── */
+  function handleFormSubmit(btn) {
+    btn.innerHTML = '<i class="fas fa-check"></i> Message Sent! (Connect Formspree/EmailJS to activate)';
+    btn.style.background = 'var(--accent3)';
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+      btn.style.background = '';
+    }, 3000);
+  }
 
- /* ── Nav active on scroll ── */
- const sections = document.querySelectorAll('section[id]');
- const navLinks = document.querySelectorAll('.nav-links a');
- window.addEventListener('scroll', () => {
- let cur = '';
- sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
- navLinks.forEach(a => {
- a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--accent)' : '';
- });
- });
+  /* ── Nav active on scroll ── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--accent)' : '';
+    });
+  });
 </script>
 </body>
 </html>
