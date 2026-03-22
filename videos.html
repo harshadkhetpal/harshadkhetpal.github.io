@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Video Learning Hub — Harshad Khetpal</title>
+  <meta name="description" content="Curated AI, LLM, and MLOps learning videos handpicked by Harshad Khetpal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #2563eb; --accent2: #7c3aed;
+      --bg: #06091a; --bg2: #0d1530;
+      --text: #f8fafc; --text2: rgba(248,250,252,0.72);
+      --border: rgba(255,255,255,0.1);
+      --card: rgba(255,255,255,0.04);
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 64px;
+      background: rgba(6,9,26,0.92); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display:flex; align-items:center; font-weight:700; font-size:1.1rem; color:var(--accent); letter-spacing:-.5px; }
+    .nav-logo .sfx { color:rgba(248,250,252,0.55); font-weight:400; }
+    .logo-mark { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; font-size:.68rem; font-weight:900; border-radius:7px; margin-right:7px; flex-shrink:0; }
+    .nav-links { display:flex; gap:1.6rem; list-style:none; align-items:center; }
+    .nav-links a { font-size:.88rem; font-weight:500; color:var(--text2); transition:color .2s; }
+    .nav-links a:hover, .nav-links a.active { color:var(--text); }
+    .btn-hire { background:var(--accent); color:#fff !important; padding:7px 16px; border-radius:8px; font-weight:600 !important; }
+
+    /* HERO */
+    .vid-hero {
+      min-height: 42vh; padding: 120px 2rem 60px;
+      display:flex; align-items:center; justify-content:center; text-align:center;
+      background: linear-gradient(135deg, #06091a 0%, #0d1530 50%, #130a2e 100%);
+      position:relative; overflow:hidden;
+    }
+    .vid-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 50%,rgba(37,99,235,0.12) 0%,transparent 60%); }
+    .vid-hero-inner { position:relative; z-index:1; max-width:700px; }
+    .eyebrow { display:inline-block; font-size:.75rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#60a5fa; margin-bottom:14px; }
+    .vid-hero h1 { font-size:clamp(2rem,5vw,3.2rem); font-weight:900; letter-spacing:-2px; line-height:1.12; margin-bottom:18px; }
+    .vid-hero h1 span { background:linear-gradient(135deg,#60a5fa,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .vid-hero p { font-size:1.05rem; color:var(--text2); line-height:1.75; }
+
+    /* FILTER TABS */
+    .filter-bar { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; padding:32px 2rem 8px; }
+    .filter-btn { padding:8px 20px; border-radius:22px; font-size:.84rem; font-weight:600; cursor:pointer; border:1.5px solid rgba(255,255,255,0.15); background:transparent; color:var(--text2); transition:all .2s; }
+    .filter-btn:hover, .filter-btn.active { background:rgba(37,99,235,0.25); border-color:#3b82f6; color:var(--text); }
+
+    /* VIDEO GRID */
+    .vid-section { padding:40px 2rem 100px; max-width:1280px; margin:0 auto; }
+    .vid-category { margin-bottom:60px; }
+    .vid-cat-title { font-size:1.15rem; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:10px; }
+    .vid-cat-title::after { content:''; flex:1; height:1px; background:var(--border); }
+    .vid-cat-sub { font-size:.88rem; color:var(--text2); margin-bottom:24px; }
+    .vid-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:22px; }
+
+    .vid-card {
+      background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden;
+      transition:transform .3s,border-color .3s,box-shadow .3s;
+    }
+    .vid-card:hover { transform:translateY(-6px); border-color:rgba(255,255,255,0.22); box-shadow:0 20px 60px rgba(0,0,0,0.5); }
+    .vid-thumb { position:relative; display:block; aspect-ratio:16/9; overflow:hidden; }
+    .vid-thumb img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s; }
+    .vid-card:hover .vid-thumb img { transform:scale(1.04); }
+    .vid-play {
+      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      width:52px; height:52px; border-radius:50%;
+      background:rgba(37,99,235,0.88); backdrop-filter:blur(4px);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.1rem; color:#fff; transition:transform .2s,background .2s;
+    }
+    .vid-card:hover .vid-play { transform:translate(-50%,-50%) scale(1.12); background:rgba(37,99,235,1); }
+    .vid-badge { position:absolute; top:10px; left:10px; font-size:.68rem; font-weight:700; padding:3px 9px; border-radius:6px; letter-spacing:.3px; }
+    .badge-free { background:rgba(52,211,153,0.25); color:#34d399; border:1px solid rgba(52,211,153,0.3); }
+    .badge-deep { background:rgba(239,68,68,0.25); color:#f87171; border:1px solid rgba(239,68,68,0.3); }
+    .badge-core { background:rgba(251,191,36,0.2); color:#fbbf24; border:1px solid rgba(251,191,36,0.3); }
+    .vid-info { padding:18px 18px 20px; }
+    .vid-channel { font-size:.74rem; font-weight:700; color:#60a5fa; letter-spacing:.5px; text-transform:uppercase; margin-bottom:7px; }
+    .vid-title { font-size:.96rem; font-weight:700; color:var(--text); line-height:1.45; margin-bottom:8px; }
+    .vid-meta { font-size:.8rem; color:var(--text2); display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+    .vid-meta i { color:rgba(255,255,255,0.3); }
+    .vid-watch { display:inline-flex; align-items:center; gap:6px; font-size:.82rem; font-weight:700; color:#93c5fd; margin-top:12px; transition:gap .2s,color .2s; }
+    .vid-watch:hover { color:#60a5fa; gap:10px; }
+
+    /* BOTTOM CTA */
+    .vid-cta { text-align:center; padding:60px 2rem; border-top:1px solid var(--border); }
+    .vid-cta h3 { font-size:1.6rem; font-weight:800; color:var(--text); letter-spacing:-1px; margin-bottom:10px; }
+    .vid-cta p { color:var(--text2); margin-bottom:24px; }
+    .btn-p { display:inline-flex; align-items:center; gap:8px; padding:12px 28px; border-radius:10px; font-weight:700; font-size:.92rem; }
+    .btn-blue { background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; transition:opacity .2s; }
+    .btn-blue:hover { opacity:.85; }
+
+    footer { text-align:center; padding:24px 2rem; border-top:1px solid var(--border); font-size:.85rem; color:var(--text2); }
+    footer a { color:#60a5fa; }
+
+    @media(max-width:768px){ .nav-links{display:none;} .vid-grid{grid-template-columns:1fr 1fr;} }
+    @media(max-width:480px){ .vid-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <span class="logo-mark">HK</span>
+    <a href="index.html" style="text-decoration:none;color:inherit">harshad<span class="sfx">.khetpal</span></a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="videos.html" class="active" style="color:#60a5fa">🎬 Videos</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="index.html#contact" class="btn-hire">Hire Me</a></li>
+  </ul>
+</nav>
+
+<section class="vid-hero">
+  <div class="vid-hero-inner">
+    <span class="eyebrow">🎬 Learning Hub</span>
+    <h1>AI & MLOps<br><span>Video Library</span></h1>
+    <p>Handpicked deep dives, lectures, and tutorials on LLMs, neural networks, MLOps, and modern AI engineering — the videos that shaped how I think and build.</p>
+  </div>
+</section>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterVids('all',this)">All Videos</button>
+  <button class="filter-btn" onclick="filterVids('llm',this)">LLMs & Transformers</button>
+  <button class="filter-btn" onclick="filterVids('nn',this)">Neural Networks</button>
+  <button class="filter-btn" onclick="filterVids('mlops',this)">MLOps</button>
+  <button class="filter-btn" onclick="filterVids('math',this)">Math & Theory</button>
+</div>
+
+<div class="vid-section">
+
+  <!-- LLMs & Language Models -->
+  <div class="vid-category" data-cat="llm">
+    <h3 class="vid-cat-title">🧠 LLMs & Language Models</h3>
+    <p class="vid-cat-sub">From how transformers work to building GPT from scratch — essential viewing for anyone working with modern AI.</p>
+    <div class="vid-grid">
+      <a class="vid-card" href="https://www.youtube.com/watch?v=7xTGNNLPyMI" target="_blank">
+        <div class="vid-thumb">
+          <img src="https://img.youtube.com/vi/7xTGNNLPyMI/hqdefault.jpg" alt="Deep Dive into LLMs" loading="lazy">
+          <div class="vid-play"><i class="fas fa-play"></i></div>
+          <span class="vid-badge badge-deep">Deep Dive</span>
+        </div>
+        <div class="vid-info">
+          <div class="vid-channel">Andrej Karpathy</div>
+          <div class="vid-title">Deep Dive into LLMs like ChatGPT (2025)</div>
+          <div class="vid-meta"><i class="fas fa-clock"></i> 3h 37m<i class="fas fa-signal"></i>Beginner–Intermediate</div>
+          <span class="vid-watch">Watch Now <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+      <a class="vid-card" href="https://www.youtube.com/watch?v=zjkBMFhNj_g" target="_blank">
+        <div class="vid-thumb">
+          <img src="https://img.youtube.com/vi/zjkBMFhNj_g/hqdefault.jpg" alt="Intro to LLMs" loading="lazy">
+          <div class="vid-play"><i class="fas fa-play"></i></div>
+          <span class="vid-badge badge-free">Intro</span>
+        </div>
+        <div class="vid-info">
+          <div class="vid-channel">Andrej Karpathy</div>
+          <div class="vid-title">Intro to Large Language Models</div>
+          <div class="vid-meta"><i class="fas fa-clock"></i> 1h<i class="fas fa-signal"></i>Beginner</div>
+          <span class="vid-watch">Watch Now <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+      <a class="vid-card" href="https://www.youtube.com/watch?v=kCc8FmEb1nY" target="_blank">
+        <div class="vid-thumb">
+          <img src="https://img.youtube.com/vi/kCc8FmEb1nY/hqdefault.jpg" alt="Build GPT from Scratch" loading="lazy">
+          <div class="vid-play"><i class="fas fa-play"></i></div>
+          <span class="vid-badge badge-deep">Build-Along</span>
+        </div>
+        <div class="vid-info">
+          <div class="vid-channel">Andrej Karpathy</div>
+          <div class="vid-title">Let's Build GPT from Scratch</div>
+          <div class="vid-meta"><i class="fas fa-clock"></i> 1h 57m<i class="fas fa-signal"></i>Advanced</div>
+          <span class="vid-watch">Watch Now <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Neural Networks & Math -->
+  <div class="vid-category" data-cat="nn math">
+    <h3 class="vid-cat-title">📐 Neural Networks & Math</h3>
+    <p class="vid-cat-sub">Build intuition from the ground up — gradient descent, backprop, and attention visualised beautifully.</p>
+    <div class="vid-grid">
+      <a class="vid-card" href="https://www.youtube.com/watch?v=eMlx5fFNoYc" target="_blank">
+        <div class="vid-thumb">
+          <img src="https://img.youtube.com/vi/eMlx5fFNoYc/hqdefault.jpg" alt="Attention in Transformers" loading="lazy">
+          <div class="vid-play"><i class="fas fa-play"></i></div>
+          <span class="vid-badge badge-core">Core Concept</span>
+        </div>
+        <div class="vid-info">
+          <div class="vid-channel">3Blue1Brown</div>
+          <div class="vid-title">Attention in Transformers, Visually Explained</div>
+          <div class="vid-meta"><i class="fas fa-clock"></i> 27m<i class="fas fa-signal"></i>Intermediate</div>
+          <span class="vid-watch">Watch Now <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+      <a class="vid-card" href="https://www.youtube.com/watch?v=aircAruvnKk" target="_blank">
+        <div class="vid-thumb">
+          <img src="https://img.youtube.com/vi/aircAruvnKk/hqdefault.jpg" alt="But what is a Neural Network?" loading="lazy">
+          <div class="vid-play"><i class="fas fa-play"></i></div>
+          <span class="vid-badge badge-free">Foundations</span>
+        </div>
+        <div class="vid-info">
+          <div class="vid-channel">3Blue1Brown</div>
+          <div class="vid-title">But what is a Neural Network?</div>
+          <div class="vid-meta"><i class="fas fa-clock"></i> 19m<i class="fas fa-signal"></i>Beginner</div>
+          <span class="vid-watch">Watch Now <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+      <a class="vid-card" href="https://www.youtube.com/watch?v=IHZwWFHWa-w" target="_blank">
+        <div class="vid-thumb">
+          <img src="https://img.youtube.com/vi/IHZwWFHWa-w/hqdefault.jpg" alt="Gradient Descent" loading="lazy">
+          <div class="vid-play"><i class="fas fa-play"></i></div>
+          <span class="vid-badge badge-core">Core Concept</span>
+        </div>
+        <div class="vid-info">
+          <div class="vid-channel">3Blue1Brown</div>
+          <div class="vid-title">Gradient Descent, How Neural Networks Learn</div>
+          <div class="vid-meta"><i class="fas fa-clock"></i> 21m<i class="fas fa-signal"></i>Beginner</div>
+          <span class="vid-watch">Watch Now <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- MLOps -->
+  <div class="vid-category" data-cat="mlops">
+    <h3 class="vid-cat-title">⚙️ MLOps & Production AI</h3>
+    <p class="vid-cat-sub">Deploy, monitor, and scale ML systems in the real world — pipelines, infra, and best practices.</p>
+    <div class="vid-grid">
+      <a class="vid-card" href="https://www.youtube.com/watch?v=9B2DLGkzBaU" target="_blank">
+        <div class="vid-thumb">
+          <img src="https://img.youtube.com/vi/9B2DLGkzBaU/hqdefault.jpg" alt="MLOps Explained" loading="lazy">
+          <div class="vid-play"><i class="fas fa-play"></i></div>
+          <span class="vid-badge badge-free">Overview</span>
+        </div>
+        <div class="vid-info">
+          <div class="vid-channel">Google Cloud</div>
+          <div class="vid-title">MLOps Explained — From Model to Production</div>
+          <div class="vid-meta"><i class="fas fa-clock"></i> 32m<i class="fas fa-signal"></i>Intermediate</div>
+          <span class="vid-watch">Watch Now <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+      <a class="vid-card" href="https://www.youtube.com/watch?v=1mSqMSMQ-sQ" target="_blank">
+        <div class="vid-thumb">
+          <img src="https://img.youtube.com/vi/1mSqMSMQ-sQ/hqdefault.jpg" alt="Kubeflow Pipelines" loading="lazy">
+          <div class="vid-play"><i class="fas fa-play"></i></div>
+          <span class="vid-badge badge-deep">Hands-On</span>
+        </div>
+        <div class="vid-info">
+          <div class="vid-channel">Kubeflow</div>
+          <div class="vid-title">Kubeflow Pipelines — End-to-End ML Workflow</div>
+          <div class="vid-meta"><i class="fas fa-clock"></i> 45m<i class="fas fa-signal"></i>Advanced</div>
+          <span class="vid-watch">Watch Now <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+      <a class="vid-card" href="https://www.youtube.com/watch?v=Jvp8HNxHhMI" target="_blank">
+        <div class="vid-thumb">
+          <img src="https://img.youtube.com/vi/Jvp8HNxHhMI/hqdefault.jpg" alt="Apache Airflow Tutorial" loading="lazy">
+          <div class="vid-play"><i class="fas fa-play"></i></div>
+          <span class="vid-badge badge-deep">Tutorial</span>
+        </div>
+        <div class="vid-info">
+          <div class="vid-channel">Data with Zach</div>
+          <div class="vid-title">Apache Airflow Full Tutorial — Data Pipelines</div>
+          <div class="vid-meta"><i class="fas fa-clock"></i> 1h 12m<i class="fas fa-signal"></i>Intermediate</div>
+          <span class="vid-watch">Watch Now <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<div class="vid-cta">
+  <h3>Want More Recommendations?</h3>
+  <p>I regularly update this list with the best AI & engineering content I find. Reach out if you'd like a personalised learning path.</p>
+  <a href="index.html#contact" class="btn-p btn-blue">📩 Get a Learning Path</a>
+</div>
+
+<footer>
+  <p>© 2025 Harshad Khetpal · <a href="index.html">Portfolio</a> · <a href="services.html">Services</a> · <a href="videos.html">Videos</a></p>
+</footer>
+
+<script>
+function filterVids(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.vid-category').forEach(sec => {
+    if (cat === 'all') { sec.style.display = ''; return; }
+    sec.style.display = (sec.dataset.cat || '').includes(cat) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
