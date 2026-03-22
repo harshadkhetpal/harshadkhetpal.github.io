@@ -82,16 +82,24 @@
        HERO
     ═══════════════════════════════════════ */
     #hero {
+      --text: #ffffff;
+      --text2: rgba(255, 255, 255, 0.72);
       min-height: 100vh;
       padding: 120px 2rem 80px;
       display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, #f0f7ff 0%, #fafafa 50%, #f5f0ff 100%);
+      background: linear-gradient(135deg, #06091a 0%, #0d1530 40%, #130a2e 80%, #06091a 100%);
       position: relative; overflow: hidden;
     }
-    .hero-bg-dots {
-      position: absolute; inset: 0; pointer-events: none;
-      background-image: radial-gradient(circle, #d1d5db 1px, transparent 1px);
-      background-size: 32px 32px; opacity: .4;
+    #hero-canvas {
+      position: absolute; inset: 0; pointer-events: none; width: 100%; height: 100%;
+    }
+    .logo-mark {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 30px; height: 30px;
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      color: #ffffff; font-size: 0.68rem; font-weight: 900;
+      border-radius: 7px; letter-spacing: -0.3px;
+      margin-right: 7px; flex-shrink: 0;
     }
     .hero-content { text-align: center; max-width: 760px; position: relative; z-index: 1; }
     .hero-badge {
@@ -102,6 +110,18 @@
       margin-bottom: 1.5rem;
       box-shadow: var(--shadow);
     }
+    #hero .hero-badge {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.9);
+    }
+    #hero .btn-secondary {
+      border-color: rgba(255,255,255,0.35);
+      color: #ffffff;
+    }
+    #hero .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+    #hero .hero-stats { border-color: rgba(255,255,255,0.15); }
+    #hero .stat { border-color: rgba(255,255,255,0.12); }
     .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent3); animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.2)} }
     h1.hero-title {
@@ -530,7 +550,7 @@
 
 <!-- ════════════════════════════ NAV ════════════════════════════ -->
 <nav>
-  <div class="nav-logo">harshad<span>.khetpal</span></div>
+  <div class="nav-logo"><span class="logo-mark">HK</span>harshad<span>.khetpal</span></div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -556,7 +576,7 @@
 
 <!-- ════════════════════════════ HERO ════════════════════════════ -->
 <section id="hero">
-  <div class="hero-bg-dots"></div>
+  <canvas id="hero-canvas"></canvas>
   <div class="hero-content">
     <div class="hero-badge">
       <span class="dot"></span>
@@ -1451,6 +1471,115 @@
       a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--accent)' : '';
     });
   });
+</script>
+
+<script>
+(function() {
+  var canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H, nodes = [], RAF;
+
+  var LABELS = ['MLOps','DevOps','Cloud','K8s','AI/ML','Python','Terraform',
+    'Spark','Kafka','Airflow','Docker','CI/CD','LLMs','SRE','Feast','Ray',
+    'dbt','Prefect','vLLM','Ollama','AWS','GCP','Azure','MLflow'];
+
+  var COLORS = ['rgba(99,179,237,0.9)','rgba(167,139,250,0.9)',
+    'rgba(96,165,250,0.85)','rgba(129,140,248,0.9)',
+    'rgba(52,211,153,0.85)','rgba(251,191,36,0.8)'];
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+
+  function Node(i) {
+    this.x = Math.random() * W;
+    this.y = Math.random() * H;
+    this.vx = (Math.random() - 0.5) * 0.38;
+    this.vy = (Math.random() - 0.5) * 0.38;
+    this.r = Math.random() * 2.5 + 1.5;
+    this.label = LABELS[i % LABELS.length];
+    this.color = COLORS[i % COLORS.length];
+    this.pulse = Math.random() * Math.PI * 2;
+    this.big = Math.random() > 0.65;
+  }
+
+  function init() {
+    resize();
+    nodes = [];
+    var count = Math.floor(W / 38);
+    for (var i = 0; i < count; i++) nodes.push(new Node(i));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    var now = Date.now() / 1000;
+
+    // Draw connections
+    for (var i = 0; i < nodes.length; i++) {
+      for (var j = i + 1; j < nodes.length; j++) {
+        var dx = nodes[i].x - nodes[j].x;
+        var dy = nodes[i].y - nodes[j].y;
+        var dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 160) {
+          var alpha = (1 - dist/160) * 0.25;
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(99,179,237,' + alpha + ')';
+          ctx.lineWidth = 0.8;
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Draw nodes
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      n.pulse += 0.02;
+      var pr = n.r + Math.sin(n.pulse) * 0.6;
+
+      // Glow
+      var grd = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, pr * 4);
+      grd.addColorStop(0, n.color);
+      grd.addColorStop(1, 'transparent');
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, pr * 4, 0, Math.PI * 2);
+      ctx.fillStyle = grd;
+      ctx.globalAlpha = 0.3;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+
+      // Node dot
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, pr, 0, Math.PI * 2);
+      ctx.fillStyle = n.color;
+      ctx.fill();
+
+      // Label for bigger nodes
+      if (n.big) {
+        ctx.font = '10px "Inter", sans-serif';
+        ctx.fillStyle = 'rgba(255,255,255,0.55)';
+        ctx.fillText(n.label, n.x + pr + 4, n.y + 3.5);
+      }
+
+      // Move
+      n.x += n.vx;
+      n.y += n.vy;
+      if (n.x < -20) n.x = W + 20;
+      if (n.x > W + 20) n.x = -20;
+      if (n.y < -20) n.y = H + 20;
+      if (n.y > H + 20) n.y = -20;
+    }
+
+    RAF = requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', function() { init(); });
+  init();
+  draw();
+})();
 </script>
 </body>
 </html>
