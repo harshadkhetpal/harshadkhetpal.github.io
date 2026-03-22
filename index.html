@@ -544,7 +544,109 @@
     .video-info h4 { font-size: 0.95rem; font-weight: 600; color: #e6edf3; margin: 0.3rem 0 0.4rem; line-height: 1.4; }
     .video-channel { font-size: 0.8rem; color: #8b949e; margin: 0; }
     .video-updated { text-align: center; margin-top: 1.5rem; font-size: 0.78rem; color: #8b949e; }
-  </style>
+  
+    /* ═══════════════════════════════════════════════════════
+       SERVICES SECTION
+    ═══════════════════════════════════════════════════════ */
+    #services {
+      padding: 100px 2rem;
+      background: linear-gradient(180deg, #06091a 0%, #0d1530 50%, #06091a 100%);
+      position: relative; overflow: hidden;
+    }
+    #services::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(circle at 20% 50%, rgba(37,99,235,0.08) 0%, transparent 60%),
+        radial-gradient(circle at 80% 50%, rgba(124,58,237,0.08) 0%, transparent 60%);
+    }
+    .services-header { text-align: center; margin-bottom: 60px; position: relative; z-index: 1; }
+    .services-eyebrow {
+      display: inline-block;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+      color: #60a5fa; margin-bottom: 14px;
+    }
+    .services-title {
+      font-size: clamp(2rem,5vw,3rem); font-weight: 800; color: #ffffff;
+      letter-spacing: -1.5px; line-height: 1.15; margin-bottom: 16px;
+    }
+    .services-title span { background: linear-gradient(135deg,#60a5fa,#a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .services-subtitle { font-size: 1.05rem; color: rgba(255,255,255,0.6); max-width: 560px; margin: 0 auto; line-height: 1.7; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1280px;
+      margin: 0 auto 60px;
+      position: relative; z-index: 1;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 18px;
+      padding: 32px 28px;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+      cursor: default;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--sc-grad, linear-gradient(90deg,#2563eb,#7c3aed));
+      opacity: 0; transition: opacity .3s;
+    }
+    .service-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.2); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 20px;
+      background: var(--sc-grad, linear-gradient(135deg,#2563eb,#7c3aed));
+    }
+    .service-title { font-size: 1.1rem; font-weight: 700; color: #ffffff; margin-bottom: 10px; letter-spacing: -.3px; }
+    .service-desc { font-size: 0.92rem; color: rgba(255,255,255,0.58); line-height: 1.7; margin-bottom: 18px; }
+    .service-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 22px; }
+    .service-tag {
+      font-size: 0.72rem; font-weight: 600; padding: 3px 10px;
+      border-radius: 20px; letter-spacing: .3px;
+      background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .service-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.85rem; font-weight: 600; color: #93c5fd;
+      text-decoration: none; transition: gap .2s, color .2s;
+    }
+    .service-cta:hover { color: #60a5fa; gap: 10px; }
+    .services-bottom {
+      text-align: center;
+      padding: 48px 32px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      max-width: 760px; margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    .services-bottom h3 { font-size: 1.6rem; font-weight: 800; color: #ffffff; margin-bottom: 12px; letter-spacing: -.5px; }
+    .services-bottom p { color: rgba(255,255,255,0.6); margin-bottom: 28px; font-size: 0.98rem; line-height: 1.7; }
+    .services-bottom-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-svc-primary {
+      padding: 12px 28px; border-radius: 10px; font-weight: 700; font-size: 0.92rem;
+      background: linear-gradient(135deg,#2563eb,#7c3aed); color: #fff;
+      text-decoration: none; transition: opacity .2s, transform .2s;
+    }
+    .btn-svc-primary:hover { opacity: .88; transform: translateY(-2px); }
+    .btn-svc-secondary {
+      padding: 12px 28px; border-radius: 10px; font-weight: 700; font-size: 0.92rem;
+      border: 1.5px solid rgba(255,255,255,0.25); color: #ffffff;
+      text-decoration: none; transition: background .2s, transform .2s;
+    }
+    .btn-svc-secondary:hover { background: rgba(255,255,255,0.08); transform: translateY(-2px); }
+    @media (max-width: 640px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .services-bottom-btns { flex-direction: column; align-items: center; }
+    }
+
+    </style>
 </head>
 <body>
 
@@ -557,7 +659,7 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#news">AI News</a></li>
     <li><a href="#community">Community</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li>
     <li><a href="projects.html" style="color:var(--accent);font-weight:600">🚀 All Projects</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Hire Me</a>
@@ -1265,7 +1367,152 @@
 </section>
 
 <!-- ════════════════════════════ CONTACT ════════════════════════════ -->
-<section id="contact">
+
+  <!-- ═══════════════════════════ SERVICES SECTION ═══════════════════════════ -->
+  <section id="services">
+    <div class="services-header">
+      <span class="services-eyebrow">💼 What I Build For You</span>
+      <h2 class="services-title">Transform Your Business With <span>AI-Powered</span> Services</h2>
+      <p class="services-subtitle">From intelligent agents to fully automated data pipelines — I design, build, and deploy solutions that make your operations smarter and faster.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- 1. AI Agent Development -->
+      <div class="service-card" style="--sc-grad: linear-gradient(135deg,#2563eb,#7c3aed)">
+        <div class="service-icon">🤖</div>
+        <h3 class="service-title">AI Agent Development</h3>
+        <p class="service-desc">Build custom autonomous AI agents that research, decide, and act — from single-task bots to complex multi-agent systems that run your business 24/7.</p>
+        <div class="service-tags">
+          <span class="service-tag">LangChain</span>
+          <span class="service-tag">CrewAI</span>
+          <span class="service-tag">AutoGen</span>
+          <span class="service-tag">LangGraph</span>
+          <span class="service-tag">OpenAI / Claude</span>
+        </div>
+        <a href="#contact" class="service-cta">Get Started <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <!-- 2. MLOps & Model Deployment -->
+      <div class="service-card" style="--sc-grad: linear-gradient(135deg,#059669,#0891b2)">
+        <div class="service-icon">🚀</div>
+        <h3 class="service-title">MLOps & Model Deployment</h3>
+        <p class="service-desc">End-to-end ML pipelines — from experiment tracking to production serving. Deploy, monitor, and scale your AI models reliably with zero downtime.</p>
+        <div class="service-tags">
+          <span class="service-tag">MLflow</span>
+          <span class="service-tag">vLLM</span>
+          <span class="service-tag">Triton</span>
+          <span class="service-tag">Kubernetes</span>
+          <span class="service-tag">Evidently</span>
+        </div>
+        <a href="#contact" class="service-cta">Get Started <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <!-- 3. Data Engineering -->
+      <div class="service-card" style="--sc-grad: linear-gradient(135deg,#d97706,#dc2626)">
+        <div class="service-icon">⚙️</div>
+        <h3 class="service-title">Data Engineering & Pipelines</h3>
+        <p class="service-desc">Design and build scalable data infrastructure — batch and streaming pipelines, data lakes, warehouses, and transformation layers that power analytics at any scale.</p>
+        <div class="service-tags">
+          <span class="service-tag">Apache Spark</span>
+          <span class="service-tag">Kafka</span>
+          <span class="service-tag">Airflow</span>
+          <span class="service-tag">dbt</span>
+          <span class="service-tag">Snowflake</span>
+        </div>
+        <a href="#contact" class="service-cta">Get Started <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <!-- 4. Workflow Automation -->
+      <div class="service-card" style="--sc-grad: linear-gradient(135deg,#7c3aed,#db2777)">
+        <div class="service-icon">⚡</div>
+        <h3 class="service-title">Workflow & Business Automation</h3>
+        <p class="service-desc">Automate repetitive business processes — from CRM updates and email responses to report generation and cross-platform data sync, all powered by AI.</p>
+        <div class="service-tags">
+          <span class="service-tag">n8n</span>
+          <span class="service-tag">Prefect</span>
+          <span class="service-tag">Zapier</span>
+          <span class="service-tag">Make</span>
+          <span class="service-tag">Python</span>
+        </div>
+        <a href="#contact" class="service-cta">Get Started <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <!-- 5. LLM & RAG Integration -->
+      <div class="service-card" style="--sc-grad: linear-gradient(135deg,#0ea5e9,#2563eb)">
+        <div class="service-icon">🧠</div>
+        <h3 class="service-title">LLM Integration & RAG Systems</h3>
+        <p class="service-desc">Embed the power of large language models into your products — intelligent chatbots, document Q&A systems, knowledge bases, and semantic search over your data.</p>
+        <div class="service-tags">
+          <span class="service-tag">RAG</span>
+          <span class="service-tag">Ollama</span>
+          <span class="service-tag">Pinecone</span>
+          <span class="service-tag">Weaviate</span>
+          <span class="service-tag">LlamaIndex</span>
+        </div>
+        <a href="#contact" class="service-cta">Get Started <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <!-- 6. Data Analytics & BI -->
+      <div class="service-card" style="--sc-grad: linear-gradient(135deg,#f59e0b,#ef4444)">
+        <div class="service-icon">📊</div>
+        <h3 class="service-title">Data Analytics & Business Intelligence</h3>
+        <p class="service-desc">Turn raw data into actionable insights — build dashboards, predictive models, customer segmentation, and automated reports that drive smarter decisions.</p>
+        <div class="service-tags">
+          <span class="service-tag">Python</span>
+          <span class="service-tag">Power BI</span>
+          <span class="service-tag">Tableau</span>
+          <span class="service-tag">Pandas</span>
+          <span class="service-tag">Scikit-learn</span>
+        </div>
+        <a href="#contact" class="service-cta">Get Started <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <!-- 7. Cloud & DevOps -->
+      <div class="service-card" style="--sc-grad: linear-gradient(135deg,#10b981,#3b82f6)">
+        <div class="service-icon">☁️</div>
+        <h3 class="service-title">Cloud Infrastructure & DevOps</h3>
+        <p class="service-desc">Build secure, scalable, and cost-optimised cloud infrastructure. Automate deployments with CI/CD, manage containers with Kubernetes, and code your infra with Terraform.</p>
+        <div class="service-tags">
+          <span class="service-tag">AWS / GCP / Azure</span>
+          <span class="service-tag">Terraform</span>
+          <span class="service-tag">Docker</span>
+          <span class="service-tag">Kubernetes</span>
+          <span class="service-tag">GitHub Actions</span>
+        </div>
+        <a href="#contact" class="service-cta">Get Started <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <!-- 8. Financial & Accounting Automation -->
+      <div class="service-card" style="--sc-grad: linear-gradient(135deg,#8b5cf6,#06b6d4)">
+        <div class="service-icon">💰</div>
+        <h3 class="service-title">Financial & Accounting Automation</h3>
+        <p class="service-desc">Automate bookkeeping, invoice processing, financial reporting, and reconciliation with AI. Reduce manual work by 80% and get real-time financial insights.</p>
+        <div class="service-tags">
+          <span class="service-tag">AI Agents</span>
+          <span class="service-tag">OCR / Document AI</span>
+          <span class="service-tag">Python</span>
+          <span class="service-tag">Pandas</span>
+          <span class="service-tag">APIs</span>
+        </div>
+        <a href="#contact" class="service-cta">Get Started <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="services-bottom">
+      <h3>Have a Custom Project in Mind?</h3>
+      <p>Whether you're a startup, an enterprise, or an individual — I'll scope, design, and deliver exactly what you need. Let's talk about your use case.</p>
+      <div class="services-bottom-btns">
+        <a href="#contact" class="btn-svc-primary">🚀 Start a Project</a>
+        <a href="https://www.linkedin.com/in/harshad-khetpal-38098499/" target="_blank" class="btn-svc-secondary">Connect on LinkedIn</a>
+      </div>
+    </div>
+  </section>
+  <!-- ═══════════════════════════ END SERVICES ═══════════════════════════ -->
+
+  <section id="contact">
   <div class="section-inner">
     <div class="section-header">
       <span class="section-label">Get In Touch</span>
