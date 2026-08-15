@@ -1417,8 +1417,22 @@
         <span style="font-weight:600;font-size:1rem;">Contribution Graph</span>
         <a href="https://github.com/harshadkhetpal" target="_blank" rel="noopener" style="font-size:.8rem;color:var(--accent);text-decoration:none;">View on GitHub &#8594;</a>
       </div>
-      <img alt="GitHub contribution chart" style="width:100%;border-radius:8px;" onerror="this.style.display='none';document.getElementById('ghfb').style.display='block';" />
-      <script>document.currentScript.previousElementSibling.src="https://ghchart.rshah.org/00d4aa/harshadkhetpal?d="+new Date().toISOString().slice(0,10);</script>
+      <img id="ghchart-img" alt="GitHub contribution chart" style="width:100%;border-radius:8px;" />
+      <script>
+      (function(){
+        var img=document.getElementById("ghchart-img"),tries=0;
+        function load(){
+          tries++;
+          img.src="https://ghchart.rshah.org/00d4aa/harshadkhetpal?d="
+            +new Date().toISOString().slice(0,10)+"&r="+tries;
+        }
+        img.onerror=function(){
+          if(tries<4){ setTimeout(load, tries*2000); }
+          else { img.style.display="none"; document.getElementById("ghfb").style.display="block"; }
+        };
+        load();
+      })();
+      </script>
       <div id="ghfb" style="display:none;text-align:center;padding:20px;color:var(--text2);"><a href="https://github.com/harshadkhetpal" target="_blank" style="color:var(--accent);">View on GitHub &#8594;</a></div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px;">
@@ -1426,7 +1440,7 @@
         <img src="https://github-readme-stats.vercel.app/api?username=harshadkhetpal&amp;show_icons=true&amp;theme=dark&amp;bg_color=0d1117&amp;border_color=30363d&amp;title_color=00d4aa&amp;icon_color=00d4aa&amp;text_color=c9d1d9&amp;count_private=true" alt="GitHub Stats" style="max-width:100%;border-radius:6px;" onerror="this.parentElement.style.display='none'" />
       </div>
       <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:8px;text-align:center;overflow:hidden;">
-        <img src="https://github-readme-streak-stats.herokuapp.com/?user=harshadkhetpal&amp;theme=dark&amp;background=0d1117&amp;border=30363d&amp;ring=00d4aa&amp;fire=ff6b6b&amp;currStreakLabel=00d4aa" alt="GitHub Streak" style="max-width:100%;border-radius:6px;" onerror="this.parentElement.style.display='none'" />
+        <img src="https://streak-stats.demolab.com/?user=harshadkhetpal&amp;theme=dark&amp;background=0d1117&amp;border=30363d&amp;ring=00d4aa&amp;fire=ff6b6b&amp;currStreakLabel=00d4aa" alt="GitHub Streak" style="max-width:100%;border-radius:6px;" onerror="this.parentElement.style.display='none'" />
       </div>
     </div>
     <div id="gh-repos-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
