@@ -1,0 +1,8 @@
+{
+  "updated": "2026-08-15",
+  "prs": [
+    {"repo": "feast-dev/feast", "stars": "7.2k", "url": "https://github.com/feast-dev/feast/pull/6742", "title": "Type identity check + mutable default argument fix", "area": "MLOps · Feature Store", "date": "2026-08-15", "status": "open"},
+    {"repo": "Ikalus1988/MisakaNet", "stars": "410", "url": "https://github.com/Ikalus1988/MisakaNet/pull/1047", "title": "Exception-safety cleanup: bare excepts + duplicate import", "area": "AI Agents", "date": "2026-08-15", "status": "open"},
+    {"repo": "vivekchand/clawmetry", "stars": "394", "url": "https://github.com/vivekchand/clawmetry/pull/4874", "title": "Missing typing import + narrowed exception handling", "area": "Observability", "date": "2026-08-15", "status": "open"}
+  ]
+}
