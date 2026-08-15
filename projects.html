@@ -259,7 +259,7 @@
 <div class="projects-wrap">
 
   <!-- OSS Contributions -->
-  <div class="section-divider"><span>🌐 Open Source Contributions</span></div>
+  <div class="section-divider"><span>🌐 Open-Source Ecosystem — upstream projects I build on and contribute to (stars belong to upstream)</span></div>
   <div class="pcard-grid" id="ossGrid">
 
     <div class="pcard" data-cats="oss llm" data-stars="164000" data-name="Ollama">
@@ -512,6 +512,76 @@
   <!-- Personal Projects -->
   <div class="section-divider"><span>🔨 Personal Projects</span></div>
   <div class="pcard-grid" id="personalGrid">
+
+    <div class="pcard" data-cats="personal llm mlops" data-stars="0" data-name="llm-gateway">
+      <div class="pcard-head">
+        <span class="pcard-icon">🛡️</span>
+        <div class="pcard-badges"><span class="pbadge pb-personal">Built by me</span><span class="pbadge pb-oss">CI passing</span></div>
+      </div>
+      <h3>llm-gateway — Multi-Provider LLM Routing</h3>
+      <p>One API in front of many LLM providers: cheapest-first routing, response caching, automatic failover with per-provider circuit breaking, and a cost ledger separating spend from spend avoided. 19 tests, runs offline in one command.</p>
+      <div class="pcard-tech">
+        <span class="ptag" style="background:#fef3c7;color:#92400e">Python</span>
+        <span class="ptag" style="background:#e0f2fe;color:#0369a1">FastAPI</span>
+        <span class="ptag" style="background:#dcfce7;color:#166534">Cost Optimization</span>
+        <span class="ptag" style="background:#f5f3ff;color:#5b21b6">Failover</span>
+      </div>
+      <div class="pcard-meta">
+        <span class="meta-item"><i class="fab fa-github"></i> github.com/harshadkhetpal/llm-gateway</span>
+        <span class="meta-item"><i class="fas fa-calendar"></i> 2026</span>
+      </div>
+      <div class="pcard-actions">
+        <a href="https://github.com/harshadkhetpal/llm-gateway" target="_blank" class="paction primary"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://github.com/harshadkhetpal/llm-gateway/actions" target="_blank" class="paction"><i class="fas fa-circle-check"></i> CI</a>
+      </div>
+    </div>
+
+    <div class="pcard" data-cats="personal llm" data-stars="0" data-name="rag-eval-gate">
+      <div class="pcard-head">
+        <span class="pcard-icon">✅</span>
+        <div class="pcard-badges"><span class="pbadge pb-personal">Built by me</span><span class="pbadge pb-oss">CI passing</span></div>
+      </div>
+      <h3>rag-eval-gate — RAG Quality as a CI Gate</h3>
+      <p>Golden-set evaluation for RAG systems as a deterministic CI gate: a change that degrades answer quality fails the build and names the broken case. Baseline comparison, hard must-include gates, retrieval scored separately from generation. 29 tests.</p>
+      <div class="pcard-tech">
+        <span class="ptag" style="background:#fef3c7;color:#92400e">Python</span>
+        <span class="ptag" style="background:#f5f3ff;color:#5b21b6">RAG</span>
+        <span class="ptag" style="background:#dcfce7;color:#166534">CI/CD</span>
+        <span class="ptag" style="background:#fce7f3;color:#9d174d">Evaluation</span>
+      </div>
+      <div class="pcard-meta">
+        <span class="meta-item"><i class="fab fa-github"></i> github.com/harshadkhetpal/rag-eval-gate</span>
+        <span class="meta-item"><i class="fas fa-calendar"></i> 2026</span>
+      </div>
+      <div class="pcard-actions">
+        <a href="https://github.com/harshadkhetpal/rag-eval-gate" target="_blank" class="paction primary"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://github.com/harshadkhetpal/rag-eval-gate/actions" target="_blank" class="paction"><i class="fas fa-circle-check"></i> CI</a>
+      </div>
+    </div>
+
+    <div class="pcard" data-cats="personal mlops devops" data-stars="0" data-name="gpu-cost-exporter">
+      <div class="pcard-head">
+        <span class="pcard-icon">💸</span>
+        <div class="pcard-badges"><span class="pbadge pb-personal">Built by me</span><span class="pbadge pb-oss">CI passing</span></div>
+      </div>
+      <h3>gpu-cost-exporter — GPU Metrics in Money</h3>
+      <p>Reads NVIDIA DCGM exporter output and re-exports burn, waste (the idle share of spend, in dollars) and cost per 1k inferences as Prometheus metrics. Strict parsing, flagged fallback pricing, 503 over stale data, stdlib only. 15 tests.</p>
+      <div class="pcard-tech">
+        <span class="ptag" style="background:#fef3c7;color:#92400e">Python</span>
+        <span class="ptag" style="background:#e0f2fe;color:#0369a1">Prometheus</span>
+        <span class="ptag" style="background:#dcfce7;color:#166534">FinOps</span>
+        <span class="ptag" style="background:#f5f3ff;color:#5b21b6">NVIDIA DCGM</span>
+      </div>
+      <div class="pcard-meta">
+        <span class="meta-item"><i class="fab fa-github"></i> github.com/harshadkhetpal/gpu-cost-exporter</span>
+        <span class="meta-item"><i class="fas fa-calendar"></i> 2026</span>
+      </div>
+      <div class="pcard-actions">
+        <a href="https://github.com/harshadkhetpal/gpu-cost-exporter" target="_blank" class="paction primary"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://github.com/harshadkhetpal/gpu-cost-exporter/actions" target="_blank" class="paction"><i class="fas fa-circle-check"></i> CI</a>
+      </div>
+    </div>
+
 
     <div class="pcard" data-cats="personal mlops devops" data-stars="0" data-name="MLOps Pipeline Starter">
       <div class="pcard-head">

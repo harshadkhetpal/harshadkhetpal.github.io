@@ -851,7 +851,7 @@
     <div class="section-header">
       <span class="section-label">Open Source Projects</span>
       <h2 class="section-title">Projects &amp; Contributions</h2>
-      <p class="section-sub">Actively contributing to the most impactful open-source AI/MLOps projects — fork, contribute, and build your portfolio alongside these</p>
+      <p class="section-sub">My own projects first — each one tested, CI-green and runnable in one command — followed by the open-source ecosystem I build on and contribute to (stars shown belong to the upstream projects)</p>
     </div>
     <div class="project-filters">
       <button class="filter-btn active" data-filter="all">All</button>
@@ -863,6 +863,67 @@
       <button class="filter-btn" data-filter="quantum">⚛️ Quantum</button>
     </div>
     <div class="projects-grid" id="projectsGrid">
+
+      <!-- llm-gateway (built & maintained by Harshad) -->
+      <div class="project-card" data-cat="llm">
+        <div class="project-badge badge-active"><i class="fas fa-check-circle"></i> Built by me · CI passing</div>
+        <div class="project-card-top">
+          <span class="project-icon">🛡️</span>
+          <span class="project-stars"><i class="fas fa-code-branch"></i> My project</span>
+        </div>
+        <h3>llm-gateway</h3>
+        <p>One API in front of many LLM providers: cheapest-first routing, response caching, automatic failover with circuit breaking, and a cost ledger that separates spend from spend avoided. Runs offline — clone and run in one command.</p>
+        <div class="project-tech">
+          <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
+          <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">FastAPI</span>
+          <span class="tech-tag" style="background:#dcfce7;color:#166534">19 tests</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/harshadkhetpal/llm-gateway" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/harshadkhetpal/llm-gateway/actions" target="_blank" class="project-link"><i class="fas fa-circle-check"></i> CI</a>
+        </div>
+      </div>
+
+      <!-- rag-eval-gate (built & maintained by Harshad) -->
+      <div class="project-card" data-cat="llm">
+        <div class="project-badge badge-active"><i class="fas fa-check-circle"></i> Built by me · CI passing</div>
+        <div class="project-card-top">
+          <span class="project-icon">✅</span>
+          <span class="project-stars"><i class="fas fa-code-branch"></i> My project</span>
+        </div>
+        <h3>rag-eval-gate</h3>
+        <p>Golden-set evaluation for RAG systems as a deterministic CI gate — a change that degrades answer quality fails the build and names the case that broke. Catches the fluent answer with the load-bearing fact missing.</p>
+        <div class="project-tech">
+          <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
+          <span class="tech-tag" style="background:#f5f3ff;color:#5b21b6">RAG Evaluation</span>
+          <span class="tech-tag" style="background:#dcfce7;color:#166534">29 tests</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/harshadkhetpal/rag-eval-gate" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/harshadkhetpal/rag-eval-gate/actions" target="_blank" class="project-link"><i class="fas fa-circle-check"></i> CI</a>
+        </div>
+      </div>
+
+      <!-- gpu-cost-exporter (built & maintained by Harshad) -->
+      <div class="project-card" data-cat="mlops">
+        <div class="project-badge badge-active"><i class="fas fa-check-circle"></i> Built by me · CI passing</div>
+        <div class="project-card-top">
+          <span class="project-icon">💸</span>
+          <span class="project-stars"><i class="fas fa-code-branch"></i> My project</span>
+        </div>
+        <h3>gpu-cost-exporter</h3>
+        <p>Reads NVIDIA DCGM metrics and re-exports what utilisation graphs don't show: burn, waste (the idle share, in money) and cost per 1k inferences, as Prometheus metrics. Stdlib only, ships a captured DCGM sample.</p>
+        <div class="project-tech">
+          <span class="tech-tag" style="background:#fef3c7;color:#92400e">Python</span>
+          <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">Prometheus</span>
+          <span class="tech-tag" style="background:#dcfce7;color:#166534">15 tests</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/harshadkhetpal/gpu-cost-exporter" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/harshadkhetpal/gpu-cost-exporter/actions" target="_blank" class="project-link"><i class="fas fa-circle-check"></i> CI</a>
+        </div>
+      </div>
+
 
       <!-- Ollama -->
       <div class="project-card" data-cat="llm">
@@ -879,7 +940,7 @@
           <span class="tech-tag" style="background:#f5f3ff;color:#5b21b6">Local LLM</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/harshadkhetpal/ollama" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/ollama/ollama" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
           <a href="https://ollama.com" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
         </div>
       </div>
@@ -899,7 +960,7 @@
           <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">OpenAI API</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/harshadkhetpal/vllm" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/vllm-project/vllm" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
           <a href="https://docs.vllm.ai" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
         </div>
       </div>
@@ -919,7 +980,7 @@
           <span class="tech-tag" style="background:#f5f3ff;color:#5b21b6">RAG</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/harshadkhetpal/dify" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/langgenius/dify" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
           <a href="https://dify.ai" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
         </div>
       </div>
@@ -939,7 +1000,7 @@
           <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">Tracking</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/harshadkhetpal/mlflow" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/mlflow/mlflow" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
           <a href="https://mlflow.org" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
         </div>
       </div>
@@ -959,7 +1020,7 @@
           <span class="tech-tag" style="background:#dcfce7;color:#166534">Pipelines</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/harshadkhetpal/kubeflow" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/kubeflow/kubeflow" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
           <a href="https://kubeflow.org" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
         </div>
       </div>
@@ -979,7 +1040,7 @@
           <span class="tech-tag" style="background:#f5f3ff;color:#5b21b6">LLM</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/harshadkhetpal/langchain" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/langchain-ai/langchain" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
           <a href="https://python.langchain.com" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
         </div>
       </div>
@@ -999,7 +1060,7 @@
           <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">Ray Serve</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/harshadkhetpal/ray" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/ray-project/ray" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
           <a href="https://ray.io" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
         </div>
       </div>
@@ -1019,7 +1080,7 @@
           <span class="tech-tag" style="background:#dcfce7;color:#166534">Kubernetes</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/harshadkhetpal/airflow" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/apache/airflow" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
           <a href="https://airflow.apache.org" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
         </div>
       </div>
@@ -1039,7 +1100,7 @@
           <span class="tech-tag" style="background:#dcfce7;color:#166534">Dynamic DAGs</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/harshadkhetpal/prefect" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/PrefectHQ/prefect" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
           <a href="https://prefect.io" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
         </div>
       </div>
@@ -1059,7 +1120,7 @@
           <span class="tech-tag" style="background:#e0f2fe;color:#0369a1">NLP / Vision</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/harshadkhetpal/transformers" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/huggingface/transformers" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
           <a href="https://huggingface.co/docs" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
         </div>
       </div>
@@ -1080,7 +1141,7 @@
           <span class="tech-tag" style="background:#dcfce7;color:#166534">IBM Quantum</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/harshadkhetpal/qiskit" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/Qiskit/qiskit" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
           <a href="https://qiskit.org" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
         </div>
       </div>
@@ -1100,7 +1161,7 @@
           <span class="tech-tag" style="background:#f5f3ff;color:#5b21b6">AI Agents</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/harshadkhetpal/n8n" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/n8n-io/n8n" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
           <a href="https://n8n.io" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Docs</a>
         </div>
       </div>
