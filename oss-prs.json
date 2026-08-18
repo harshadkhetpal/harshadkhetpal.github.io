@@ -1,10 +1,68 @@
 {
-  "updated": "2026-08-18",
+  "updated": "2026-08-19",
   "prs": [
-    {"repo": "Ikalus1988/MisakaNet", "stars": "410", "url": "https://github.com/Ikalus1988/MisakaNet/pull/1047", "title": "Exception-safety cleanup: bare excepts + duplicate import", "area": "AI Agents", "date": "2026-08-15", "status": "merged"},
-    {"repo": "vivekchand/clawmetry", "stars": "397", "url": "https://github.com/vivekchand/clawmetry/pull/4908", "title": "Missing typing import + narrowed exception handling (co-authored, merged via #4908)", "area": "Observability", "date": "2026-08-15", "status": "merged"},
-    {"repo": "lablup/backend.ai", "stars": "666", "url": "https://github.com/lablup/backend.ai/pull/13804", "title": "Narrowed bare excepts + fixed misleading Docker error message", "area": "AI Infra · GPU Cluster", "date": "2026-08-18", "status": "open"},
-    {"repo": "StackGuardian/tirith", "stars": "167", "url": "https://github.com/StackGuardian/tirith/pull/282", "title": "Mutable default arguments + type identity comparison", "area": "Policy-as-Code · IaC", "date": "2026-08-18", "status": "open"},
-    {"repo": "feast-dev/feast", "stars": "7.2k", "url": "https://github.com/feast-dev/feast/pull/6742", "title": "Type identity check + mutable default argument fix", "area": "MLOps · Feature Store", "date": "2026-08-15", "status": "open"}
+    {
+      "repo": "Ikalus1988/MisakaNet",
+      "stars": "410",
+      "url": "https://github.com/Ikalus1988/MisakaNet/pull/1047",
+      "title": "Exception-safety cleanup: bare excepts + duplicate import",
+      "area": "AI Agents",
+      "date": "2026-08-15",
+      "status": "merged"
+    },
+    {
+      "repo": "vivekchand/clawmetry",
+      "stars": "397",
+      "url": "https://github.com/vivekchand/clawmetry/pull/4908",
+      "title": "Missing typing import + narrowed exception handling (co-authored, merged via #4908)",
+      "area": "Observability",
+      "date": "2026-08-15",
+      "status": "merged"
+    },
+    {
+      "repo": "agentic-community/mcp-gateway-registry",
+      "stars": "865",
+      "url": "https://github.com/agentic-community/mcp-gateway-registry/pull/1654",
+      "title": "Missing annotation type imports (F821) across API + AgentCore CLI",
+      "area": "MCP \u00b7 AI Infra",
+      "date": "2026-08-19",
+      "status": "open"
+    },
+    {
+      "repo": "Yelp/Tron",
+      "stars": "355",
+      "url": "https://github.com/Yelp/Tron/pull/1115",
+      "title": "Removed 5 mutable default arguments, resolving a maintainer TODO",
+      "area": "Job Scheduling \u00b7 K8s",
+      "date": "2026-08-19",
+      "status": "open"
+    },
+    {
+      "repo": "lablup/backend.ai",
+      "stars": "666",
+      "url": "https://github.com/lablup/backend.ai/pull/13804",
+      "title": "Narrowed bare excepts + fixed misleading Docker error message",
+      "area": "AI Infra \u00b7 GPU Cluster",
+      "date": "2026-08-18",
+      "status": "open"
+    },
+    {
+      "repo": "StackGuardian/tirith",
+      "stars": "167",
+      "url": "https://github.com/StackGuardian/tirith/pull/282",
+      "title": "Mutable default arguments + type identity comparison",
+      "area": "Policy-as-Code \u00b7 IaC",
+      "date": "2026-08-18",
+      "status": "open"
+    },
+    {
+      "repo": "feast-dev/feast",
+      "stars": "7.2k",
+      "url": "https://github.com/feast-dev/feast/pull/6742",
+      "title": "Type identity check + mutable default argument fix",
+      "area": "MLOps \u00b7 Feature Store",
+      "date": "2026-08-15",
+      "status": "open"
+    }
   ]
 }
