@@ -20,6 +20,24 @@
       "status": "merged"
     },
     {
+      "repo": "zentralopensource/zentral",
+      "stars": "876",
+      "url": "https://github.com/zentralopensource/zentral/pull/1617",
+      "title": "Fixed real late-binding bug: on_commit callbacks fired with wrong loop values",
+      "area": "MDM \u00b7 Django Ops",
+      "date": "2026-08-19",
+      "status": "open"
+    },
+    {
+      "repo": "HolmesGPT/holmesgpt",
+      "stars": "3.1k",
+      "url": "https://github.com/HolmesGPT/holmesgpt/pull/2406",
+      "title": "Removed accidental json.tool CLI-module import + mutable default",
+      "area": "AIOps \u00b7 K8s RCA",
+      "date": "2026-08-19",
+      "status": "open"
+    },
+    {
       "repo": "agentic-community/mcp-gateway-registry",
       "stars": "865",
       "url": "https://github.com/agentic-community/mcp-gateway-registry/pull/1654",
