@@ -29,6 +29,24 @@
       "status": "merged"
     },
     {
+      "repo": "roboflow/inference",
+      "stars": "2.4k",
+      "url": "https://github.com/roboflow/inference/pull/2841",
+      "title": "Removed five dead duplicate definitions shadowing imports/methods",
+      "area": "Computer Vision \u00b7 ML Serving",
+      "date": "2026-08-21",
+      "status": "open"
+    },
+    {
+      "repo": "wanxingai/LightAgent",
+      "stars": "1.2k",
+      "url": "https://github.com/wanxingai/LightAgent/pull/95",
+      "title": "Narrowed bare excepts in Python-executor tool",
+      "area": "AI Agents",
+      "date": "2026-08-21",
+      "status": "open"
+    },
+    {
       "repo": "SecObserve/SecObserve",
       "stars": "294",
       "url": "https://github.com/SecObserve/SecObserve/pull/4677",
