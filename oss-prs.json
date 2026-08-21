@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20",
+  "updated": "2026-08-21",
   "prs": [
     {
       "repo": "Ikalus1988/MisakaNet",
@@ -18,6 +18,24 @@
       "area": "Observability",
       "date": "2026-08-15",
       "status": "merged"
+    },
+    {
+      "repo": "laminlabs/lamindb",
+      "stars": "364",
+      "url": "https://github.com/laminlabs/lamindb/pull/3862",
+      "title": "Missing Unset import breaking type resolution (F821)",
+      "area": "Data Framework",
+      "date": "2026-08-20",
+      "status": "merged"
+    },
+    {
+      "repo": "SecObserve/SecObserve",
+      "stars": "294",
+      "url": "https://github.com/SecObserve/SecObserve/pull/4677",
+      "title": "Removed shadowed duplicate tests hiding contradictory expectations",
+      "area": "AppSec \u00b7 Vuln Mgmt",
+      "date": "2026-08-21",
+      "status": "open"
     },
     {
       "repo": "DataDog/dd-trace-py",
@@ -52,15 +70,6 @@
       "url": "https://github.com/robusta-dev/robusta/pull/2153",
       "title": "Fixed stale shadowed function silently ignoring ErrImagePull pods",
       "area": "K8s Observability",
-      "date": "2026-08-20",
-      "status": "open"
-    },
-    {
-      "repo": "laminlabs/lamindb",
-      "stars": "364",
-      "url": "https://github.com/laminlabs/lamindb/pull/3862",
-      "title": "Missing Unset import breaking type resolution (F821)",
-      "area": "Data Framework",
       "date": "2026-08-20",
       "status": "open"
     },
