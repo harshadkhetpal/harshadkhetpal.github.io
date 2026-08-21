@@ -20,6 +20,33 @@
       "status": "merged"
     },
     {
+      "repo": "DataDog/dd-trace-py",
+      "stars": "648",
+      "url": "https://github.com/DataDog/dd-trace-py/pull/19808",
+      "title": "Shared mutable defaults + type identity fixes in tracer internals",
+      "area": "APM \u00b7 Observability",
+      "date": "2026-08-20",
+      "status": "open"
+    },
+    {
+      "repo": "dell/omnia",
+      "stars": "298",
+      "url": "https://github.com/dell/omnia/pull/5026",
+      "title": "Removed dead imports shadowed by local redefinitions",
+      "area": "HPC \u00b7 AI Infra",
+      "date": "2026-08-20",
+      "status": "open"
+    },
+    {
+      "repo": "Zipstack/unstract",
+      "stars": "7.1k",
+      "url": "https://github.com/Zipstack/unstract/pull/2252",
+      "title": "Nine mutable default arguments fixed across Django backend",
+      "area": "Document AI \u00b7 ETL",
+      "date": "2026-08-20",
+      "status": "open"
+    },
+    {
       "repo": "robusta-dev/robusta",
       "stars": "3.1k",
       "url": "https://github.com/robusta-dev/robusta/pull/2153",
