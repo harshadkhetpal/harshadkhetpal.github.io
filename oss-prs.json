@@ -29,6 +29,24 @@
       "status": "merged"
     },
     {
+      "repo": "redis/redis-vl-python",
+      "stars": "425",
+      "url": "https://github.com/redis/redis-vl-python/pull/700",
+      "title": "Shared mutable connection_kwargs across five extension constructors",
+      "area": "Vector DB \u00b7 Redis",
+      "date": "2026-08-22",
+      "status": "open"
+    },
+    {
+      "repo": "Open-Source-Legal/OpenContracts",
+      "stars": "1.4k",
+      "url": "https://github.com/Open-Source-Legal/OpenContracts/pull/2277",
+      "title": "Type-identity dispatch chain + mutable default fix",
+      "area": "Legal AI \u00b7 Django",
+      "date": "2026-08-22",
+      "status": "open"
+    },
+    {
       "repo": "run-llama/llama-agents",
       "stars": "442",
       "url": "https://github.com/run-llama/llama-agents/pull/749",
