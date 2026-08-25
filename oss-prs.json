@@ -35,7 +35,16 @@
       "title": "Shared mutable connection_kwargs across five extension constructors",
       "area": "Vector DB \u00b7 Redis",
       "date": "2026-08-22",
-      "status": "open"
+      "status": "merged"
+    },
+    {
+      "repo": "agentic-community/mcp-gateway-registry",
+      "stars": "865",
+      "url": "https://github.com/agentic-community/mcp-gateway-registry/pull/1654",
+      "title": "Missing annotation type imports (F821) across API + AgentCore CLI",
+      "area": "MCP \u00b7 AI Infra",
+      "date": "2026-08-19",
+      "status": "merged"
     },
     {
       "repo": "Open-Source-Legal/OpenContracts",
@@ -133,15 +142,6 @@
       "url": "https://github.com/HolmesGPT/holmesgpt/pull/2406",
       "title": "Removed accidental json.tool CLI-module import + mutable default",
       "area": "AIOps \u00b7 K8s RCA",
-      "date": "2026-08-19",
-      "status": "open"
-    },
-    {
-      "repo": "agentic-community/mcp-gateway-registry",
-      "stars": "865",
-      "url": "https://github.com/agentic-community/mcp-gateway-registry/pull/1654",
-      "title": "Missing annotation type imports (F821) across API + AgentCore CLI",
-      "area": "MCP \u00b7 AI Infra",
       "date": "2026-08-19",
       "status": "open"
     },
