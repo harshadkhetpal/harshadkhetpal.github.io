@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-22",
+  "updated": "2026-08-28",
   "prs": [
     {
       "repo": "Ikalus1988/MisakaNet",
@@ -47,6 +47,24 @@
       "status": "merged"
     },
     {
+      "repo": "SecObserve/SecObserve",
+      "stars": "294",
+      "url": "https://github.com/SecObserve/SecObserve/pull/4677",
+      "title": "Removed shadowed duplicate tests hiding contradictory expectations",
+      "area": "AppSec \u00b7 Vuln Mgmt",
+      "date": "2026-08-21",
+      "status": "merged"
+    },
+    {
+      "repo": "tradingstrategy-ai/web3-ethereum-defi",
+      "stars": "825",
+      "url": "https://github.com/tradingstrategy-ai/web3-ethereum-defi/pull/1535",
+      "title": "Fixed NameError crash masking broadcast failures in tx confirmation",
+      "area": "Web3 \u00b7 Trading Infra",
+      "date": "2026-08-28",
+      "status": "open"
+    },
+    {
       "repo": "Open-Source-Legal/OpenContracts",
       "stars": "1.4k",
       "url": "https://github.com/Open-Source-Legal/OpenContracts/pull/2277",
@@ -79,15 +97,6 @@
       "url": "https://github.com/wanxingai/LightAgent/pull/95",
       "title": "Narrowed bare excepts in Python-executor tool",
       "area": "AI Agents",
-      "date": "2026-08-21",
-      "status": "open"
-    },
-    {
-      "repo": "SecObserve/SecObserve",
-      "stars": "294",
-      "url": "https://github.com/SecObserve/SecObserve/pull/4677",
-      "title": "Removed shadowed duplicate tests hiding contradictory expectations",
-      "area": "AppSec \u00b7 Vuln Mgmt",
       "date": "2026-08-21",
       "status": "open"
     },
