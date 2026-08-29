@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-28",
+  "updated": "2026-08-29",
   "prs": [
     {
       "repo": "Ikalus1988/MisakaNet",
@@ -54,6 +54,15 @@
       "area": "AppSec \u00b7 Vuln Mgmt",
       "date": "2026-08-21",
       "status": "merged"
+    },
+    {
+      "repo": "sktime/sktime",
+      "stars": "10k",
+      "url": "https://github.com/sktime/sktime/pull/10950",
+      "title": "Estimator-contract-safe fix for mutable defaults in deep-learning classifiers",
+      "area": "Time Series \u00b7 ML",
+      "date": "2026-08-29",
+      "status": "open"
     },
     {
       "repo": "tradingstrategy-ai/web3-ethereum-defi",
