@@ -56,6 +56,24 @@
       "status": "merged"
     },
     {
+      "repo": "zentralopensource/zentral",
+      "stars": "876",
+      "url": "https://github.com/zentralopensource/zentral/pull/1668",
+      "title": "Fixed real late-binding bug in on_commit callbacks (merged via #1668, authored)",
+      "area": "MDM \u00b7 Django Ops",
+      "date": "2026-08-19",
+      "status": "merged"
+    },
+    {
+      "repo": "aimhubio/aim",
+      "stars": "6.2k",
+      "url": "https://github.com/aimhubio/aim/pull/3420",
+      "title": "Ten correctness fixes in the Boards Pyodide runtime",
+      "area": "ML Experiment Tracking",
+      "date": "2026-08-29",
+      "status": "open"
+    },
+    {
       "repo": "sktime/sktime",
       "stars": "10k",
       "url": "https://github.com/sktime/sktime/pull/10950",
@@ -143,15 +161,6 @@
       "title": "Fixed stale shadowed function silently ignoring ErrImagePull pods",
       "area": "K8s Observability",
       "date": "2026-08-20",
-      "status": "open"
-    },
-    {
-      "repo": "zentralopensource/zentral",
-      "stars": "876",
-      "url": "https://github.com/zentralopensource/zentral/pull/1617",
-      "title": "Fixed real late-binding bug: on_commit callbacks fired with wrong loop values",
-      "area": "MDM \u00b7 Django Ops",
-      "date": "2026-08-19",
       "status": "open"
     },
     {
