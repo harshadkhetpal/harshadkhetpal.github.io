@@ -137,15 +137,6 @@
       "status": "open"
     },
     {
-      "repo": "dell/omnia",
-      "stars": "298",
-      "url": "https://github.com/dell/omnia/pull/5026",
-      "title": "Removed dead imports shadowed by local redefinitions",
-      "area": "HPC \u00b7 AI Infra",
-      "date": "2026-08-20",
-      "status": "open"
-    },
-    {
       "repo": "Zipstack/unstract",
       "stars": "7.1k",
       "url": "https://github.com/Zipstack/unstract/pull/2252",
