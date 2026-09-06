@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-29",
+  "updated": "2026-08-30",
   "prs": [
     {
       "repo": "Ikalus1988/MisakaNet",
@@ -65,6 +65,24 @@
       "status": "merged"
     },
     {
+      "repo": "run-llama/llama-agents",
+      "stars": "442",
+      "url": "https://github.com/run-llama/llama-agents/pull/749",
+      "title": "Mutable default arguments incl. shared retry-backoff list",
+      "area": "LLM Agents \u00b7 LlamaIndex",
+      "date": "2026-08-22",
+      "status": "merged"
+    },
+    {
+      "repo": "skypilot-org/skypilot",
+      "stars": "10.5k",
+      "url": "https://github.com/skypilot-org/skypilot/pull/10662",
+      "title": "Fixed Azure SDK 25.x breakage: typed models for storage account creation (issue #9775)",
+      "area": "Cloud Orchestration \u00b7 Azure",
+      "date": "2026-08-30",
+      "status": "open"
+    },
+    {
       "repo": "aimhubio/aim",
       "stars": "6.2k",
       "url": "https://github.com/aimhubio/aim/pull/3420",
@@ -97,15 +115,6 @@
       "url": "https://github.com/Open-Source-Legal/OpenContracts/pull/2277",
       "title": "Type-identity dispatch chain + mutable default fix",
       "area": "Legal AI \u00b7 Django",
-      "date": "2026-08-22",
-      "status": "open"
-    },
-    {
-      "repo": "run-llama/llama-agents",
-      "stars": "442",
-      "url": "https://github.com/run-llama/llama-agents/pull/749",
-      "title": "Mutable default arguments incl. shared retry-backoff list",
-      "area": "LLM Agents \u00b7 LlamaIndex",
       "date": "2026-08-22",
       "status": "open"
     },
