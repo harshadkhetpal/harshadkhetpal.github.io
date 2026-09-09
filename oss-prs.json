@@ -74,6 +74,15 @@
       "status": "merged"
     },
     {
+      "repo": "ModelTC/LightLLM",
+      "stars": "4.2k",
+      "url": "https://github.com/ModelTC/LightLLM/pull/1557",
+      "title": "Stopped bare excepts swallowing async cancellation across the serving stack",
+      "area": "LLM Serving \u00b7 Inference",
+      "date": "2026-08-30",
+      "status": "open"
+    },
+    {
       "repo": "skypilot-org/skypilot",
       "stars": "10.5k",
       "url": "https://github.com/skypilot-org/skypilot/pull/10663",
