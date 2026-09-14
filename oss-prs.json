@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-30",
+  "updated": "2026-08-31",
   "prs": [
     {
       "repo": "Ikalus1988/MisakaNet",
@@ -71,6 +71,15 @@
       "title": "Mutable default arguments incl. shared retry-backoff list",
       "area": "LLM Agents \u00b7 LlamaIndex",
       "date": "2026-08-22",
+      "status": "merged"
+    },
+    {
+      "repo": "lablup/backend.ai",
+      "stars": "666",
+      "url": "https://github.com/lablup/backend.ai/pull/13804",
+      "title": "Narrowed bare excepts + fixed misleading Docker error message",
+      "area": "AI Infra \u00b7 GPU Cluster",
+      "date": "2026-08-18",
       "status": "merged"
     },
     {
@@ -197,15 +206,6 @@
       "title": "Removed 5 mutable default arguments, resolving a maintainer TODO",
       "area": "Job Scheduling \u00b7 K8s",
       "date": "2026-08-19",
-      "status": "open"
-    },
-    {
-      "repo": "lablup/backend.ai",
-      "stars": "666",
-      "url": "https://github.com/lablup/backend.ai/pull/13804",
-      "title": "Narrowed bare excepts + fixed misleading Docker error message",
-      "area": "AI Infra \u00b7 GPU Cluster",
-      "date": "2026-08-18",
       "status": "open"
     },
     {
