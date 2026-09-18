@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-31",
+  "updated": "2026-09-18",
   "prs": [
     {
       "repo": "Ikalus1988/MisakaNet",
@@ -81,6 +81,24 @@
       "area": "AI Infra \u00b7 GPU Cluster",
       "date": "2026-08-18",
       "status": "merged"
+    },
+    {
+      "repo": "vivekchand/clawmetry",
+      "stars": "400",
+      "url": "https://github.com/vivekchand/clawmetry/pull/6090",
+      "title": "Fixed two real NameError crashes in CLI paths (2nd contribution)",
+      "area": "Observability",
+      "date": "2026-09-18",
+      "status": "open"
+    },
+    {
+      "repo": "redis/redis-vl-python",
+      "stars": "430",
+      "url": "https://github.com/redis/redis-vl-python/pull/737",
+      "title": "SemanticRouter mutable defaults \u2014 follow-up to merged #700",
+      "area": "Vector DB \u00b7 Redis",
+      "date": "2026-09-18",
+      "status": "open"
     },
     {
       "repo": "ModelTC/LightLLM",
