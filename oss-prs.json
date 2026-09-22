@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-18",
+  "updated": "2026-09-22",
   "prs": [
     {
       "repo": "Ikalus1988/MisakaNet",
@@ -85,11 +85,11 @@
     {
       "repo": "vivekchand/clawmetry",
       "stars": "400",
-      "url": "https://github.com/vivekchand/clawmetry/pull/6090",
-      "title": "Fixed two real NameError crashes in CLI paths (2nd contribution)",
+      "url": "https://github.com/vivekchand/clawmetry/pull/6093",
+      "title": "Fixed two real NameError crashes in CLI paths (merged via #6093)",
       "area": "Observability",
       "date": "2026-09-18",
-      "status": "open"
+      "status": "merged"
     },
     {
       "repo": "redis/redis-vl-python",
