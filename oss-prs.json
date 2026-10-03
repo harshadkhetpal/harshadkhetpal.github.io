@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-28",
+  "updated": "2026-10-03",
   "prs": [
     {
       "repo": "Ikalus1988/MisakaNet",
@@ -98,7 +98,7 @@
       "title": "Fixed two NameError crashes in embeddings fallback + D1 sync (3rd contribution)",
       "area": "AI Agents",
       "date": "2026-09-28",
-      "status": "open"
+      "status": "merged"
     },
     {
       "repo": "redis/redis-vl-python",
@@ -107,7 +107,16 @@
       "title": "SemanticRouter mutable defaults \u2014 follow-up to merged #700",
       "area": "Vector DB \u00b7 Redis",
       "date": "2026-09-18",
-      "status": "open"
+      "status": "merged"
+    },
+    {
+      "repo": "wanxingai/LightAgent",
+      "stars": "1.2k",
+      "url": "https://github.com/wanxingai/LightAgent/pull/95",
+      "title": "Narrowed bare excepts in Python-executor tool",
+      "area": "AI Agents",
+      "date": "2026-08-21",
+      "status": "merged"
     },
     {
       "repo": "ModelTC/LightLLM",
@@ -178,15 +187,6 @@
       "url": "https://github.com/roboflow/inference/pull/2841",
       "title": "Removed five dead duplicate definitions shadowing imports/methods",
       "area": "Computer Vision \u00b7 ML Serving",
-      "date": "2026-08-21",
-      "status": "open"
-    },
-    {
-      "repo": "wanxingai/LightAgent",
-      "stars": "1.2k",
-      "url": "https://github.com/wanxingai/LightAgent/pull/95",
-      "title": "Narrowed bare excepts in Python-executor tool",
-      "area": "AI Agents",
       "date": "2026-08-21",
       "status": "open"
     },
