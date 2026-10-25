@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-03",
+  "updated": "2026-10-25",
   "prs": [
     {
       "repo": "Ikalus1988/MisakaNet",
@@ -117,6 +117,15 @@
       "area": "AI Agents",
       "date": "2026-08-21",
       "status": "merged"
+    },
+    {
+      "repo": "vivekchand/clawmetry",
+      "stars": "410",
+      "url": "https://github.com/vivekchand/clawmetry/pull/6510",
+      "title": "Found silent failure: masked NameError broke config API-key lookup (4th contribution)",
+      "area": "Observability",
+      "date": "2026-10-25",
+      "status": "open"
     },
     {
       "repo": "ModelTC/LightLLM",
